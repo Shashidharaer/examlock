@@ -1,22 +1,34 @@
 <?php
 
-// Set correct working directory
-chdir(__DIR__ . '/../public');
+// Vercel serverless function for Laravel
 
-// Require the Composer autoloader
-require __DIR__ . '/../vendor/autoload.php';
+// Laravel expects to be run from the public directory
+$publicPath = __DIR__ . '/../public';
+chdir($publicPath);
 
-// Bootstrap the Laravel application
+// Load the Composer autoloader
+$autoloadPath = __DIR__ . '/../vendor/autoload.php';
+if (!file_exists($autoloadPath)) {
+    http_response_code(500);
+    echo json_encode(['error' => 'Vendor directory not found. Please run composer install.']);
+    exit(1);
+}
+
+require $autoloadPath;
+
+// Bootstrap Laravel
 $app = require_once __DIR__ . '/../bootstrap/app.php';
 
-// Handle the incoming request
+// Capture the request
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
-$response = $kernel->handle(
-    $request = Illuminate\Http\Request::capture()
-);
+$request = Illuminate\Http\Request::capture();
 
+// Handle the request
+$response = $kernel->handle($request);
+
+// Send the response
 $response->send();
 
+// Terminate the kernel
 $kernel->terminate($request, $response);
-
