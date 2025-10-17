@@ -1,4 +1,4 @@
-import RegisteredUserController from '@/actions/App/Http/Controllers/Auth/RegisteredUserController.ts';
+import RegisteredUserController from '@/actions/App/Http/Controllers/Auth/RegisteredUserController';
 import { login } from '@/routes/index.ts';
 import { Form, Head } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
