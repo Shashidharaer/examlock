@@ -1,20 +1,18 @@
 {
   "version": 2,
-  "framework": null,
-  "buildCommand": "composer install --no-dev --optimize-autoloader && php artisan config:cache && php artisan route:cache && php artisan view:cache && npm ci && npm run build",
-  "outputDirectory": "public",
-  "installCommand": "echo 'Skipping install'",
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/api/index.php"
+      "src": "api/index.php",
+      "use": "vercel-php@0.6.0"
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "public"
+      }
     }
   ],
-  "functions": {
-    "api/*.php": {
-      "runtime": "vercel-php@0.6.0"
-    }
-  },
   "routes": [
     {
       "src": "/build/(.*)",
@@ -25,7 +23,7 @@
       "dest": "/assets/$1"
     },
     {
-      "src": "/(.*\\.(css|js|ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot|json))",
+      "src": "/(.*\\.(css|js|ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot|json|webp))",
       "dest": "/$1"
     },
     {
@@ -36,7 +34,6 @@
   "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "false",
-    "APP_URL": "https://your-domain.vercel.app",
     "APP_CONFIG_CACHE": "/tmp/config.php",
     "APP_EVENTS_CACHE": "/tmp/events.php",
     "APP_PACKAGES_CACHE": "/tmp/packages.php",
@@ -48,4 +45,3 @@
     "SESSION_DRIVER": "cookie"
   }
 }
-
