@@ -2,6 +2,10 @@
 
 // Vercel serverless function for Laravel
 
+// Set VERCEL flag FIRST so it's available during bootstrap
+$_ENV['VERCEL'] = '1';
+putenv('VERCEL=1');
+
 // Create necessary writable directories in /tmp FIRST
 $tmpDirs = [
     '/tmp/storage/framework/sessions',
