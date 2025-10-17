@@ -12,6 +12,7 @@ $tmpDirs = [
     '/tmp/storage/framework/views',
     '/tmp/storage/framework/cache/data',
     '/tmp/storage/logs',
+    '/tmp/bootstrap',
     '/tmp/bootstrap/cache',
 ];
 
@@ -19,13 +20,6 @@ foreach ($tmpDirs as $dir) {
     if (!is_dir($dir)) {
         mkdir($dir, 0755, true);
     }
-}
-
-// Create bootstrap/cache in the project directory if it doesn't exist
-// This ensures Laravel doesn't error when checking for it
-$projectBootstrapCache = __DIR__ . '/../bootstrap/cache';
-if (!is_dir($projectBootstrapCache)) {
-    mkdir($projectBootstrapCache, 0755, true);
 }
 
 // Set environment variables for ALL cache paths to use /tmp
@@ -52,11 +46,15 @@ require __DIR__ . '/../vendor/autoload.php';
 // Bootstrap Laravel
 $app = require_once __DIR__ . '/../bootstrap/app.php';
 
+// CRITICAL: Override bootstrap path BEFORE any bootstrapping
+// Use reflection to change the protected $bootstrapPath property
+$reflection = new ReflectionClass($app);
+$property = $reflection->getProperty('bootstrapPath');
+$property->setAccessible(true);
+$property->setValue($app, '/tmp/bootstrap');
+
 // Override storage path
 $app->useStoragePath('/tmp/storage');
-
-// Override bootstrap cache path - use instance() to bind the value directly
-$app->instance('path.bootstrap.cache', '/tmp/bootstrap/cache');
 
 // Handle the request
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
