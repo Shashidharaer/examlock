@@ -15,7 +15,6 @@
         "includeFiles": [
           "vendor/**",
           "bootstrap/app.php",
-          "bootstrap/cache/.gitignore",
           "bootstrap/providers.php",
           "config/**",
           "routes/**",
