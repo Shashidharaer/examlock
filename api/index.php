@@ -48,11 +48,10 @@ require __DIR__ . '/../vendor/autoload.php';
 // Bootstrap Laravel
 $app = require_once __DIR__ . '/../bootstrap/app.php';
 
-// Override storage and bootstrap cache paths
+// Override storage path
 $app->useStoragePath('/tmp/storage');
-$app->usePath(__DIR__ . '/../bootstrap');
 
-// Override bootstrap cache path binding
+// Override bootstrap cache path - use instance() to bind the value directly
 $app->instance('path.bootstrap.cache', '/tmp/bootstrap/cache');
 
 // Handle the request
@@ -61,4 +60,3 @@ $request = Illuminate\Http\Request::capture();
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);
-
