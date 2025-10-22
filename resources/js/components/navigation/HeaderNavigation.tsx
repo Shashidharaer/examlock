@@ -10,6 +10,7 @@ interface HeaderNavigationProps {
 
 export default function HeaderNavigation({ className = '' }: HeaderNavigationProps) {
     const mainNav = useMainNavigation();
+    console.log('🧭 Header Navigation Data:', mainNav);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     // Debug logging to console

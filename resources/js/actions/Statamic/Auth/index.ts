@@ -1,4 +1,5 @@
 import Protect from './Protect'
+
 const Auth = {
     Protect: Object.assign(Protect, Protect),
 }
