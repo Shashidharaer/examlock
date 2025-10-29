@@ -2,13 +2,13 @@ import { useCallback, useEffect, useState } from 'react';
 
 export type Appearance = 'light' | 'dark' | 'system';
 
-const prefersDark = () => {
-    if (typeof window === 'undefined') {
-        return false;
-    }
+// const prefersDark = () => {
+//     if (typeof window === 'undefined') {
+//         return false;
+//     }
 
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-};
+//     return window.matchMedia('(prefers-color-scheme: dark)').matches;
+// };
 
 const setCookie = (name: string, value: string, days = 365) => {
     if (typeof document === 'undefined') {
@@ -19,13 +19,13 @@ const setCookie = (name: string, value: string, days = 365) => {
     document.cookie = `${name}=${value};path=/;max-age=${maxAge};SameSite=Lax`;
 };
 
-const applyTheme = (appearance: Appearance) => {
-    const isDark =
-        appearance === 'dark' || (appearance === 'system' && prefersDark());
+// const applyTheme = (appearance: Appearance) => {
+//     const isDark =
+//         appearance === 'dark' || (appearance === 'system' && prefersDark());
 
-    document.documentElement.classList.toggle('dark', isDark);
-    document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
-};
+//     document.documentElement.classList.toggle('dark', isDark);
+//     document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+// };
 
 const mediaQuery = () => {
     if (typeof window === 'undefined') {
@@ -37,14 +37,14 @@ const mediaQuery = () => {
 
 const handleSystemThemeChange = () => {
     const currentAppearance = localStorage.getItem('appearance') as Appearance;
-    applyTheme(currentAppearance || 'system');
+    // applyTheme(currentAppearance || 'system');
 };
 
 export function initializeTheme() {
     const savedAppearance =
         (localStorage.getItem('appearance') as Appearance) || 'system';
 
-    applyTheme(savedAppearance);
+    // applyTheme(savedAppearance);
 
     // Add the event listener for system theme changes...
     mediaQuery()?.addEventListener('change', handleSystemThemeChange);
@@ -62,7 +62,7 @@ export function useAppearance() {
         // Store in cookie for SSR...
         setCookie('appearance', mode);
 
-        applyTheme(mode);
+        // applyTheme(mode);
     }, []);
 
     useEffect(() => {

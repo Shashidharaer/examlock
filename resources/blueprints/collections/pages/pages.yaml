@@ -32,7 +32,8 @@ tabs:
               container: assets
               max_files: 1
           -
-            import: page_builder
+            handle: blocks
+            field: page_builder.blocks
   sidebar:
     display: Sidebar
     sections:

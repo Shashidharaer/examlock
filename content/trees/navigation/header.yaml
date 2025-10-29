@@ -1,7 +1,17 @@
 tree:
   -
-    id: b78254d5-e833-4cd7-b77f-9f3918fa5339
-    entry: example-page
-  -
     id: f6733c11-cc25-4b17-a364-b0118856e99a
     entry: home
+    title: Home
+  -
+    id: 33b6ad5e-0c85-4ea2-886e-a48c23c8acb8
+    entry: 947a0bd2-4d4c-4b35-8439-d18194df2701
+  -
+    id: 9b4cee95-7699-40a1-8a1a-d9a8103b15cc
+    entry: 0866ccaa-e973-473f-ad0f-2732ad5cfac2
+  -
+    id: 6bf66e86-3ed5-4a9f-b20c-fddf2af71a91
+    entry: 727fb733-e600-4eee-bb74-a7a0c3e5c38f
+  -
+    id: a31e9af4-2c4a-4a89-ac60-ad60dbfd1478
+    entry: 709a38e0-1cd6-43ef-9dba-febca8ed5301

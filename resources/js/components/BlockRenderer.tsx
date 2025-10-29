@@ -6,6 +6,7 @@ import HeaderDescription from './blocks/HeaderDescription';
 import TextBlock from './blocks/TextBlock';
 import QuoteBlock from './blocks/QuoteBlock';
 import ImageBlock from './blocks/ImageBlock';
+import ExamLock from './blocks/products/ExamLock';
 
 // Block component registry
 const blockComponents = {
@@ -13,6 +14,8 @@ const blockComponents = {
     text_block: TextBlock,
     quote_block: QuoteBlock,
     image_block: ImageBlock,
+    // Product pages
+    examlock: ExamLock,
     // Add more block components here as you create them
 } as const;
 

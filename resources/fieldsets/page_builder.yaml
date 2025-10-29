@@ -14,3 +14,9 @@ fields:
               fields:
                 -
                   import: header_description
+        products:
+          display: 'Products'
+          sets:
+            examlock:
+              display: 'ExamLock Page'
+              fields: []

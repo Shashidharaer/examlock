@@ -1,0 +1,140 @@
+/* Exam lock branding */
+:root {
+    --primary: #005CA1;
+    --prime: #0A2540;
+    --secondary: #28AAE1;
+    --background: #fafafa;
+    --accent: rgba(0, 92, 161, 0.11);
+    --accent-foreground: rgb(223, 241, 255);
+    --shine: linear-gradient(to top right, #55ccff 20%, #005CA0 50%, #5aceff 85%);
+}
+
+.bg-pattern {
+    background: var(--background);
+    background-image: url('/assets/bg.svg');
+    background-repeat: repeat;
+    background-size: 3rem 3rem;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* Utility classes used in components */
+.bg-shine {
+    background: var(--shine);
+}
+
+.text-prime {
+    color: var(--prime);
+}
+
+
+.embla {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    margin: auto;
+    --slide-height: 19rem;
+    --slide-spacing: 2rem;
+    --slide-size: 404px;
+}
+
+.embla__viewport {
+    overflow: hidden;
+}
+
+.embla__container {
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    gap: var(--slide-spacing);
+}
+
+.embla__slide {
+    flex: 0 0 var(--slide-size);
+    min-width: 0;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 0.5rem;
+}
+
+.embla__controls {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-content: space-between;
+    gap: 1.2rem;
+    margin-top: 1.8rem;
+}
+
+.embla__button {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    touch-action: manipulation;
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    width: 3.6rem;
+    height: 3.6rem;
+    z-index: 1;
+    border-radius: 8px;
+    color: #333333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.embla__button:disabled {
+    color: var(--detail-high-contrast);
+}
+
+.embla__button__svg {
+    width: 35%;
+    height: 35%;
+}
+
+.active {
+    border-bottom: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+@media (max-width: 404px) {
+    .embla {
+        --slide-height: 22rem;
+        --slide-size: 332px;
+        --slide-spacing: 1rem;
+
+    }
+
+    .embla__container {
+        display: flex;
+        touch-action: pan-y pinch-zoom;
+        gap: var(--slide-spacing);
+    }
+
+    .embla__slide {
+        flex: 0 0 var(--slide-size);
+        min-width: 0;
+        background-color: #ffffff;
+        padding: 1.5rem;
+        border: 1px solid #e5e5e5;
+        border-radius: 0.5rem;
+    }
+
+    .embla__controls {
+        margin-top: 1.2rem;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .embla__button {
+        width: 2.6rem;
+        height: 2.6rem;
+    }
+}

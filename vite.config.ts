@@ -9,7 +9,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.tsx'],
+            input: ['resources/css/globals.css', 'resources/css/theme.css', 'resources/js/app.tsx'],
             ssr: 'resources/js/ssr.tsx',
             refresh: true,
         }),

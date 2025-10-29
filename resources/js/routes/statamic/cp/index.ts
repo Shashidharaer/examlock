@@ -838,7 +838,7 @@ account.form = accountForm
 
 /**
 * @see \Statamic\Http\Controllers\CP\SearchController::__invoke
-* @see vendor/statamic/cms/src/Http/Controllers/CP/SearchController.php:12
+* @see vendor/statamic/cms/src/Http/Controllers/CP/SearchController.php:13
 * @route '/cp/search'
 */
 export const search = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -853,7 +853,7 @@ search.definition = {
 
 /**
 * @see \Statamic\Http\Controllers\CP\SearchController::__invoke
-* @see vendor/statamic/cms/src/Http/Controllers/CP/SearchController.php:12
+* @see vendor/statamic/cms/src/Http/Controllers/CP/SearchController.php:13
 * @route '/cp/search'
 */
 search.url = (options?: RouteQueryOptions) => {
@@ -862,7 +862,7 @@ search.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Statamic\Http\Controllers\CP\SearchController::__invoke
-* @see vendor/statamic/cms/src/Http/Controllers/CP/SearchController.php:12
+* @see vendor/statamic/cms/src/Http/Controllers/CP/SearchController.php:13
 * @route '/cp/search'
 */
 search.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -872,7 +872,7 @@ search.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \Statamic\Http\Controllers\CP\SearchController::__invoke
-* @see vendor/statamic/cms/src/Http/Controllers/CP/SearchController.php:12
+* @see vendor/statamic/cms/src/Http/Controllers/CP/SearchController.php:13
 * @route '/cp/search'
 */
 search.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -882,7 +882,7 @@ search.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \Statamic\Http\Controllers\CP\SearchController::__invoke
-* @see vendor/statamic/cms/src/Http/Controllers/CP/SearchController.php:12
+* @see vendor/statamic/cms/src/Http/Controllers/CP/SearchController.php:13
 * @route '/cp/search'
 */
 const searchForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -892,7 +892,7 @@ const searchForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \Statamic\Http\Controllers\CP\SearchController::__invoke
-* @see vendor/statamic/cms/src/Http/Controllers/CP/SearchController.php:12
+* @see vendor/statamic/cms/src/Http/Controllers/CP/SearchController.php:13
 * @route '/cp/search'
 */
 searchForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -902,7 +902,7 @@ searchForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \Statamic\Http\Controllers\CP\SearchController::__invoke
-* @see vendor/statamic/cms/src/Http/Controllers/CP/SearchController.php:12
+* @see vendor/statamic/cms/src/Http/Controllers/CP/SearchController.php:13
 * @route '/cp/search'
 */
 searchForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
