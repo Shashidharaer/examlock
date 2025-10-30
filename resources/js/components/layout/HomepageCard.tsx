@@ -75,7 +75,7 @@ function HomepageCard({
         <div className="lg:w-1/2 h-full relative">
           <div className="absolute -inset-x-80 inset-y-[-180px] w-[calc(100%+4rem)] h-[calc(100%+8rem)] z-0 overflow-hidden">
             <img
-              src="/images/dashboard_overlay.svg"
+              src="storage/images/dashboard_overlay.svg"
               alt="dot pattern"
               className="w-full h-full object-contain opacity-80"
             />

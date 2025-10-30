@@ -1,0 +1,22 @@
+title: Hero
+fields:
+  -
+    handle: badge_title
+    field:
+      type: text
+      display: 'Badge Title'
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: description
+    field:
+      type: textarea
+      display: Description
+  -
+    handle: isCta
+    field:
+      type: toggle
+      display: CTA

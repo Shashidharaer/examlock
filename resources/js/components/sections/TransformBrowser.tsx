@@ -8,7 +8,7 @@ export default function TransformBrowserSection() {
         title="Ready to Transform Your Browser?"
         primaryLabel="Book a Demo"
         secondaryLabel="Contact Us"
-        imageSrc="/images/transform.svg"
+        imageSrc="storage/images/transform.svg"
         titleClassName="md:text-[3rem] text-2xl font-semibold text-gray-900 mb-4"
       >
         {/* children: features grid specific to the Transform Browser section */}

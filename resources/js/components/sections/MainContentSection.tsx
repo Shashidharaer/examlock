@@ -7,7 +7,7 @@ export default function MainContentSection() {
       <div className="max-w-7xl mx-auto bg-white rounded-3xl md:rounded-[3.75rem] border-2xl shadow-sm p-8 lg:p-12 relative 2xl:after:absolute 2xl:after:right-[-11rem] 2xl:after:top-[-16rem] 2xl:after:w-[14rem] 2xl:after:h-full 2xl:after:bg-[url('/layouts/exam_content.svg')] 2xl:after:bg-no-repeat 2xl:after:bg-contain 2xl:before:absolute 2xl:before:left-[-8rem] 2xl:before:top-[-12rem] 2xl:before:w-[6rem] 2xl:before:h-full 2xl:before:bg-[url('/layouts/lock.svg')] 2xl:before:bg-no-repeat 2xl:before:bg-contain">
         <span>
           <img
-            src="/layouts/sparkle.svg"
+            src="storage/layouts/sparkle.svg"
             alt="sparkle element"
             className="absolute left-2 top-4 md:left-8 md:top-10"
           />
@@ -36,7 +36,7 @@ export default function MainContentSection() {
           {/* Right Content - Dashboard Mockup */}
           <div className="relative">
             <img
-              src="/images/takecontrol.svg"
+              src="storage/images/takecontrol.svg"
               alt="ExamLock Dashboard Mockup"
               className="w-full h-auto"
             />

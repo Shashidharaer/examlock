@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\StatamicEntryController::show
-* @see app/Http/Controllers/StatamicEntryController.php:17
+* @see app/Http/Controllers/StatamicEntryController.php:20
 * @route '/{collection}/{slug}'
 */
 export const show = (args: { collection: string | number, slug: string | number } | [collection: string | number, slug: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\StatamicEntryController::show
-* @see app/Http/Controllers/StatamicEntryController.php:17
+* @see app/Http/Controllers/StatamicEntryController.php:20
 * @route '/{collection}/{slug}'
 */
 show.url = (args: { collection: string | number, slug: string | number } | [collection: string | number, slug: string | number ], options?: RouteQueryOptions) => {
@@ -42,7 +42,7 @@ show.url = (args: { collection: string | number, slug: string | number } | [coll
 
 /**
 * @see \App\Http\Controllers\StatamicEntryController::show
-* @see app/Http/Controllers/StatamicEntryController.php:17
+* @see app/Http/Controllers/StatamicEntryController.php:20
 * @route '/{collection}/{slug}'
 */
 show.get = (args: { collection: string | number, slug: string | number } | [collection: string | number, slug: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -52,7 +52,7 @@ show.get = (args: { collection: string | number, slug: string | number } | [coll
 
 /**
 * @see \App\Http\Controllers\StatamicEntryController::show
-* @see app/Http/Controllers/StatamicEntryController.php:17
+* @see app/Http/Controllers/StatamicEntryController.php:20
 * @route '/{collection}/{slug}'
 */
 show.head = (args: { collection: string | number, slug: string | number } | [collection: string | number, slug: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -62,7 +62,7 @@ show.head = (args: { collection: string | number, slug: string | number } | [col
 
 /**
 * @see \App\Http\Controllers\StatamicEntryController::show
-* @see app/Http/Controllers/StatamicEntryController.php:17
+* @see app/Http/Controllers/StatamicEntryController.php:20
 * @route '/{collection}/{slug}'
 */
 const showForm = (args: { collection: string | number, slug: string | number } | [collection: string | number, slug: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -72,7 +72,7 @@ const showForm = (args: { collection: string | number, slug: string | number } |
 
 /**
 * @see \App\Http\Controllers\StatamicEntryController::show
-* @see app/Http/Controllers/StatamicEntryController.php:17
+* @see app/Http/Controllers/StatamicEntryController.php:20
 * @route '/{collection}/{slug}'
 */
 showForm.get = (args: { collection: string | number, slug: string | number } | [collection: string | number, slug: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +82,7 @@ showForm.get = (args: { collection: string | number, slug: string | number } | [
 
 /**
 * @see \App\Http\Controllers\StatamicEntryController::show
-* @see app/Http/Controllers/StatamicEntryController.php:17
+* @see app/Http/Controllers/StatamicEntryController.php:20
 * @route '/{collection}/{slug}'
 */
 showForm.head = (args: { collection: string | number, slug: string | number } | [collection: string | number, slug: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

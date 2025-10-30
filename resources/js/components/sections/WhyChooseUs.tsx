@@ -17,25 +17,25 @@ export default function WhatMakesUsDifferentSection() {
       <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
         {/* Activity tracking & insights */}
         <WhatMakeCard
-          icon="/layouts/activity.svg"
+          icon="storage/layouts/activity.svg"
           title="Activity tracking & insights"
           description="ExamLock has designed features and algorithms to detect and deter cheating and item theft."
-          imageSrc="/layouts/activity_illustration.svg"
+          imageSrc="storage/layouts/activity_illustration.svg"
         />
         {/* Content safety features */}
         <WhatMakeCard
-          icon="/layouts/content_safety.svg"
+          icon="storage/layouts/content_safety.svg"
           title="Content safety features"
           description="Blocks all capabilities of screen sharing, which include: HDMI, UPnP, and VGA services"
-          imageSrc="/layouts/content_safe_illustration.svg"
+          imageSrc="storage/layouts/content_safe_illustration.svg"
         />
 
         {/* Programmed to detect and block */}
         <WhatMakeCard
-          icon="/layouts/detection.svg"
+          icon="storage/layouts/detection.svg"
           title="Programmed to detect and block"
           description="ExamLock is built to work seamlessly on mobile devices, ensuring you are connected."
-          imageSrc="/layouts/detect_block.png"
+          imageSrc="storage/layouts/detect_block.png"
         />
       </div>
     </section>

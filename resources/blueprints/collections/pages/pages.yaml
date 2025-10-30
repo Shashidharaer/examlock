@@ -13,27 +13,156 @@ tabs:
               validate:
                 - required
           -
-            handle: content
-            field:
-              type: markdown
-              display: Content
-              localizable: true
-          -
-            handle: excerpt
-            field:
-              type: textarea
-              display: Excerpt
-              localizable: true
-          -
-            handle: featured_image
-            field:
-              type: assets
-              display: 'Featured Image'
-              container: assets
-              max_files: 1
-          -
             handle: blocks
             field: page_builder.blocks
+            config:
+              sets:
+                page_sets:
+                  display: 'Page Sets'
+                  instructions: null
+                  icon: null
+                  sets:
+                    hero:
+                      display: Hero
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields:
+                        -
+                          import: hero
+                    header_description:
+                      display: 'Header Description'
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields:
+                        -
+                          import: header_description
+                    integration:
+                      display: Integration
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    resources:
+                      display: Resources
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    about_us:
+                      display: 'About Us'
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    privacy_policy:
+                      display: 'Privacy Policy'
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    accessibility_statement:
+                      display: 'Accessibility Statement'
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    announcements:
+                      display: Announcements
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    compliance:
+                      display: Compliance
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    contact:
+                      display: Contact
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    cookies_policy:
+                      display: 'Cookies Policy'
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    data_privacy:
+                      display: 'Data Privacy'
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    download:
+                      display: Download
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    extension:
+                      display: Extension
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    ferpa:
+                      display: FERPA
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    gdpr:
+                      display: GDPR
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    raise_ticket:
+                      display: 'Raise Ticket'
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    status_page:
+                      display: 'Status Page'
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                products:
+                  display: Products
+                  instructions: null
+                  icon: null
+                  sets:
+                    examlock:
+                      display: 'ExamLock Page'
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    examlock_lite:
+                      display: 'ExamLock Lite Page'
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    examlens:
+                      display: 'ExamLens Page'
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
+                    lms:
+                      display: 'Learning Management System'
+                      instructions: null
+                      icon: null
+                      hide: null
+                      fields: {  }
   sidebar:
     display: Sidebar
     sections:

@@ -16,7 +16,7 @@ export default function WhatMakeCard({
       <div>
         <span className="absolute md:w-85 md:-right-15 -top-2">
           <img
-            src="/images/dashboard_overlay.svg"
+            src="storage/images/dashboard_overlay.svg"
             alt="card element"
             className="w-full"
           />

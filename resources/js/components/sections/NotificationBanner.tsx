@@ -12,7 +12,7 @@ export default function NotificationBanner() {
             >
               New
             </Badge>
-            <img src="/images/sparkles.svg" alt="sparkles" />
+            <img src="storage/images/sparkles.svg" alt="sparkles" />
             <span className="font-light">Smart AI Features</span>
           </div>
         </div>

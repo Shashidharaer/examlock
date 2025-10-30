@@ -1,4 +1,3 @@
-import React from 'react';
 import { type StatamicBlock, type BlockProps } from '@/types/statamic';
 
 // Import all block components
@@ -7,6 +6,23 @@ import TextBlock from './blocks/TextBlock';
 import QuoteBlock from './blocks/QuoteBlock';
 import ImageBlock from './blocks/ImageBlock';
 import ExamLock from './blocks/products/ExamLock';
+import ExamLockLite from './blocks/products/ExamLockLite';
+import ExamLens from './blocks/products/ExamLens';
+import Lms from './blocks/products/Lms';
+import Integration from './blocks/Integration';
+import AboutUs from './blocks/AboutUs';
+import Resources from './blocks/Resources';
+import PrivacyPolicy from './blocks/PrivacyPolicy';
+import AccessibilityStatement from './blocks/AccessibilityStatement';
+import Announcements from './blocks/Announcements';
+import Compliance from './blocks/Compliance';
+import Contact from './blocks/Contact';
+import CookiesPolicy from './blocks/CookiesPolicy';
+import DataPrivacy from './blocks/DataPrivacy';
+import Gdpr from './blocks/Gdpr';
+import Ferpa from './blocks/Ferpa';
+import Download from './blocks/Download';
+import Extension from './blocks/Extension';
 
 // Block component registry
 const blockComponents = {
@@ -14,9 +30,25 @@ const blockComponents = {
     text_block: TextBlock,
     quote_block: QuoteBlock,
     image_block: ImageBlock,
+    integration: Integration,
+    about_us: AboutUs,
+    resources: Resources,
+    privacy_policy: PrivacyPolicy,
+    accessibility_statement: AccessibilityStatement,
+    announcements: Announcements,
+    compliance: Compliance,
+    contact: Contact,
+    cookies_policy: CookiesPolicy,
+    data_privacy: DataPrivacy,
+    gdpr: Gdpr,
+    ferpa: Ferpa,
+    download: Download,
+    extension: Extension,
     // Product pages
     examlock: ExamLock,
-    // Add more block components here as you create them
+    examlock_lite: ExamLockLite,
+    examlens: ExamLens,
+    lms: Lms,
 } as const;
 
 type BlockType = keyof typeof blockComponents;

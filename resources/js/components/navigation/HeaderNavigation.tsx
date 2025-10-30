@@ -1,14 +1,23 @@
-"use client";
-import { Button } from "@/components/ui/button";
-import Navigation from "../ui/nav";
-import { cn } from "@/lib/utils";
-import { useState } from "react";
-import { Icon } from "@iconify/react";
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { Icon } from '@iconify/react';
+import { Link, usePage } from "@inertiajs/react";
+import { useState } from 'react';
+import Navigation from '../ui/nav';
 
 export default function Header() {
+  // Read branding (logo) from Inertia page props
+  const { branding } = usePage().props as {
+    branding?: { logo?: { url?: string; alt?: string } };
+  };
+
+  const logoUrl = branding?.logo?.url;
+  const logoAlt = branding?.logo?.alt;
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobileProductMenuOpen, setIsMobileProductMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false); // added
+  const [isMobileProductMenuOpen, setIsMobileProductMenuOpen] =
+    useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const handleMenuClick = () => {
     setIsMobileProductMenuOpen(!isMobileProductMenuOpen);
@@ -20,25 +29,24 @@ export default function Header() {
 
   return (
     <header className="sticky top-3 z-50 px-4">
-      <div className="bg-white border border-gray-200 rounded-lg px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto shadow-lg shadow-neutral-500/10 relative">
-        <div className="flex items-center justify-between h-14">
+      <div className="relative mx-auto max-w-7xl rounded-lg border border-gray-200 bg-white px-4 shadow-lg shadow-neutral-500/10 sm:px-6 lg:px-8">
+        <div className="flex h-14 items-center justify-between">
           {/* Logo */}
-          <a
+          <Link
             href="/"
-            className="flex items-center gap-2 flex-shrink-0 h-full"
+            className="flex h-full flex-shrink-0 items-center gap-2"
           >
             <img
-              src="/examlock.svg"
-              alt="ExamLock Logo"
+              src={logoUrl}
+              alt={logoAlt}
               className="h-8 w-auto"
             />
-          </a>
+          </Link>
 
           {/* Navigation OR Search (lg+) */}
-          {/* When search is open, hide Navigation and show a full-width search input */}
           {isSearchOpen ? (
-            <div className="hidden lg:flex flex-1 mx-4">
-              <div className="flex w-full items-center gap-2 text-primary rounded-md px-3 py-2 bg-accent/50">
+            <div className="mx-4 hidden flex-1 lg:flex">
+              <div className="text-primary bg-accent/50 flex w-full items-center gap-2 rounded-md px-3 py-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -57,10 +65,11 @@ export default function Header() {
                 <input
                   type="search"
                   placeholder="Search..."
-                  className="w-full outline-none text-sm"
+                  className="w-full text-sm outline-none"
                   autoFocus
                   onKeyDown={(e) => {
-                    if (e.key === "Escape") setIsSearchOpen(false);
+                    if (e.key === 'Escape')
+                      setIsSearchOpen(false);
                   }}
                 />
               </div>
@@ -73,9 +82,11 @@ export default function Header() {
           <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
             {/* Search - Hidden on small screens */}
             <button
-              className="hidden lg:block p-1 text-gray-600 hover:text-gray-900 transition-colors"
+              className="hidden p-1 text-gray-600 transition-colors hover:text-gray-900 lg:block"
               onClick={() => setIsSearchOpen((v) => !v)}
-              aria-label={isSearchOpen ? "Close search" : "Open search"}
+              aria-label={
+                isSearchOpen ? 'Close search' : 'Open search'
+              }
             >
               {isSearchOpen ? (
                 <Icon icon="mdi:close" className="size-5" />
@@ -97,18 +108,21 @@ export default function Header() {
                 </svg>
               )}
             </button>
-            <span className="hidden lg:block h-[1.5rem] w-[1px] bg-[#ebe7e0]"></span>
+            <span className="hidden h-[1.5rem] w-[1px] bg-[#ebe7e0] lg:block"></span>
             {/* Login - Hidden on mobile */}
-            <a
+            <Link
               href="#"
-              className="hidden lg:block text-gray-700 hover:text-gray-900 font-medium text-sm transition-colors"
+              className="hidden text-sm font-medium text-gray-700 transition-colors hover:text-gray-900 lg:block"
             >
               Login
-            </a>
+            </Link>
 
             {/* Contact Button */}
-            <Button asChild className="hidden lg:flex transition-colors">
-              <a href="/contact">
+            <Button
+              asChild
+              className="hidden transition-colors lg:flex"
+            >
+              <Link href="/contact">
                 Contact
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -121,12 +135,12 @@ export default function Header() {
                     d="M16.175 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.175l-4.9-4.9q-.3-.3-.288-.7t.313-.7q.3-.275.7-.288t.7.288l6.6 6.6q.15.15.213.325t.062.375t-.062.375t-.213.325l-6.6 6.6q-.275.275-.687.275T11.3 19.3q-.3-.3-.3-.712t.3-.713z"
                   />
                 </svg>
-              </a>
+              </Link>
             </Button>
 
             {/* Mobile menu button */}
             <button
-              className="lg:hidden p-2 text-gray-600 hover:text-gray-900 transition-all duration-500"
+              className="p-2 text-gray-600 transition-all duration-500 hover:text-gray-900 lg:hidden"
               onClick={handleProductMenuClick}
               aria-label="Toggle Menu"
             >
@@ -174,28 +188,23 @@ export default function Header() {
                 </svg>
               )}
             </button>
-            <aside
-              id="mobile-menu"
-              className={cn(
-                "lg:hidden bg-white w-content mb-2 fixed right-[1.2rem] top-[5rem] rounded-lg shadow-lg border border-[#E5E7EB] z-50 p-2",
-                { hidden: !isMobileMenuOpen }
-              )}
-              style={{ height: "-webkit-fill-available" }}
-            >
+            <aside id="mobile-menu" className={cn('w-content fixed right-[1.2rem] top-[5rem] z-50 mb-2 rounded-lg border border-[#E5E7EB] bg-white p-2 shadow-lg lg:hidden',
+                { hidden: !isMobileMenuOpen },
+              )} style={{ height: '-webkit-fill-available' }}>
               <div className="flex flex-col text-[14px] text-gray-700">
-                <div className="flex border p-2 rounded-sm mb-2">
+                <div className="mb-2 flex rounded-sm border p-2">
                   <input
                     type="search"
-                    className="w-full h-full focus:outline-none"
+                    className="h-full w-full focus:outline-none"
                   />
                   <Icon
                     icon="iconamoon:search"
-                    className="inline-block ml-1 size-4"
+                    className="ml-1 inline-block size-4"
                   />
                 </div>
                 <button
                   type="button"
-                  className="flex justify-between items-center py-2 px-4 border-b-1 hover:bg-accent cursor-pointer text-left"
+                  className="border-b-1 hover:bg-accent flex cursor-pointer items-center justify-between px-4 py-2 text-left"
                   onClick={handleMenuClick}
                 >
                   Products
@@ -213,77 +222,87 @@ export default function Header() {
                 </button>
                 <ul
                   className={cn(
-                    "flex flex-col text-neutral-500 font-light overflow-hidden transition-all ease-in-out duration-200",
+                    'flex flex-col overflow-hidden font-light text-neutral-500 transition-all duration-200 ease-in-out',
                     isMobileProductMenuOpen
-                      ? "max-h-64 opacity-100"
-                      : "max-h-0 opacity-0"
+                      ? 'max-h-64 opacity-100'
+                      : 'max-h-0 opacity-0',
                   )}
                 >
-                  <li className="py-2 px-2 pl-4 hover:bg-accent rounded-sm cursor-pointer hover:text-primary">
-                    <a
+                  <li className="hover:bg-accent hover:text-primary cursor-pointer rounded-sm px-2 py-2 pl-4">
+                    <Link
                       href="/products/examlock"
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={() =>
+                        setIsMobileMenuOpen(false)
+                      }
                     >
                       ExamLock
-                    </a>
+                    </Link>
                   </li>
-                  <li className="py-2 px-2 pl-4 hover:bg-accent rounded-sm cursor-pointer hover:text-primary">
-                    <a
+                  <li className="hover:bg-accent hover:text-primary cursor-pointer rounded-sm px-2 py-2 pl-4">
+                    <Link
                       href="/products/examlock-lite"
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={() =>
+                        setIsMobileMenuOpen(false)
+                      }
                     >
                       ExamLock Lite
-                    </a>
+                    </Link>
                   </li>
-                  <li className="py-2 px-2 pl-4 hover:bg-accent rounded-sm cursor-pointer hover:text-primary">
-                    <a
+                  <li className="hover:bg-accent hover:text-primary cursor-pointer rounded-sm px-2 py-2 pl-4">
+                    <Link
                       href="/products/examlens"
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={() =>
+                        setIsMobileMenuOpen(false)
+                      }
                     >
                       ExamLens
-                    </a>
+                    </Link>
                   </li>
-                  <li className="py-2 px-2 pl-4 hover:bg-accent rounded-sm cursor-pointer hover:text-primary">
-                    <a
+                  <li className="hover:bg-accent hover:text-primary cursor-pointer rounded-sm px-2 py-2 pl-4">
+                    <Link
                       href="/products/lms"
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={() =>
+                        setIsMobileMenuOpen(false)
+                      }
                     >
                       LMS
-                    </a>
+                    </Link>
                   </li>
                 </ul>
-                <a
+                <Link
                   href="/integration"
-                  className="flex justify-between items-center py-2 px-4 border-b-1 hover:bg-accent cursor-pointer"
+                  className="border-b-1 hover:bg-accent flex cursor-pointer items-center justify-between px-4 py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Integration
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/docs"
-                  className="flex justify-between items-center py-2 px-4 border-b-1 hover:bg-accent cursor-pointer"
+                  className="border-b-1 hover:bg-accent flex cursor-pointer items-center justify-between px-4 py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Docs
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/about"
-                  className="flex justify-between items-center py-2 px-4 border-b-1 hover:bg-accent cursor-pointer"
+                  className="border-b-1 hover:bg-accent flex cursor-pointer items-center justify-between px-4 py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   About Us
-                </a>
+                </Link>
 
                 {/* Contact Button */}
-                <div className="flex justify-center w-full gap-2 mt-4">
+                <div className="mt-4 flex w-full justify-center gap-2">
                   <Button variant="outline">Login</Button>
                   <Button
                     asChild
-                    className="bg-primary text-white px-3 sm:px-4 py-2 text-sm font-medium flex items-center gap-2 transition-colors"
+                    className="bg-primary flex items-center gap-2 px-3 py-2 text-sm font-medium text-white transition-colors sm:px-4"
                   >
-                    <a
+                    <Link
                       href="/contact"
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={() =>
+                        setIsMobileMenuOpen(false)
+                      }
                     >
                       Contact
                       <svg
@@ -297,7 +316,7 @@ export default function Header() {
                           d="M16.175 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.175l-4.9-4.9q-.3-.3-.288-.7t.313-.7q.3-.275.7-.288t.7.288l6.6 6.6q.15.15.213.325t.062.375t-.062.375t-.213.325l-6.6 6.6q-.275.275-.687.275T11.3 19.3q-.3-.3-.3-.712t.3-.713z"
                         />
                       </svg>
-                    </a>
+                    </Link>
                   </Button>
                 </div>
               </div>

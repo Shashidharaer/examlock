@@ -20,8 +20,8 @@ export default function PowerfulFeaturesSection() {
           badgeTitle="Ongoing security"
           title="Restricting Screen Capturing"
           description="Detects and stops screen sharing and mirroring across devices to secure your test content ."
-          featuredImage="images/screencapture.svg"
-          icon="/images/screen-icon.svg"
+          featuredImage="storage/images/screencapture.svg"
+          icon="storage/images/screen-icon.svg"
         />
 
         {/* Restricts printing capability */}
@@ -29,8 +29,8 @@ export default function PowerfulFeaturesSection() {
           badgeTitle="System Restrictions"
           title="Restricting Printing Capability"
           description="Disables system commands, keyboard shortcuts, and print options to prevent unauthorized actions."
-          featuredImage="/images/printing-restriction.svg"
-          icon="/images/focus-icon.svg"
+          featuredImage="storage/images/printing-restriction.svg"
+          icon="storage/images/focus-icon.svg"
           className="transform translate-x-3.5 lg:translate-y-12 lg:scale-110"
         />
       </div>
@@ -43,7 +43,7 @@ export default function PowerfulFeaturesSection() {
                     prevents students from disabling, covering, or reducing the feed
                     with fake inputs, ensuring proctors always receive a genuine,
                     uninterrupted video stream."
-              imageSrc="/images/webcam_tampering.svg"
+              imageSrc="storage/images/webcam_tampering.svg"
               imageClassName="w-full h-auto z-10 relative"
             />
       </section>

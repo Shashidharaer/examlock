@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react";
 import { Button } from "./button";
+import { Link } from "@inertiajs/react";
 
 const ExamLockPages: { title: string; href: string; description: string }[] = [
   {
@@ -259,7 +260,7 @@ export default function Navigation() {
 
   return (
     <div className="hidden lg:flex md:gap-6 md:items-center h-full">
-      <a
+      <Link
         href="/"
         onClick={() => setSelectedPath("/")}
         className={cn(
@@ -268,14 +269,14 @@ export default function Navigation() {
         )}
       >
         Home
-      </a>
+      </Link>
       {/* <span className="bg-primary h-0.5 w-5 absolute bottom-0"></span> */}
       <div
         className="group h-full"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <a
+        <Link
           href="#"
           onClick={() => setSelectedPath("/products")}
           className={cn(
@@ -295,7 +296,7 @@ export default function Navigation() {
               d="M12 14.975q-.2 0-.375-.062T11.3 14.7l-4.6-4.6q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l3.9 3.9l3.9-3.9q.275-.275.7-.275t.7.275t.275.7t-.275.7l-4.6 4.6q-.15.15-.325.213t-.375.062"
             />
           </svg>
-        </a>
+        </Link>
 
         <div
           id="products-menu"
@@ -309,7 +310,7 @@ export default function Navigation() {
               Products
             </h4>
             {pages.map((item, idx) => (
-              <a
+              <Link
                 key={item.pages.title}
                 href={item.pages.href}
                 onMouseEnter={() => {
@@ -328,7 +329,7 @@ export default function Navigation() {
                 aria-current={hoveredPageIndex === idx ? "true" : undefined}
               >
                 {item.pages.title}
-              </a>
+              </Link>
             ))}
           </div>
           <div className="border-r-1 py-4 px-8 flex flex-col w-full xl:min-w-[40rem]">
@@ -343,7 +344,7 @@ export default function Navigation() {
                 <div className="my-4 grid lg:grid-cols-2 xl:grid-cols-3 gap-5 cursor-pointer">
                   {currentFeatures.map((items) => {
                     return (
-                      <a
+                      <Link
                         key={items.title}
                         href={items.href}
                         // do not alter URL on hover
@@ -354,7 +355,7 @@ export default function Navigation() {
                         <p className="font-light text-[#6B7280] line-clamp-2 mt-2">
                           {items.description}
                         </p>
-                      </a>
+                      </Link>
                     );
                   })}
                 </div>
@@ -398,7 +399,7 @@ export default function Navigation() {
           </div>
         </div>
       </div>
-      <a
+      <Link
         href="/integration"
         onClick={() => setSelectedPath("/integration")}
         className={cn(
@@ -407,8 +408,8 @@ export default function Navigation() {
         )}
       >
         Integration
-      </a>
-      <a
+      </Link>
+      <Link
         href="/docs"
         onClick={() => setSelectedPath("/docs")}
         className={cn(
@@ -417,8 +418,8 @@ export default function Navigation() {
         )}
       >
         Docs
-      </a>
-      <a
+      </Link>
+      <Link
         href="/about"
         onClick={() => setSelectedPath("/about")}
         className={cn(
@@ -427,7 +428,7 @@ export default function Navigation() {
         )}
       >
         About Us
-      </a>
+      </Link>
     </div>
   );
 }

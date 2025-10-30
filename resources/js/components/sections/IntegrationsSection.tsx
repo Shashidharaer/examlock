@@ -14,7 +14,7 @@ export default function IntegrationsSection() {
       {/* Clients Integration Image */}
       <div className="flex justify-center h-10/12 mx-2">
         <img
-          src="/images/integration.svg"
+          src="storage/images/integration.svg"
           alt="Integration with favourite tools - ExamLock connects with various LMS platforms and learning applications"
           className="w-full max-md:max-w-4xl h-auto mt-8"
         />

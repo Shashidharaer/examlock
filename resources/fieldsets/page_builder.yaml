@@ -20,3 +20,12 @@ fields:
             examlock:
               display: 'ExamLock Page'
               fields: []
+            examlock_lite:
+              display: 'ExamLock Lite Page'
+              fields: []
+            examlens: 
+              display: 'ExamLens Page'
+              fields: []
+            lms :
+              display: 'Learning Management System'
+              fields: []

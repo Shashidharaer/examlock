@@ -1,0 +1,30 @@
+title: Branding
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Logo
+        fields:
+          -
+            handle: logo
+            field:
+              type: assets
+              display: Logo
+              container: assets
+              max_files: 1
+              mode: list
+              allow_uploads: true
+              restrict: false
+              instructions: Select the site logo image
+          -
+            handle: logo_public
+            field:
+              type: assets
+              display: Logo (Public container)
+              container: public
+              max_files: 1
+              mode: list
+              allow_uploads: true
+              restrict: false
+              instructions: If your logo lives in the Public container (storage), pick it here.
