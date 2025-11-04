@@ -1,42 +1,13 @@
-import Hero from "@/components/layout/PageHero";
+import Hero from "@/components/layout/Hero";
 import InfoCard from "@/components/layout/info-card";
-import Letter from "@/components/layout/Letter";
-import SectionTitle from "@/components/common/SectionTitle";
-
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Icon } from "@iconify/react";
 import Certification from "@/components/layout/Certification";
+import { BlockProps } from "@/types/statamic";
 
-export default function ExamLens() {
+export default function ExamLens({ block, ...props }: BlockProps) {
   return (
     <div>
-      <Hero
-        badgeTitle="ExamLens"
-        title="Keep What Works. Enhance What's Possible."
-        description="Deliver paper-based assessments, scan answer sheets with any device, and access instant digital insights, all with Gradient's smart scanning technology."
-      />
-      <section className="mx-auto w-full max-w-7xl my-10 md:my-20 lg:mb-40 px-4 xl:px-0">
-        <SectionTitle
-          title="Why Choose Paper?"
-          description="Paper assessments remain a trusted method, now enhanced with automatic scoring and real-time data."
-        />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10">
-          <span className="flex flex-col items-center text-center gap-4 px-4 bg-white rounded-lg shadow-md py-6">
-            <p>Preserve academic integrity</p>
-          </span>
-          <span className="flex flex-col items-center text-center gap-4 px-4 bg-white rounded-lg shadow-md py-6">
-            <p>Avoid tech disruptions</p>
-          </span>
-          <span className="flex flex-col items-center text-center gap-4 px-4 bg-white rounded-lg shadow-md py-6">
-            <p>Reduce student screen fatigue</p>
-          </span>
-        </div>
-      </section>
+      <Hero {...props} />
       <section className="mx-auto w-full max-w-7xl my-10 md:my-20 px-4 xl:px-0">
         <InfoCard
           badgeTitle="Assessment Creation"
@@ -130,105 +101,6 @@ export default function ExamLens() {
             </div>
           </div>
         </div>
-      </section>
-      {/* Standards Section end */}
-
-      <section className="mx-auto w-full max-w-7xl my-10 md:my-20 px-4 xl:px-0">
-        <h2 className="text-prime text-3xl md:text-5xl font-medium mb-8 md:mb-16 text-center">
-          FAQs
-        </h2>
-        <Accordion
-          type="single"
-          collapsible
-          className="w-full flex flex-col gap-4 mb-20"
-          defaultValue="item-1"
-        >
-          <AccordionItem
-            className="bg-white px-5 rounded-lg font-light"
-            value="item-1"
-          >
-            <AccordionTrigger className="text-prime text-base md:text-[19px]">
-              What is ExamLens and how does it work?
-            </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>
-                ExamLens lets you keep using paper tests while getting all the
-                benefits of digital grading. You create or use existing paper
-                assessments, students take them normally with pencil and paper,
-                then you scan the answer sheets with any device (phone, tablet,
-                webcam) to get instant digital results and insights.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem
-            className="bg-white px-5 rounded-lg font-light"
-            value="item-2"
-          >
-            <AccordionTrigger className="text-prime text-base md:text-[19px]">
-              Do I need special equipment or scanners to use ExamLens?
-            </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>
-                We offer worldwide shipping through trusted courier partners.
-                Standard delivery takes 3-5 business days, while express
-                shipping ensures delivery within 1-2 business days.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem
-            className="bg-white px-5 rounded-lg font-light"
-            value="item-3"
-          >
-            <AccordionTrigger className="text-prime text-base md:text-[19px]">
-              Can I use my existing tests and worksheets?
-            </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>
-                We stand behind our products with a comprehensive 30-day return
-                policy. If you&apos;re not completely satisfied, simply return
-                the item in its original condition.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem
-            className="bg-white px-5 rounded-lg font-light"
-            value="item-4"
-          >
-            <AccordionTrigger className="text-prime text-base md:text-[19px]">
-              What happens if I need to change an answer key after students have
-              taken the test?
-            </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>
-                We stand behind our products with a comprehensive 30-day return
-                policy. If you&apos;re not completely satisfied, simply return
-                the item in its original condition.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem
-            className="bg-white px-5 rounded-lg font-light"
-            value="item-5"
-          >
-            <AccordionTrigger className="text-prime text-base md:text-[19px]">
-              How do I get the results into my gradebook or learning management
-              system?
-            </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>
-                We stand behind our products with a comprehensive 30-day return
-                policy. If you&apos;re not completely satisfied, simply return
-                the item in its original condition.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </section>
-      <section className="mx-auto w-full max-w-7xl my-10 md:my-20 px-4 xl:px-0">
-        <Letter
-          title="All Results, One View"
-          description="Combine paper and online delivery—see all your data in one place. Reach out to us today to learn more."
-        />
       </section>
     </div>
   );

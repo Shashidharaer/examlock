@@ -1,0 +1,50 @@
+title: Declarations
+fields:
+  -
+    handle: badge_title
+    field:
+      type: text
+      display: 'Badge Title'
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: description
+    field:
+      type: textarea
+      display: Description
+  -
+    handle: para
+    field:
+      type: replicator
+      display: Para
+      sets:
+        paragraph:
+          display: Paragraph
+          sets:
+            para:
+              display: Para
+              fields:
+                -
+                  handle: heading
+                  field:
+                    type: text
+                    display: Heading
+                -
+                  handle: text
+                  field:
+                    type: textarea
+                    display: Text
+        ul:
+          display: UL
+          sets:
+            list:
+              display: list
+              fields:
+                -
+                  handle: list_field
+                  field:
+                    type: list
+                    display: 'List Field'

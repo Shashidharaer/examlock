@@ -1,0 +1,24 @@
+title: Carousel
+fields:
+  -
+    handle: cards
+    field:
+      type: replicator
+      display: Cards
+      sets:
+        accordion_card_set:
+          display: 'Accordion Card Set'
+          sets:
+            cards:
+              display: Cards
+              fields:
+                -
+                  handle: card_title
+                  field:
+                    type: text
+                    display: 'Card Title'
+                -
+                  handle: card_description
+                  field:
+                    type: textarea
+                    display: 'Card Description'

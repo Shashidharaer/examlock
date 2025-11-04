@@ -1,0 +1,24 @@
+title: 'Mission Vision Card'
+fields:
+  -
+    import: section
+  -
+    handle: examlock_image
+    field:
+      container: public
+      type: assets
+      display: 'Examlock Image'
+  -
+    handle: cards
+    field:
+      type: replicator
+      display: Cards
+      sets:
+        cards_set:
+          display: 'Cards Set'
+          sets:
+            card:
+              display: Card
+              fields:
+                -
+                  import: simple_card

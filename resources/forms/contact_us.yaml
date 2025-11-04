@@ -1,0 +1,18 @@
+title: 'Contact Us'
+honeypot: honeypot
+fields:
+  -
+    handle: phone
+    field:
+      type: text
+      validate: 'required|string'
+  -
+    handle: email
+    field:
+      type: text
+      validate: 'required|email'
+  -
+    handle: your_address
+    field:
+      type: textarea
+      validate: 'required|string'

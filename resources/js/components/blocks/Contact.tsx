@@ -1,10 +1,13 @@
 import Hero from "@/components/layout/Hero";
-import InfoCard from "../../components/layout/info-card";
 import { Card, CardHeader, CardDescription } from "@/components/ui/card";
 import Letter from "@/components/layout/Letter";
-import { Button } from "@/components/ui/button";
 
-export default function ContactUs() {
+interface ContactUsProps {
+  title?: string;
+  cards? : {card_title? : string, card_description? : string}[];
+}
+
+export default function ContactUs({ title, cards }: ContactUsProps) {
   return (
     <div>
       <Hero
@@ -13,46 +16,6 @@ export default function ContactUs() {
       >
         Get in touch with <span className="text-primary">ExamLock</span>
       </Hero>
-      <section className="mx-auto w-full max-w-7xl my-10 md:my-20 px-4 xl:px-0">
-        <InfoCard
-          badgeTitle="Get In Touch"
-          imageSrc="/images/contact-us.svg"
-          reverse
-        >
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl mb-2 text-prime leading-tight">
-            We're Here to Assist You
-          </h3>
-          <p className="font-light text-base sm:text-lg">
-            Please fill out the form for additional information.
-          </p>
-          <form className="mt-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="tel"
-                placeholder="Phone"
-                className="border p-2 rounded text-sm md:text-base"
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="border p-2 rounded text-sm md:text-base"
-              />
-            </div>
-            <textarea
-              placeholder="Your Address"
-              className="border p-2 rounded mt-4 w-full text-sm md:text-base"
-              rows={4}
-            />
-            <Button
-              type="submit"
-              variant="default"
-              className="mt-4 text-sm md:text-base"
-            >
-              Send Message
-            </Button>
-          </form>
-        </InfoCard>
-      </section>
 
       <section className="mx-auto w-full max-w-7xl my-10 md:my-20 px-4 text-center">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-4 text-prime font-medium leading-tight">

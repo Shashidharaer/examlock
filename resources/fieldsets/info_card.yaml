@@ -1,0 +1,55 @@
+title: 'Info Card'
+fields:
+  -
+    handle: badge_title
+    field:
+      type: text
+      display: 'Badge Title'
+  -
+    handle: card_image
+    field:
+      container: public
+      type: assets
+      display: 'Card Image'
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: description
+    field:
+      type: textarea
+      display: Description
+  -
+    handle: reverse
+    field:
+      type: toggle
+      display: Reverse
+  -
+    handle: centered
+    field:
+      type: toggle
+      display: Centered
+  -
+    handle: info
+    field:
+      type: replicator
+      display: Info
+      sets:
+        info_set:
+          display: Info_Set
+          sets:
+            info:
+              display: Info
+              fields:
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: title
+                -
+                  handle: details
+                  field:
+                    type: textarea
+                    display: Details

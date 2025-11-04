@@ -3,18 +3,18 @@ id: 5f2b91d8-707a-479e-b073-d99e5564bc61
 blueprint: product
 title: Examlock
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1762242052
+updated_at: 1762249020
 blocks:
   -
-    id: mhj3qx15
-    badge_text: Examlock
+    id: mhkdhrwk
+    show_badge: false
+    type: page_hero
+    enabled: true
+    badge_text: ExamLock
     heading: 'Total Security. Zero Compromise.'
     description: 'ExamLock is a secure browser-based solution built to protect high-stakes assessments in any environment, online, offline, or hybrid. From intelligent monitoring to complete system lockdown, ExamLock delivers everything needed to maintain academic integrity and testing compliance.'
-    show_badge: false
     'book a demobutton_text': 'Book a Demo'
-    contactbutton_text: 'Cntact us'
-    type: examlock_hero
-    enabled: true
+    contactbutton_text: 'Contact Us'
   -
     id: mhj5ftww
     badge_icon_text: Compatibility

@@ -1,0 +1,25 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: phone
+            field:
+              input_type: tel
+              type: text
+              display: Phone
+              width: 50
+          -
+            handle: email
+            field:
+              input_type: email
+              type: text
+              display: Email
+              width: 50
+          -
+            handle: your_address
+            field:
+              type: textarea
+              display: 'Your Address'

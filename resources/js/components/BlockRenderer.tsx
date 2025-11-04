@@ -1,4 +1,4 @@
-import { type StatamicBlock, type BlockProps } from '@/types/statamic';
+import { type StatamicBlock } from '@/types/statamic';
 
 // Import all block components
 import LandingPage from './blocks/LandingPage';
@@ -18,8 +18,6 @@ import ExamLock from './blocks/products/ExamLock';
 import ExamLockLite from './blocks/products/ExamLockLite';
 import ExamLens from './blocks/products/ExamLens';
 import Lms from './blocks/products/Lms';
-import Integration from './blocks/Integration';
-import AboutUs from './blocks/AboutUs';
 import Resources from './blocks/Resources';
 import PrivacyPolicy from './blocks/PrivacyPolicy';
 import AccessibilityStatement from './blocks/AccessibilityStatement';
@@ -33,9 +31,16 @@ import Ferpa from './blocks/Ferpa';
 import Download from './blocks/Download';
 import Extension from './blocks/Extension';
 import Letter from './layout/Letter';
+import FAQ from './blocks/FAQ';
+import Carousel from './blocks/Carousel';
+import InfoCard from './layout/info-card';
+import Declarations from './blocks/Declarations';
+import MissionVisionCard from './blocks/MissionVisionCard';
+import GetInTouchSection from './blocks/GetInTouchSection';
+import SectionTitle from './common/SectionTitle';
+import OfficeSection from './blocks/OfficeSection';
 
 //examlock page blocks
-import ExamlockHeroSection from './blocks/examlock/HeroSection';
 import CompatibilitySection from './blocks/examlock/CompatibiltySection';
 import LiveMonitoringCard from './blocks/examlock/LiveMonitoringCard';
 import IntrusionPreventionCard from './blocks/examlock/IntrusionPreventionCard';
@@ -45,9 +50,17 @@ import Features from './blocks/examlock/Features';
 import AdvancedFeatures from './blocks/examlock/AdvancedFeatures';
 import OtherIntegrationCard from './blocks/examlock/OtherIntegrationCard';
 import Hero from './layout/Hero';
-import HeroSection from './sections/HeroSection';
+
 //examlock lite page blocks
 import FocusedSection from './blocks/examlocklite/FocusedSection';
+import IntelligentMonitoring from './blocks/examlocklite/IntelligentMonitoring';
+
+//examlens page blocks
+import WhyPaper from './blocks/examlens/WhyPaper';
+
+//lms page blocks
+import CardsSection from './blocks/lms/CardsSection';
+import CardWithAccordion from './blocks/lms/CardWithAccordion';
 
 // Block component registry
 const blockComponents = {
@@ -63,13 +76,11 @@ const blockComponents = {
     overview_section: Overview,
     faq_section: FAQSection,
     stats_section: TransformBrowser,
-    integration: Integration,
-    about_us: AboutUs,
     resources: Resources,
     our_features: OurFeatures,
     privacy_policy: PrivacyPolicy,
     accessibility_statement: AccessibilityStatement,
-    announcements: Announcements,
+    annoucement_section: Announcements,
     compliance: Compliance,
     contact: Contact,
     cookies_policy: CookiesPolicy,
@@ -78,14 +89,22 @@ const blockComponents = {
     ferpa: Ferpa,
     download: Download,
     extension: Extension,
+    carousel_section: Carousel,
+    info_card: InfoCard,
+    declaration_section: Declarations,
+    mission_vision_section: MissionVisionCard,
+    get_in_touch_section: GetInTouchSection,
+    simple_section: SectionTitle,
+    office_section: OfficeSection,
+
     // Product pages
     examlock: ExamLock,
     examlock_lite: ExamLockLite,
     examlens: ExamLens,
     lms: Lms,
+    page_hero: Hero,
 
     //examlock page blocks
-    examlock_hero: ExamlockHeroSection,
     compatibility: CompatibilitySection,
     live_monitoring_card: LiveMonitoringCard,
     intrusion_prevention_card: IntrusionPreventionCard,
@@ -97,8 +116,17 @@ const blockComponents = {
     letter_section: Letter,
 
     //examlock lite page blocks
-    examlock_lite_hero: Hero,
     focused_section: FocusedSection,
+    intelligent_monitoring: IntelligentMonitoring,
+    faq: FAQ,
+
+    //examlens page blocks
+    why_paper: WhyPaper,
+
+    //lms page blocks
+    cards_section: CardsSection,
+    card_with_accordion: CardWithAccordion,
+
 } as const;
 
 type BlockType = keyof typeof blockComponents;
@@ -125,7 +153,7 @@ export default function BlockRenderer({ blocks }: BlockRendererProps) {
                     return (
                         <div 
                             key={block.id} 
-                            className="rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-900/20"
+                            className="rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-900/20 max-w-7xl mx-auto"
                         >
                             <div className="flex items-center gap-2 text-red-600 dark:text-red-400">
                                 <span className="text-sm font-medium">⚠️ Unknown Block Type</span>

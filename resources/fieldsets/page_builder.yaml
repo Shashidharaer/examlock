@@ -59,11 +59,6 @@ fields:
           display: Examlock
           icon: security-lock
           sets:
-            examlock_hero:
-              display: 'Examlock Hero'
-              fields:
-                -
-                  import: hero
             compatibility:
               display: Compatibility
               fields:
@@ -104,21 +99,81 @@ fields:
               fields:
                 -
                   import: section
+            intelligent_monitoring:
+              display: 'Intelligent Monitoring'
+              fields:
+                -
+                  import: intelligent_monitoring
         examlens:
           display: ExamLens
           icon: search-magnifying-glass
           sets:
-            new_set:
-              display: 'New Set'
-              fields: {  }
+            why_paper:
+              display: 'Why Paper'
+              fields:
+                -
+                  import: section
         lms:
           display: LMS
           icon: presentation-board
-          sets: {  }
+          sets:
+            cards_section:
+              display: 'Cards Section'
+              fields:
+                -
+                  handle: simple_card
+                  field:
+                    type: replicator
+                    display: 'Simple Card'
+                    sets:
+                      new_set_group:
+                        display: 'New Set Group'
+                        sets:
+                          simple_card:
+                            display: 'Simple Card'
+                            fields:
+                              -
+                                import: simple_card
+            card_with_accordion:
+              display: 'Card With Accordion'
+              fields:
+                -
+                  handle: accordion_list
+                  field:
+                    type: replicator
+                    display: 'Accordion List'
+                    sets:
+                      accordion:
+                        display: Accordion
+                        sets:
+                          accordion:
+                            display: Accordion
+                            fields:
+                              -
+                                handle: accordion_title
+                                field:
+                                  type: text
+                                  display: 'Accordion Title'
+                              -
+                                handle: accordion_description
+                                field:
+                                  type: textarea
+                                  display: 'Accordion Description'
+                -
+                  handle: card_image
+                  field:
+                    container: public
+                    type: assets
+                    display: 'Card Image'
         common_components:
           display: 'Common Components'
           icon: dashboard-layout
           sets:
+            page_hero:
+              display: 'Page Hero'
+              fields:
+                -
+                  import: hero
             letter_section:
               display: 'Letter Section'
               fields:
@@ -129,3 +184,76 @@ fields:
               fields:
                 -
                   import: section
+            faq:
+              display: Faq
+              fields:
+                -
+                  import: faq
+            carousel_section:
+              display: 'Carousel Section'
+              fields:
+                -
+                  import: section
+                -
+                  import: carousel
+            info_card:
+              display: 'Info Card'
+              fields:
+                -
+                  import: info_card
+            declaration_section:
+              display: 'Declaration Section'
+              fields:
+                -
+                  import: declarations
+            mission_vision_section:
+              display: 'Mission Vision Section'
+              fields:
+                -
+                  import: mission_vision_card
+            get_in_touch_section:
+              display: 'Get In Touch Section'
+              fields:
+                -
+                  import: getintouch
+            simple_section:
+              display: 'Simple Section'
+              fields:
+                -
+                  import: section
+            office_section:
+              display: 'Office Section'
+              fields:
+                -
+                  import: section
+                -
+                  handle: cards
+                  field:
+                    type: replicator
+                    display: Cards
+                    sets:
+                      cards:
+                        display: Cards
+                        sets:
+                          card:
+                            display: Card
+                            fields:
+                              -
+                                import: simple_card
+            annoucement_section:
+              display: 'Annoucement Section'
+              fields:
+                -
+                  handle: annoucement_card
+                  field:
+                    type: replicator
+                    display: 'Annoucement Card'
+                    sets:
+                      annoucement_card_set:
+                        display: 'Annoucement Card Set'
+                        sets:
+                          annoucement_card:
+                            display: 'Annoucement Card'
+                            fields:
+                              -
+                                import: announcement

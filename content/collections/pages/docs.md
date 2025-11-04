@@ -4,4 +4,13 @@ blueprint: pages
 title: Docs
 author: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1761816603
+updated_at: 1762273042
+blocks:
+  -
+    id: mhkrv1wc
+    badge_text: Resources
+    heading: Resources
+    show_badge: false
+    type: page_hero
+    enabled: true
+---
