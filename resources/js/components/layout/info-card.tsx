@@ -1,25 +1,26 @@
 import { Icon } from "@iconify/react";
-import React from "react";
 
 interface InfoCardProps {
-  imageSrc?: string;
-  badgeTitle?: string;
+  badge_title?: string;
+  card_image?: string;
   title?: string;
-  children?: React.ReactNode;
+  description?: string;
   reverse?: boolean;
   centered?: boolean;
+  info?: {title?: string, details?: string}[];
 }
 
 export default function InfoCard({
-  badgeTitle,
+  badge_title,
   title,
-  children,
+  description,
   reverse,
-  imageSrc,
+  card_image,
   centered,
+  info
 }: InfoCardProps) {
   return (
-    <>
+    <section className="mx-auto w-full max-w-7xl my-10 md:my-20 px-4 xl:px-0">
       <div
         className={`bg-white rounded-2xl p-5 sm:p-8 md:p-14
         flex flex-col-reverse ${reverse ? "md:flex-row-reverse" : "md:flex-row"}
@@ -32,7 +33,7 @@ export default function InfoCard({
       >
         <div className="w-full md:w-1/2 flex justify-center items-center">
           <img
-            src={imageSrc}
+            src={card_image}
             alt={title ?? "Info card image"}
             className="w-full h-auto max-h-72 md:max-h-[420px] object-contain"
             loading="lazy"
@@ -45,7 +46,7 @@ export default function InfoCard({
               <Icon icon="gg:loadbar-doc" className="w-4 h-4 text-white" />
             </div>
             <span className="text-xs sm:text-sm text-gray-600">
-              {badgeTitle}
+              {badge_title}
             </span>
           </div>
 
@@ -53,9 +54,19 @@ export default function InfoCard({
             {title}
           </h3>
 
-          {children}
+          <div className="text-sm md:text-base font-light">
+            <p>
+              {description}
+            </p>
+            {info && info.map((item, index) => (
+              <p key={index} className="mt-4">
+                <span className="text-primary font-medium">{item.title} </span>
+                {item.details}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
-    </>
+    </section>
   );
 }

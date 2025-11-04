@@ -1,7 +1,12 @@
 import { Badge } from "@/components/ui/badge";
-import { type BlockProps } from '@/types/statamic';
 
-export default function NotificationBanner() {
+interface NotificationBannerProps {
+  tag?: string;
+  notification_text?: string;
+}
+
+
+export default function NotificationBanner({ tag, notification_text }: NotificationBannerProps) {
   return (
     <div className="">
       <div className="container mx-auto px-6 py-8 md:py-12">
@@ -11,10 +16,10 @@ export default function NotificationBanner() {
               variant="secondary"
               className="text-white px-3 py-2 font-light bg-shine"
             >
-              New
+              {tag}
             </Badge>
             <img src="storage/images/sparkles.svg" alt="sparkles" />
-            <span className="font-light">Smart AI Features</span>
+            <span className="font-light">{notification_text}</span>
           </div>
         </div>
       </div>

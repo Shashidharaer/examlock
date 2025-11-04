@@ -1,0 +1,40 @@
+title: 'Intelligent Monitoring'
+fields:
+  -
+    handle: badge_text
+    field:
+      type: text
+      display: 'Badge Text'
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: image
+    field:
+      container: public
+      type: assets
+      display: Image
+  -
+    handle: details
+    field:
+      type: replicator
+      display: Details
+      sets:
+        details_para:
+          display: 'Details para'
+          sets:
+            heading_para:
+              display: 'heading para'
+              fields:
+                -
+                  handle: heading
+                  field:
+                    type: text
+                    display: Heading
+                -
+                  handle: para
+                  field:
+                    type: textarea
+                    display: Para

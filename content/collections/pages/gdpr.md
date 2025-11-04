@@ -4,4 +4,13 @@ blueprint: pages
 title: GDPR
 author: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1761818154
+updated_at: 1762272914
+blocks:
+  -
+    id: mhkrse2k
+    badge_text: GDPR
+    heading: GDPR
+    show_badge: false
+    type: page_hero
+    enabled: true
+---

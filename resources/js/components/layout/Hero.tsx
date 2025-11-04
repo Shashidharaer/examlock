@@ -24,7 +24,7 @@ const Hero = (
   disableCTA,
 }: HeroProps) => {
   return (
-    <div className="w-full py-20 text-center bg-linear-to-t from-white to-transparent px-4 xl:px-0">
+    <div className="w-full py-20 text-center bg-linear-to-t from-white to-transparent px-4 xl:px-0 mb-0">
       <SectionTitle
         badgeTitle={badge_text ? badge_text : badgeTitle}
         title={heading ? heading : 'No Title Provided'}

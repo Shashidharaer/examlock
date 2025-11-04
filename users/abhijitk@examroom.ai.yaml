@@ -14,3 +14,10 @@ preferences:
         - status
         - blocks
         - content
+  forms:
+    contact_us:
+      columns:
+        - datestamp
+        - email
+        - phone
+        - your_address

@@ -3,20 +3,7 @@ tabs:
     display: Main
     sections:
       -
+        display: 'Reqest Demo Form'
         fields:
           -
-            handle: name
-            field:
-              type: text
-              display: Name
-          -
-            handle: email
-            field:
-              type: text
-              display: Email
-              input_type: email
-          -
-            handle: company
-            field:
-              type: text
-              display: Company
+            import: request_demo

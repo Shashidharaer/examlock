@@ -25,6 +25,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 });
 
+// Form submission routes
+Route::post('/contact', [\App\Http\Controllers\FormController::class, 'submitContactForm'])->name('contact.submit');
+Route::post('/request-demo', [\App\Http\Controllers\FormController::class, 'submitRequestDemo'])->name('request-demo.submit');
+
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
 

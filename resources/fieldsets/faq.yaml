@@ -1,0 +1,29 @@
+title: FAQ
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: qna
+    field:
+      type: replicator
+      display: QnA
+      sets:
+        questions_and_answers:
+          display: 'Questions and Answers'
+          sets:
+            qna:
+              display: QnA
+              fields:
+                -
+                  handle: question
+                  field:
+                    type: text
+                    display: Question
+                -
+                  handle: answer
+                  field:
+                    type: textarea
+                    display: Answer

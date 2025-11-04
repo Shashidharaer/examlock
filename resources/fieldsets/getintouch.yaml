@@ -1,0 +1,29 @@
+title: GetInTouch
+fields:
+  -
+    handle: badge_text
+    field:
+      type: text
+      display: 'Badge Text'
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: description
+    field:
+      type: textarea
+      display: Description
+  -
+    handle: card_image
+    field:
+      container: public
+      type: assets
+      display: 'Card Image'
+  -
+    handle: contact_form
+    field:
+      max_items: 1
+      type: form
+      display: 'Contact Form'

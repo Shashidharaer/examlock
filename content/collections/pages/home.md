@@ -5,18 +5,26 @@ title: Home
 excerpt: 'This is the homepage powered by Statamic'
 author: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1762165078
+updated_at: 1762295059
 blocks:
   -
-    id: mh25ubku
-    type: landing_page
+    id: mhl3c5xa
+    tag: New
+    notification_text: 'Smart AI Features'
+    type: notification_banner
     enabled: true
-    heading: 'Safe, Secure and Advanced'
+  -
+    id: mhl4esjp
+    heading:
+      text_in_black: 'Safe, Secure and'
+      text_in_primary: Advanced
     description: 'No matter the level of the test, ExamLock secures and protects your investment, time, and integrity.'
-    show_badge: false
-    button_text: 'Book a Demo'
-    contactbutton_text: 'Contact Us'
-    'book a demobutton_text': 'Book a Demo'
+    type: hero_section
+    enabled: true
+    buttons:
+      primary_btn: 'Book a Demo'
+      secondary_btn: 'Contact Us'
+      secondary_btn_link: /contact
   -
     id: mhew6ys0
     show_badge: false
