@@ -1,0 +1,13 @@
+title: Overview
+fields:
+  -
+    import: section
+  -
+    handle: home_page_card
+    field:
+      mode: stacked
+      type: grid
+      display: 'Home Page Card'
+      fields:
+        -
+          import: home_page_card

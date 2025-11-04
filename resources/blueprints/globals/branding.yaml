@@ -13,18 +13,4 @@ tabs:
               display: Logo
               container: assets
               max_files: 1
-              mode: list
-              allow_uploads: true
-              restrict: false
-              instructions: Select the site logo image
-          -
-            handle: logo_public
-            field:
-              type: assets
-              display: Logo (Public container)
-              container: public
-              max_files: 1
-              mode: list
-              allow_uploads: true
-              restrict: false
-              instructions: If your logo lives in the Public container (storage), pick it here.
+              instructions: 'Select the site logo image'

@@ -1,0 +1,71 @@
+title: 'Home Page Faq'
+fields:
+  -
+    import: section
+  -
+    handle: faq
+    field:
+      mode: stacked
+      type: grid
+      display: FAQ
+      fields:
+        -
+          handle: question_1
+          field:
+            type: text
+            display: 'Question 1'
+            width: 50
+        -
+          handle: q1_answer
+          field:
+            type: textarea
+            display: 'Q1 answer'
+            width: 50
+        -
+          handle: question_2
+          field:
+            type: text
+            display: 'Question 2'
+            width: 50
+        -
+          handle: q2_answer
+          field:
+            type: textarea
+            display: 'Q2 answer'
+            width: 50
+        -
+          handle: question_3
+          field:
+            type: text
+            display: 'Question 3'
+            width: 50
+        -
+          handle: q3_answer
+          field:
+            type: textarea
+            display: 'Q3 answer'
+            width: 50
+        -
+          handle: question_4
+          field:
+            type: text
+            display: 'Question 4'
+            width: 50
+        -
+          handle: q4_answer
+          field:
+            type: textarea
+            display: 'Q4 answer'
+            width: 50
+        -
+          handle: question_5
+          field:
+            type: text
+            display: 'Question 5'
+            width: 50
+        -
+          handle: q5_answer
+          field:
+            type: textarea
+            display: 'Q5 answer'
+            width: 50

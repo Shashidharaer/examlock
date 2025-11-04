@@ -1,0 +1,10 @@
+title: 'Integration Section'
+fields:
+  -
+    import: section
+  -
+    handle: integration_image
+    field:
+      container: public
+      type: assets
+      display: 'Integration Image'

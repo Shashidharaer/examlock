@@ -1,0 +1,6 @@
+title: 'Our Features'
+fields:
+  -
+    import: section
+  -
+    import: featured_card

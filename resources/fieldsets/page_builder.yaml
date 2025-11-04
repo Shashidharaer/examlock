@@ -6,26 +6,126 @@ fields:
       type: replicator
       display: Blocks
       sets:
-        new_set_group:
-          display: 'New Set Group'
+        landing_page:
+          display: 'Landing Page'
+          icon: phone-mode-airplane-enabled
           sets:
-            header_description:
-              display: 'Header Description'
+            landing_page:
+              display: Hero
               fields:
                 -
-                  import: header_description
-        products:
-          display: 'Products'
+                  import: hero
+            main_content_section:
+              display: 'Main Content Section'
+              fields:
+                -
+                  import: main_content_section
+            why_choose_us:
+              display: 'Why Choose Us'
+              fields:
+                -
+                  import: why_choose_us
+            our_features:
+              display: 'Our Features'
+              fields:
+                -
+                  import: our_features
+            feature_homepage_card:
+              display: 'feature homepage card'
+              fields:
+                -
+                  import: home_page_card
+            integration_section:
+              display: 'Integration Section'
+              fields:
+                -
+                  import: integration_section
+            overview_section:
+              display: 'Overview Section'
+              fields:
+                -
+                  import: overview
+            faq_section:
+              display: 'Faq Section'
+              fields:
+                -
+                  import: home_page_faq
+            stats_section:
+              display: 'Stats Section'
+              fields:
+                -
+                  import: home_page_card
+        product_page:
+          display: Examlock
+          icon: security-lock
           sets:
-            examlock:
-              display: 'ExamLock Page'
-              fields: []
-            examlock_lite:
-              display: 'ExamLock Lite Page'
-              fields: []
-            examlens: 
-              display: 'ExamLens Page'
-              fields: []
-            lms :
-              display: 'Learning Management System'
-              fields: []
+            examlock_hero:
+              display: 'Examlock Hero'
+              fields:
+                -
+                  import: hero
+            compatibility:
+              display: Compatibility
+              fields:
+                -
+                  import: section
+            live_monitoring_card:
+              display: 'Live Monitoring Card'
+              fields: {  }
+            intrusion_prevention_card:
+              display: 'Intrusion Prevention Card'
+              fields: {  }
+            qms_card:
+              display: 'QMS Card'
+              fields: {  }
+            integrations_card:
+              display: 'Integrations Card'
+              fields: {  }
+            features:
+              display: Features
+              fields: {  }
+            advanced_features:
+              display: 'Advanced Features'
+              fields: {  }
+            other_integration_card:
+              display: 'Other Integration Card'
+              fields: {  }
+        examlocklite:
+          display: ExamlockLite
+          icon: login-key-2
+          sets:
+            examlock_lite_hero:
+              display: 'Examlock Lite Hero'
+              fields:
+                -
+                  import: hero
+            focused_section:
+              display: 'Focused Section'
+              fields:
+                -
+                  import: section
+        examlens:
+          display: ExamLens
+          icon: search-magnifying-glass
+          sets:
+            new_set:
+              display: 'New Set'
+              fields: {  }
+        lms:
+          display: LMS
+          icon: presentation-board
+          sets: {  }
+        common_components:
+          display: 'Common Components'
+          icon: dashboard-layout
+          sets:
+            letter_section:
+              display: 'Letter Section'
+              fields:
+                -
+                  import: letter
+            certification:
+              display: Certification
+              fields:
+                -
+                  import: section

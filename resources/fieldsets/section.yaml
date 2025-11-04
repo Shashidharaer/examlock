@@ -1,0 +1,22 @@
+title: Section
+fields:
+  -
+    handle: badge_icon_text
+    field:
+      type: text
+      display: 'Badge Icon text'
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: description
+    field:
+      type: textarea
+      display: Description
+  -
+    handle: show_badge
+    field:
+      type: toggle
+      display: 'Show Badge'

@@ -1,13 +1,7 @@
 
-import Hero from "@/components/layout/PageHero";
+import Hero from "@/components/layout/Hero";
 import { Icon } from "@iconify/react";
 import Letter from "@/components/layout/Letter";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
 import {
   Accordion,
   AccordionContent,
@@ -15,69 +9,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Certification from "@/components/layout/Certification";
+import { type BlockProps } from '@/types/statamic';
 
-const cardDetails: { title: string; description: string; image: string }[] = [
-  {
-    title: "No Distractions Allowed",
-    description:
-      "ExamLock Lite automatically restricts opening of additional tabs during assessments, ensuring candidates stay focused on the test.",
-    image: "/products/no_distraction.svg",
-  },
-  {
-    title: "No Cheating Shortcuts",
-    description:
-      "Key combinations like copy, paste, print screen, and other shortcuts are smartly detected and blocked in real-time.",
-    image: "/products/no_cheating.svg",
-  },
-  {
-    title: "Full-Screen Mode Only",
-    description:
-      "Once the test starts, the browser switches to non-resizable full-screen mode, users cannot minimize, switch windows, or multitask.",
-    image: "/products/full-screen.svg",
-  },
-];
-
-export default function ExamLockLite() {
+export default function ExamLockLite({ block, ...props }: BlockProps) {
   return (
     <div>
-      <Hero
-        isExtention
-        badgeTitle="ExamLock Lite"
-        title="Lock Down Exams with Confidence"
-        description="ExamLock Lite Browser Extension offers a secure and controlled environment for online assessments ensuring academic integrity with every"
-      />
-      <section className="max-w-7xl mx-auto px-4 xl:px-0 py-8 md:py-16 text-center">
-        <h4 className="text-prime text-3xl sm:text-4xl md:text-5xl font-medium md:my-4">
-          Focused. Restricted. Reliable.
-        </h4>
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {cardDetails.map((items) => {
-            return (
-              <Card
-                key={items.title}
-                className="flex h-full w-full flex-col mt-0 shadow-sm py-2"
-              >
-                <CardHeader className="w-full px-2">
-                  <img
-                    className="w-full h-full object-contain rounded-lg"
-                    src={items.image}
-                    alt={items.title}
-                  />
-                  <div className="mt-4 px-4 pb-4">
-                    <CardTitle className="text-left mb-3 md:text-md sm:text-xl font-light text-prime">
-                      {items.title}
-                    </CardTitle>
-                    <CardDescription className="text-left">
-                      {items.description}
-                    </CardDescription>
-                  </div>
-                </CardHeader>
-              </Card>
-            );
-          })}
-        </div>
-      </section>
-      <Certification description="ExamLock Lite is audited and certified by industry-leading third party standards." />
+      <Hero heading={props.heading} description={props.description} badgeTitle={props.badgeTitle} />
+      <Certification {...props} />
       <section className="mx-auto w-full max-w-7xl my-10 md:my-20 px-4 xl:px-0">
         <div className="flex flex-col gap-4 justify-center items-center bg-white font-light p-6 sm:p-8 md:p-11 w-full rounded-3xl shadow-lg/1 max-w-7xl mx-auto my-10 md:my-20">
           <div className="flex items-center gap-2 border border-gray-200 bg-white shadow-lg rounded-full w-max p-1 pr-3 py-1">

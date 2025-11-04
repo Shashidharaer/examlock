@@ -5,9 +5,3 @@ title: 'Cookies Policy'
 author: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_at: 1761818111
-blocks:
-  -
-    id: mhd90i6h
-    type: cookies_policy
-    enabled: true
----

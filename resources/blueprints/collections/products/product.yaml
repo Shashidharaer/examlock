@@ -12,52 +12,7 @@ tabs:
               validate:
                 - required
           -
-            handle: blocks
-            field: page_builder.blocks
-            config:
-              sets:
-                product_sets:
-                  display: 'Product Sets'
-                  instructions: null
-                  icon: null
-                  sets:
-                    header_description:
-                      display: 'Header Description'
-                      instructions: null
-                      icon: null
-                      hide: null
-                      fields:
-                        -
-                          import: header_description
-                products:
-                  display: Products
-                  instructions: null
-                  icon: null
-                  sets:
-                    examlock:
-                      display: 'ExamLock Page'
-                      instructions: null
-                      icon: null
-                      hide: null
-                      fields: {  }
-                    examlock_lite:
-                      display: 'ExamLock Lite Page'
-                      instructions: null
-                      icon: null
-                      hide: null
-                      fields: {  }
-                    examlens:
-                      display: 'ExamLens Page'
-                      instructions: null
-                      icon: null
-                      hide: null
-                      fields: {  }
-                    lms:
-                      display: 'Learning Management System'
-                      instructions: null
-                      icon: null
-                      hide: null
-                      fields: {  }
+            import: page_builder
   sidebar:
     display: Sidebar
     sections:

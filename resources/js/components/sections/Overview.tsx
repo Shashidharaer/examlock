@@ -1,27 +1,40 @@
+import { home } from "@/routes";
 import SectionTitle from "../common/SectionTitle";
 import HomepageCard from "../layout/HomepageCard";
 import { Icon } from "@iconify/react";
 
-export default function DashboardSection() {
+interface DashboardSectionProps {
+  badge_icon_text?: string;
+  title?: string;
+  description?: string;
+  home_page_card?: {
+    badge_text?: string;
+    title?: string;
+    description?: string;
+    image_src?: string;
+  }[];
+}
+
+export default function DashboardSection({ badge_icon_text, title, description, home_page_card }: DashboardSectionProps) {
   return (
     <section className="mx-auto px-4 xl:px-0 my-10 md:my-20">
       {/* Centered header section */}
       <SectionTitle
         desClassName="md:max-w-7xl mx-auto text-sm md:text-xl text-gray-600 font-light"
         badgeIcon
-        badgeTitle="Overview"
-        title="A clear and intuitive dashboard"
-        description="Designed to be simple, intuitive, and easy to navigate, giving users instant access to essential tools and insights."
+        badgeTitle={badge_icon_text}
+        title={title}
+        description={description}
       />
 
       {/* Card container with content */}
       <HomepageCard
-        badgeTitle="Dashboard Overview"
-        title="Intuitive dashboard"
-        description="ExamLock's dashboard is designed to give you everything you need at a glance. With a clean, modern interface, you can monitor."
+        badgeTitle={home_page_card ? home_page_card[0].badge_text : ''}
+        title={home_page_card ? home_page_card[0].title : ''}
+        description={home_page_card ? home_page_card[0].description : ''}
         primaryLabel="Book a Demo"
         secondaryLabel="Contact Us"
-        imageSrc="storage/images/dashboard_2.png"
+        imageSrc={home_page_card ? home_page_card[0].image_src : ''}
       >
         {/* children: features grid specific to the Dashboard section */}
         <div className="flex flex-col md:flex-row gap-6 md:gap-8">

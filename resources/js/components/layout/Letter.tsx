@@ -1,8 +1,8 @@
 import RequestDemo from "@/components/common/RequestDemo";
 
 interface LetterProps {
-  title: string;
-  description: string | React.ReactNode;
+  title?: string;
+  description?: string | React.ReactNode;
 }
 
 export default function Letter({ title, description }: LetterProps) {

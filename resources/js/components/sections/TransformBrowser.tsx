@@ -1,14 +1,20 @@
 import HomepageCard from "../layout/HomepageCard";
 
-export default function TransformBrowserSection() {
+interface StatsSectionProps {
+  badge_text?: string;
+  title?: string;
+  card_image?: string[];
+}
+
+export default function TransformBrowserSection({ badge_text, title, card_image }: StatsSectionProps) {
   return (
     <section className="container mx-auto px-4 xl:px-0 my-10 md:my-20">
       <HomepageCard
-        badgeTitle="Get Started"
-        title="Ready to Transform Your Browser?"
+        badgeTitle={badge_text}
+        title={title}
         primaryLabel="Book a Demo"
         secondaryLabel="Contact Us"
-        imageSrc="storage/images/transform.svg"
+        imageSrc={card_image && card_image.length > 0 ? `/storage/${card_image[0]}` : ''}
         titleClassName="md:text-[3rem] text-2xl font-semibold text-gray-900 mb-4"
       >
         {/* children: features grid specific to the Transform Browser section */}

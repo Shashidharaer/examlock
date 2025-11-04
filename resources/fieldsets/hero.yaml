@@ -1,22 +1,24 @@
 title: Hero
 fields:
   -
-    handle: badge_title
+    handle: badge_text
     field:
       type: text
-      display: 'Badge Title'
+      display: 'Badge Text'
   -
-    handle: title
+    handle: heading
     field:
       type: text
-      display: Title
+      display: Heading
   -
     handle: description
     field:
       type: textarea
       display: Description
   -
-    handle: isCta
+    handle: show_badge
     field:
       type: toggle
-      display: CTA
+      display: 'Show Badge'
+  -
+    import: button_group

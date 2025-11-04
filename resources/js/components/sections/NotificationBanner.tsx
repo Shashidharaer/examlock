@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { type BlockProps } from '@/types/statamic';
 
 export default function NotificationBanner() {
   return (

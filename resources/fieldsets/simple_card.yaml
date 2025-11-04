@@ -1,0 +1,12 @@
+title: 'Simple Card'
+fields:
+  -
+    handle: card_title
+    field:
+      type: text
+      display: 'Card Title'
+  -
+    handle: card_description
+    field:
+      type: textarea
+      display: 'Card Description'

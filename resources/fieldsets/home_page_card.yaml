@@ -1,0 +1,39 @@
+title: 'Home Page Card'
+fields:
+  -
+    handle: badge_icon
+    field:
+      container: public
+      type: assets
+      display: 'Badge Icon'
+      width: 50
+  -
+    handle: badge_text
+    field:
+      type: text
+      display: 'Badge Text'
+      width: 50
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: description
+    field:
+      type: text
+      display: Description
+  -
+    import: button_group
+  -
+    handle: card_image
+    field:
+      container: public
+      type: assets
+      display: 'Card Image'
+  -
+    handle: bg_pattern
+    field:
+      container: public
+      type: assets
+      display: 'Bg Pattern'

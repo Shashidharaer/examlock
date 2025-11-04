@@ -1,27 +1,34 @@
+import React from "react";
 import SectionTitle from "@/components/common/SectionTitle";
 import RequestDemo from "../common/RequestDemo";
 import { Button } from "@/components/ui/button";
 
 interface HeroProps {
+  badge_text?: string;
   badgeTitle?: string;
+  heading?: string;
   description?: string;
   children?: React.ReactNode;
   contactUs?: boolean;
   disableCTA?: boolean;
 }
 
-export default function Hero({
+const Hero = (
+  {
+  badge_text,
+  heading,
   children,
   contactUs,
   badgeTitle,
   description,
   disableCTA,
-}: HeroProps) {
+}: HeroProps) => {
   return (
     <div className="w-full py-20 text-center bg-linear-to-t from-white to-transparent px-4 xl:px-0">
       <SectionTitle
-        badgeTitle={badgeTitle}
-        description={description}
+        badgeTitle={badge_text ? badge_text : badgeTitle}
+        title={heading ? heading : 'No Title Provided'}
+        description={description ? description : 'No Description Provided'}
         badgeIcon={true}
       >
         {children}
@@ -52,3 +59,5 @@ export default function Hero({
     </div>
   );
 }
+
+export default Hero;

@@ -5,9 +5,3 @@ title: 'Accessibility Statement'
 author: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_at: 1761818079
-blocks:
-  -
-    id: mhd8ztra
-    type: accessibility_statement
-    enabled: true
----

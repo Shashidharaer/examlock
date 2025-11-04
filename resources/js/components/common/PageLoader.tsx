@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { router } from "@inertiajs/react";
 
 export default function TopLoader() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  // Using Inertia router events instead of Next.js navigation hooks
 
   const [progress, setProgress] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -157,20 +156,34 @@ export default function TopLoader() {
     return () => document.removeEventListener("click", onClick, true);
   }, []);
 
-  // React to Next.js App Router navigations (pathname/search changes)
+  // React to Inertia navigations via router events
   useEffect(() => {
-    // Trigger start when the URL changes
-    if (typeof window === "undefined") return;
-    start();
-    navigationActiveRef.current = true;
-    // allow some time for the new route to settle; then finish if idle
-    const settle = window.setTimeout(() => {
+    const anyRouter = router as any;
+    if (!anyRouter) return;
+
+    const onStart = () => {
+      start();
+      navigationActiveRef.current = true;
+    };
+    const onFinish = () => {
       navigationActiveRef.current = false;
       if (pendingCountRef.current === 0) scheduleFinishIfIdle();
-    }, 400);
-    return () => window.clearTimeout(settle);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname, searchParams]);
+    };
+
+    // Subscribe to Inertia router events. on() may return an unsubscribe function or an id.
+    const offStart = anyRouter.on?.("start", onStart);
+    const offFinish = anyRouter.on?.("finish", onFinish);
+
+    return () => {
+      if (typeof offStart === "function") offStart();
+      else if (typeof offStart === "number" && anyRouter.off)
+        anyRouter.off("start", offStart);
+
+      if (typeof offFinish === "function") offFinish();
+      else if (typeof offFinish === "number" && anyRouter.off)
+        anyRouter.off("finish", offFinish);
+    };
+  }, []);
 
   if (!visible) return null;
 

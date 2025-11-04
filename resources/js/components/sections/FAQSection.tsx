@@ -1,5 +1,3 @@
-"use client";
-
 import SectionTitle from "../common/SectionTitle";
 import {
   Accordion,
@@ -8,40 +6,44 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqData = [
-  {
-    question: "What is ExamLock?",
-    answer:
-      "ExamLock is a comprehensive exam proctoring and monitoring solution designed to ensure the integrity of online assessments. It provides advanced security features to prevent cheating and maintain fair testing environments.",
-  },
-  {
-    question: "What does ExamLock offer?",
-    answer:
-      "ExamLock offers real-time monitoring, browser lockdown, webcam monitoring, screen recording, plagiarism detection, and comprehensive reporting tools to ensure secure online examinations.",
-  },
-  {
-    question: "What are the core features of ExamLock?",
-    answer:
-      "Core features include browser security, webcam monitoring, screen capture prevention, real-time alerts, detailed analytics, customizable settings, and integration with popular LMS platforms.",
-  },
-  {
-    question: "How can ExamLock help my business?",
-    answer:
-      "ExamLock helps businesses maintain exam integrity, reduce administrative overhead, provide detailed insights, ensure compliance with security standards, and build trust with stakeholders through secure assessment processes.",
-  },
-  {
-    question: "Is ExamLock suitable for businesses of all sizes?",
-    answer:
-      "Yes, ExamLock is designed to scale from small educational institutions to large enterprises, offering flexible pricing plans and customizable features to meet the needs of organizations of any size.",
-  },
-];
+interface FAQ {
+  question: string;
+  answer: string;
+}
 
-export default function FAQSection() {
-  // const [activeItem, setActiveItem] = useState<number | null>(null);
+interface FAQItemProps {
+  badge_icon_text?: string;
+  title?: string;
+  description?: string;
+  faq?: { [key: string]: string }[];
+}
 
-  // const toggleItem = (index: number) => {
-  //   setActiveItem((prev) => (prev === index ? null : index));
-  // };
+const transformFaqData = (faqData: { [key: string]: string }[] | undefined): FAQ[] => {
+  if (!faqData) {
+    return [];
+  }
+
+  const faqs: FAQ[] = [];
+  for (let i = 1; i <= 5; i++) {
+    const questionKey = `question_${i}`;
+    const answerKey = `q${i}_answer`;
+    
+    // Find the object that contains the question and answer
+    const questionItem = faqData.find(item => item[questionKey]);
+    const answerItem = faqData.find(item => item[answerKey]);
+
+    if (questionItem && answerItem) {
+      faqs.push({
+        question: questionItem[questionKey],
+        answer: answerItem[answerKey],
+      });
+    }
+  }
+  return faqs;
+};
+
+export default function FAQSection({ faq, badge_icon_text, title, description }: FAQItemProps) {
+  const faqList = transformFaqData(faq);
 
   return (
     <section className="container mx-auto px-4 my-10 md:my-20">
@@ -51,12 +53,12 @@ export default function FAQSection() {
             {/* Left side - FAQ Info */}
             <div className="lg:w-1/2">
               <SectionTitle
-                badgeIcon
                 desClassName="md:max-w-7xl mx-auto text-sm md:text-xl text-gray-600 font-light"
+                badgeIcon
+                badgeTitle={badge_icon_text}
                 className="text-left"
-                badgeTitle="FAQ"
-                title="Frequently Asked Questions"
-                description="For any unanswered questions, reach out to our support team via email. We'll respond as soon as possible to assist you."
+                title={title}
+                description={description}
               />
             </div>
 
@@ -67,7 +69,7 @@ export default function FAQSection() {
                 collapsible
                 className="flex flex-col gap-4"
               >
-                {faqData.map((item, index) => (
+                {faqList.map((item, index) => (
                   <AccordionItem
                     key={index}
                     value={`item-${index}`}

@@ -1,0 +1,30 @@
+title: Letter
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: description
+    field:
+      type: text
+      display: Description
+  -
+    handle: bg_image
+    field:
+      container: public
+      type: assets
+      display: bg-image
+  -
+    handle: button_text
+    field:
+      type: text
+      display: 'Button text'
+      width: 50
+  -
+    handle: btn_url
+    field:
+      type: link
+      display: 'btn url'
+      width: 50
