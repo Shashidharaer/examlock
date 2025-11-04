@@ -58,7 +58,7 @@ export interface StatamicBlock {
     id: string;
     type: string;
     enabled: boolean;
-    [key: string]: any; // Allow any additional properties
+    [key: string]: any; 
 }
 
 /**
@@ -66,7 +66,7 @@ export interface StatamicBlock {
  */
 export interface BlockProps {
     block: StatamicBlock;
-    [key: string]: any; // Allow any additional props
+    [key: string]: any; 
 }
 
 /**
@@ -77,7 +77,7 @@ export interface StatamicNavItem {
     title: string;
     url: string;
     children?: StatamicNavItem[];
-    [key: string]: any; // Allow additional properties
+    [key: string]: any;
 }
 
 /**
@@ -87,7 +87,7 @@ export interface StatamicNavigation {
     title: string;
     handle: string;
     tree: StatamicNavItem[];
-    [key: string]: any; // Allow additional properties
+    [key: string]: any;
 }
 
 /**
@@ -96,5 +96,5 @@ export interface StatamicNavigation {
 export interface NavigationContext {
     main: StatamicNavigation | null;
     footer: StatamicNavigation | null;
-    [key: string]: StatamicNavigation | null; // Allow additional navigation types
+    [key: string]: StatamicNavigation | null; 
 }

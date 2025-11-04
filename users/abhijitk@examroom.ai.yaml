@@ -1,0 +1,16 @@
+name: abhijit
+super: true
+id: 2af790dc-6a33-4420-b65c-d85232975e73
+password_hash: $2y$12$x6ojj7cR/t1ClfBXP9tN4eVnliwxjiIyngs7/2UalUTsZO84sO.LS
+preferences:
+  collections:
+    products:
+      filters:
+        products:
+          display: Products
+      columns:
+        - title
+        - slug
+        - status
+        - blocks
+        - content

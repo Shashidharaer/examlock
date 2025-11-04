@@ -1,19 +1,104 @@
-import React from 'react';
 import { type StatamicBlock, type BlockProps } from '@/types/statamic';
 
 // Import all block components
-import HeaderDescription from './blocks/HeaderDescription';
+import LandingPage from './blocks/LandingPage';
 import TextBlock from './blocks/TextBlock';
 import QuoteBlock from './blocks/QuoteBlock';
 import ImageBlock from './blocks/ImageBlock';
+import MainContentSection from './sections/MainContentSection';
+import Certification from './layout/Certification';
+import WhyChooseUs from './sections/WhyChooseUs';
+import OurFeatures from './sections/OurFeatures';
+import IntegrationsSection from './sections/IntegrationsSection';
+import FeatureHomepageCard from './sections/FeatureHomepageCard';
+import Overview from './sections/Overview';
+import FAQSection from './sections/FAQSection';
+import TransformBrowser from './sections/TransformBrowser';
+import ExamLock from './blocks/products/ExamLock';
+import ExamLockLite from './blocks/products/ExamLockLite';
+import ExamLens from './blocks/products/ExamLens';
+import Lms from './blocks/products/Lms';
+import Integration from './blocks/Integration';
+import AboutUs from './blocks/AboutUs';
+import Resources from './blocks/Resources';
+import PrivacyPolicy from './blocks/PrivacyPolicy';
+import AccessibilityStatement from './blocks/AccessibilityStatement';
+import Announcements from './blocks/Announcements';
+import Compliance from './blocks/Compliance';
+import Contact from './blocks/Contact';
+import CookiesPolicy from './blocks/CookiesPolicy';
+import DataPrivacy from './blocks/DataPrivacy';
+import Gdpr from './blocks/Gdpr';
+import Ferpa from './blocks/Ferpa';
+import Download from './blocks/Download';
+import Extension from './blocks/Extension';
+import Letter from './layout/Letter';
+
+//examlock page blocks
+import ExamlockHeroSection from './blocks/examlock/HeroSection';
+import CompatibilitySection from './blocks/examlock/CompatibiltySection';
+import LiveMonitoringCard from './blocks/examlock/LiveMonitoringCard';
+import IntrusionPreventionCard from './blocks/examlock/IntrusionPreventionCard';
+import QmsCard from './blocks/examlock/QmsCard';
+import IntegrationsCard from './blocks/examlock/IntegrationsCard';
+import Features from './blocks/examlock/Features';
+import AdvancedFeatures from './blocks/examlock/AdvancedFeatures';
+import OtherIntegrationCard from './blocks/examlock/OtherIntegrationCard';
+import Hero from './layout/Hero';
+import HeroSection from './sections/HeroSection';
+//examlock lite page blocks
+import FocusedSection from './blocks/examlocklite/FocusedSection';
 
 // Block component registry
 const blockComponents = {
-    header_description: HeaderDescription,
+    landing_page: LandingPage,
     text_block: TextBlock,
     quote_block: QuoteBlock,
     image_block: ImageBlock,
-    // Add more block components here as you create them
+    main_content_section: MainContentSection,
+    certification: Certification,
+    why_choose_us: WhyChooseUs,
+    feature_homepage_card: FeatureHomepageCard,
+    integration_section: IntegrationsSection,
+    overview_section: Overview,
+    faq_section: FAQSection,
+    stats_section: TransformBrowser,
+    integration: Integration,
+    about_us: AboutUs,
+    resources: Resources,
+    our_features: OurFeatures,
+    privacy_policy: PrivacyPolicy,
+    accessibility_statement: AccessibilityStatement,
+    announcements: Announcements,
+    compliance: Compliance,
+    contact: Contact,
+    cookies_policy: CookiesPolicy,
+    data_privacy: DataPrivacy,
+    gdpr: Gdpr,
+    ferpa: Ferpa,
+    download: Download,
+    extension: Extension,
+    // Product pages
+    examlock: ExamLock,
+    examlock_lite: ExamLockLite,
+    examlens: ExamLens,
+    lms: Lms,
+
+    //examlock page blocks
+    examlock_hero: ExamlockHeroSection,
+    compatibility: CompatibilitySection,
+    live_monitoring_card: LiveMonitoringCard,
+    intrusion_prevention_card: IntrusionPreventionCard,
+    qms_card: QmsCard,
+    integrations_card: IntegrationsCard,
+    features: Features,
+    advanced_features: AdvancedFeatures,
+    other_integration_card: OtherIntegrationCard,
+    letter_section: Letter,
+
+    //examlock lite page blocks
+    examlock_lite_hero: Hero,
+    focused_section: FocusedSection,
 } as const;
 
 type BlockType = keyof typeof blockComponents;

@@ -1,4 +1,5 @@
 import password from './password'
+
 const protect = {
     password: Object.assign(password, password),
 }

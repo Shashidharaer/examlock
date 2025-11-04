@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use Inertia\Response;
 use Statamic\Facades\Entry;
+use Statamic\Facades\GlobalSet;
+use Statamic\Facades\Site as StatamicSite;
+use Statamic\Facades\Asset as StatamicAsset;
 use Statamic\Facades\Nav;
 use Statamic\Entries\Entry as EntryModel;
 use Statamic\Structures\Nav as Navigation;
@@ -37,6 +40,7 @@ class StatamicEntryController extends Controller
         return Inertia::render('entry', [
             'entry' => $entryData,
             'navigation' => $navigationData,
+            'branding' => $this->getBrandingData(),
         ]);
     }
 
@@ -53,6 +57,7 @@ class StatamicEntryController extends Controller
         return Inertia::render('entry', [
             'entry' => $entryData,
             'navigation' => $navigationData,
+            'branding' => $this->getBrandingData(),
         ]);
     }
 
@@ -127,6 +132,72 @@ class StatamicEntryController extends Controller
         }
 
         return $navigationData;
+    }
+
+    /**
+     * Get branding data (e.g., logo) from Statamic Globals.
+     */
+    protected function getBrandingData(): array
+    {
+        try {
+            $set = GlobalSet::findByHandle('branding');
+            if (! $set) {
+                \Log::info('Branding globals not found.');
+                return [];
+            }
+
+            $siteHandle = StatamicSite::current()->handle();
+            $globals = $set->in($siteHandle);
+            if (! $globals) {
+                return [];
+            }
+
+            $data = $globals->data()->all();
+
+            // Try to resolve the logo asset regardless of how it's stored
+            $logoAsset = null;
+
+            try {
+                $augmented = $globals->augmentedValue('logo');
+                $resolved = method_exists($augmented, 'value') ? $augmented->value() : (method_exists($augmented, 'resolve') ? $augmented->resolve() : null);
+
+                if ($resolved instanceof \Statamic\Assets\Asset) {
+                    $logoAsset = $resolved;
+                } elseif (is_array($resolved) && isset($resolved[0]) && $resolved[0] instanceof \Statamic\Assets\Asset) {
+                    $logoAsset = $resolved[0];
+                }
+            } catch (\Throwable $e) {
+                // Fallback to raw data resolution
+            }
+
+            if (! $logoAsset) {
+                $rawLogo = $data['logo'] ?? null;
+                if (is_string($rawLogo)) {
+                    $logoAsset = StatamicAsset::find($rawLogo);
+                } elseif (is_array($rawLogo) && isset($rawLogo[0])) {
+                    $logoAsset = StatamicAsset::find($rawLogo[0]);
+                }
+            }
+
+            $logo = null;
+            if ($logoAsset) {
+                $logo = [
+                    'url' => $logoAsset->url(),
+                    'permalink' => method_exists($logoAsset, 'absoluteUrl') ? $logoAsset->absoluteUrl() : $logoAsset->url(),
+                    'alt' => $logoAsset->get('alt') ?? 'Logo',
+                    'width' => method_exists($logoAsset, 'width') ? $logoAsset->width() : null,
+                    'height' => method_exists($logoAsset, 'height') ? $logoAsset->height() : null,
+                    'id' => $logoAsset->id(),
+                ];
+            }
+
+            return [
+                'logo' => $logo,
+            ];
+        } catch (\Throwable $e) {
+            \Log::error('Failed to load branding data: ' . $e->getMessage());
+            return [];
+        }
     }
 
     /**

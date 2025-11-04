@@ -10,27 +10,6 @@ tabs:
             field:
               type: text
               required: true
-              validate:
-                - required
-          -
-            handle: content
-            field:
-              type: markdown
-              display: Content
-              localizable: true
-          -
-            handle: excerpt
-            field:
-              type: textarea
-              display: Excerpt
-              localizable: true
-          -
-            handle: featured_image
-            field:
-              type: assets
-              display: 'Featured Image'
-              container: assets
-              max_files: 1
           -
             import: page_builder
   sidebar:

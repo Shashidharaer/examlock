@@ -1,9 +1,9 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \Statamic\Http\Controllers\CP\Auth\ResetPasswordController::action
- * @see vendor/statamic/cms/src/Http/Controllers/CP/Auth/ResetPasswordController.php:47
- * @route '/cp/auth/password/reset'
- */
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Auth/ResetPasswordController.php:47
+* @route '/cp/auth/password/reset'
+*/
 export const action = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: action.url(options),
     method: 'post',
@@ -16,44 +16,45 @@ action.definition = {
 
 /**
 * @see \Statamic\Http\Controllers\CP\Auth\ResetPasswordController::action
- * @see vendor/statamic/cms/src/Http/Controllers/CP/Auth/ResetPasswordController.php:47
- * @route '/cp/auth/password/reset'
- */
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Auth/ResetPasswordController.php:47
+* @route '/cp/auth/password/reset'
+*/
 action.url = (options?: RouteQueryOptions) => {
     return action.definition.url + queryParams(options)
 }
 
 /**
 * @see \Statamic\Http\Controllers\CP\Auth\ResetPasswordController::action
- * @see vendor/statamic/cms/src/Http/Controllers/CP/Auth/ResetPasswordController.php:47
- * @route '/cp/auth/password/reset'
- */
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Auth/ResetPasswordController.php:47
+* @route '/cp/auth/password/reset'
+*/
 action.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: action.url(options),
     method: 'post',
 })
 
-    /**
+/**
 * @see \Statamic\Http\Controllers\CP\Auth\ResetPasswordController::action
- * @see vendor/statamic/cms/src/Http/Controllers/CP/Auth/ResetPasswordController.php:47
- * @route '/cp/auth/password/reset'
- */
-    const actionForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-        action: action.url(options),
-        method: 'post',
-    })
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Auth/ResetPasswordController.php:47
+* @route '/cp/auth/password/reset'
+*/
+const actionForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: action.url(options),
+    method: 'post',
+})
 
-            /**
+/**
 * @see \Statamic\Http\Controllers\CP\Auth\ResetPasswordController::action
- * @see vendor/statamic/cms/src/Http/Controllers/CP/Auth/ResetPasswordController.php:47
- * @route '/cp/auth/password/reset'
- */
-        actionForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-            action: action.url(options),
-            method: 'post',
-        })
-    
-    action.form = actionForm
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Auth/ResetPasswordController.php:47
+* @route '/cp/auth/password/reset'
+*/
+actionForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: action.url(options),
+    method: 'post',
+})
+
+action.form = actionForm
+
 const reset = {
     action: Object.assign(action, action),
 }

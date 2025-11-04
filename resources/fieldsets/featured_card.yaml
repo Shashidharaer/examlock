@@ -1,0 +1,29 @@
+title: 'Featured Card'
+fields:
+  -
+    handle: badge_icon
+    field:
+      container: public
+      type: assets
+      display: 'Badge Icon'
+  -
+    handle: badge_text
+    field:
+      type: text
+      display: 'Badge Text'
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: description
+    field:
+      type: text
+      display: Description
+  -
+    handle: image
+    field:
+      container: public
+      type: assets
+      display: Image

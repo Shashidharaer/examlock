@@ -1,0 +1,10 @@
+title: 'Main Content Section'
+fields:
+  -
+    import: section
+  -
+    handle: image
+    field:
+      container: public
+      type: assets
+      display: image

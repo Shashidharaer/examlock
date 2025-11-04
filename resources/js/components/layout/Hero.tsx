@@ -1,0 +1,63 @@
+import React from "react";
+import SectionTitle from "@/components/common/SectionTitle";
+import RequestDemo from "../common/RequestDemo";
+import { Button } from "@/components/ui/button";
+
+interface HeroProps {
+  badge_text?: string;
+  badgeTitle?: string;
+  heading?: string;
+  description?: string;
+  children?: React.ReactNode;
+  contactUs?: boolean;
+  disableCTA?: boolean;
+}
+
+const Hero = (
+  {
+  badge_text,
+  heading,
+  children,
+  contactUs,
+  badgeTitle,
+  description,
+  disableCTA,
+}: HeroProps) => {
+  return (
+    <div className="w-full py-20 text-center bg-linear-to-t from-white to-transparent px-4 xl:px-0">
+      <SectionTitle
+        badgeTitle={badge_text ? badge_text : badgeTitle}
+        title={heading ? heading : 'No Title Provided'}
+        description={description ? description : 'No Description Provided'}
+        badgeIcon={true}
+      >
+        {children}
+      </SectionTitle>
+      {!disableCTA &&
+        (contactUs ? (
+          <a href="/contact">
+            <Button size="lg">
+              Contact Us{" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M16.175 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.175l-4.9-4.9q-.3-.3-.288-.7t.313-.7q.3-.275.7-.288t.7.288l6.6 6.6q.15.15.213.325t.062.375t-.062.375t-.213.325l-6.6 6.6q-.275.275-.687.275T11.3 19.3q-.3-.3-.3-.712t.3-.713z"
+                />
+              </svg>
+            </Button>
+          </a>
+        ) : (
+          <div className="w-fit mx-auto">
+            <RequestDemo />
+          </div>
+        ))}
+    </div>
+  );
+}
+
+export default Hero;

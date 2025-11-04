@@ -12,8 +12,8 @@ Route::get('/', function () {
         ->first();
     
     if (!$entry) {
-        // Fallback to welcome page if home entry doesn't exist
-        return Inertia::render('welcome');
+        // Fallback to dashboard page if home entry doesn't exist
+        return Inertia::render('dashboard');
     }
     
     return app(StatamicEntryController::class)->transformAndRender($entry);

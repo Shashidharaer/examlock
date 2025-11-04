@@ -1,0 +1,22 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: name
+            field:
+              type: text
+              display: Name
+          -
+            handle: email
+            field:
+              type: text
+              display: Email
+              input_type: email
+          -
+            handle: company
+            field:
+              type: text
+              display: Company

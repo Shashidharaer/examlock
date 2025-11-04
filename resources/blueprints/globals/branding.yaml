@@ -1,0 +1,16 @@
+title: Branding
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Logo
+        fields:
+          -
+            handle: logo
+            field:
+              type: assets
+              display: Logo
+              container: assets
+              max_files: 1
+              instructions: 'Select the site logo image'
