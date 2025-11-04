@@ -1,7 +1,8 @@
 import { type StatamicBlock } from '@/types/statamic';
 
 // Import all block components
-import LandingPage from './blocks/LandingPage';
+import NotificationBanner from './sections/NotificationBanner';
+import HeroSection from './sections/HeroSection';
 import TextBlock from './blocks/TextBlock';
 import QuoteBlock from './blocks/QuoteBlock';
 import ImageBlock from './blocks/ImageBlock';
@@ -14,16 +15,11 @@ import FeatureHomepageCard from './sections/FeatureHomepageCard';
 import Overview from './sections/Overview';
 import FAQSection from './sections/FAQSection';
 import TransformBrowser from './sections/TransformBrowser';
-import ExamLock from './blocks/products/ExamLock';
-import ExamLockLite from './blocks/products/ExamLockLite';
-import ExamLens from './blocks/products/ExamLens';
-import Lms from './blocks/products/Lms';
 import Resources from './blocks/Resources';
 import PrivacyPolicy from './blocks/PrivacyPolicy';
 import AccessibilityStatement from './blocks/AccessibilityStatement';
 import Announcements from './blocks/Announcements';
 import Compliance from './blocks/Compliance';
-import Contact from './blocks/Contact';
 import CookiesPolicy from './blocks/CookiesPolicy';
 import DataPrivacy from './blocks/DataPrivacy';
 import Gdpr from './blocks/Gdpr';
@@ -64,7 +60,8 @@ import CardWithAccordion from './blocks/lms/CardWithAccordion';
 
 // Block component registry
 const blockComponents = {
-    landing_page: LandingPage,
+    notification_banner: NotificationBanner,
+    hero_section: HeroSection,
     text_block: TextBlock,
     quote_block: QuoteBlock,
     image_block: ImageBlock,
@@ -82,7 +79,6 @@ const blockComponents = {
     accessibility_statement: AccessibilityStatement,
     annoucement_section: Announcements,
     compliance: Compliance,
-    contact: Contact,
     cookies_policy: CookiesPolicy,
     data_privacy: DataPrivacy,
     gdpr: Gdpr,
@@ -98,10 +94,6 @@ const blockComponents = {
     office_section: OfficeSection,
 
     // Product pages
-    examlock: ExamLock,
-    examlock_lite: ExamLockLite,
-    examlens: ExamLens,
-    lms: Lms,
     page_hero: Hero,
 
     //examlock page blocks

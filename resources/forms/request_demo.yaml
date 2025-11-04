@@ -1,0 +1,18 @@
+title: 'Request Demo'
+honeypot: honeypot
+fields:
+  -
+    handle: name
+    field:
+      type: text
+      validate: 'required|string|max:255'
+  -
+    handle: email
+    field:
+      type: text
+      validate: 'required|email'
+  -
+    handle: company
+    field:
+      type: text
+      validate: 'required|string|max:255'

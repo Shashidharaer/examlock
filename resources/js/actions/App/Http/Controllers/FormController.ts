@@ -55,6 +55,62 @@ submitContactFormForm.post = (options?: RouteQueryOptions): RouteFormDefinition<
 
 submitContactForm.form = submitContactFormForm
 
-const FormController = { submitContactForm }
+/**
+* @see \App\Http\Controllers\FormController::submitRequestDemo
+* @see app/Http/Controllers/FormController.php:52
+* @route '/request-demo'
+*/
+export const submitRequestDemo = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: submitRequestDemo.url(options),
+    method: 'post',
+})
+
+submitRequestDemo.definition = {
+    methods: ["post"],
+    url: '/request-demo',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\FormController::submitRequestDemo
+* @see app/Http/Controllers/FormController.php:52
+* @route '/request-demo'
+*/
+submitRequestDemo.url = (options?: RouteQueryOptions) => {
+    return submitRequestDemo.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\FormController::submitRequestDemo
+* @see app/Http/Controllers/FormController.php:52
+* @route '/request-demo'
+*/
+submitRequestDemo.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: submitRequestDemo.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\FormController::submitRequestDemo
+* @see app/Http/Controllers/FormController.php:52
+* @route '/request-demo'
+*/
+const submitRequestDemoForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: submitRequestDemo.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\FormController::submitRequestDemo
+* @see app/Http/Controllers/FormController.php:52
+* @route '/request-demo'
+*/
+submitRequestDemoForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: submitRequestDemo.url(options),
+    method: 'post',
+})
+
+submitRequestDemo.form = submitRequestDemoForm
+
+const FormController = { submitContactForm, submitRequestDemo }
 
 export default FormController

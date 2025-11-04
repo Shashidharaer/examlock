@@ -1,0 +1,18 @@
+title: 'Request Demo'
+fields:
+  -
+    handle: name
+    field:
+      type: text
+      display: Name
+  -
+    handle: email
+    field:
+      input_type: email
+      type: text
+      display: Email
+  -
+    handle: company
+    field:
+      type: text
+      display: Company
