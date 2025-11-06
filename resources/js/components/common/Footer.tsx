@@ -51,7 +51,9 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="/raise-ticket"
+                  href="https://examroom.atlassian.net/servicedesk/customer/portals"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm md:text-base font-light text-gray-600 hover:text-primary transition-colors"
                 >
                   Raise a ticket

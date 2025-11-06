@@ -1,4 +1,3 @@
-import { home } from "@/routes";
 import SectionTitle from "../common/SectionTitle";
 import HomepageCard from "../layout/HomepageCard";
 import { Icon } from "@iconify/react";
@@ -11,7 +10,7 @@ interface DashboardSectionProps {
     badge_text?: string;
     title?: string;
     description?: string;
-    image_src?: string;
+    card_image?: string[];
   }[];
 }
 
@@ -34,7 +33,8 @@ export default function DashboardSection({ badge_icon_text, title, description, 
         description={home_page_card ? home_page_card[0].description : ''}
         primaryLabel="Book a Demo"
         secondaryLabel="Contact Us"
-        imageSrc={home_page_card ? home_page_card[0].image_src : ''}
+        imageSrc={home_page_card && home_page_card[0].card_image && home_page_card[0].card_image.length > 0 ? `/storage/${home_page_card[0].card_image[0]}` : ''}
+
       >
         {/* children: features grid specific to the Dashboard section */}
         <div className="flex flex-col md:flex-row gap-6 md:gap-8">

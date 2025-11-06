@@ -1,0 +1,45 @@
+title: 'Standard Card'
+fields:
+  -
+    handle: badge_text
+    field:
+      type: text
+      display: 'Badge Text'
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: description
+    field:
+      type: textarea
+      display: Description
+  -
+    handle: card_image
+    field:
+      container: public
+      type: assets
+      display: 'Card Image'
+  -
+    handle: info
+    field:
+      type: replicator
+      display: Info
+      sets:
+        info_sets:
+          display: 'Info sets'
+          sets:
+            list:
+              display: List
+              fields:
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: title
+                -
+                  handle: listing
+                  field:
+                    type: list
+                    display: Listing

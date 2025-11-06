@@ -4,18 +4,24 @@ blueprint: pages
 title: Contact
 author: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1762272707
+updated_at: 1762350163
 blocks:
   -
     id: mhkn0ltq
     badge_text: 'Contact Us'
-    heading: 'Get in touch with ExamLock'
+    heading:
+      text_in_black: 'Get in touch with'
+      text_in_primary: ExamLock
     description: "We're here to help! Whether you have questions about our assessment solutions, need support, or are interested in partnering with us, feel free to reach out."
-    show_badge: false
+    show_badge: true
     'book a demobutton_text': 'Book a Demo'
     contactbutton_text: 'Contact Us'
     type: page_hero
     enabled: true
+    show_contact_button: false
+    show_extension_button: false
+    show_download_button: false
+    show_book_a_demo_button: true
   -
     id: mhknwdcv
     badge_text: 'Get In Touch'
@@ -24,6 +30,8 @@ blocks:
     contact_form: contact_us
     type: get_in_touch_section
     enabled: true
+    card_image:
+      - layouts/blur7.webp
   -
     id: mhkr32de
     title: 'Candidate Support'

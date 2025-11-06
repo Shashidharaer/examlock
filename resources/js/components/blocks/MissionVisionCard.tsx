@@ -7,9 +7,10 @@ interface MissionVisionCardProps {
     title?: string;
     description?: string;
     cards?: {card_title?: string, card_description?: string}[];
+    examlock_image?: string;
 }
 
-export default function MissionVisionCard({ title, description, badge_icon_text, show_badge, cards }: MissionVisionCardProps) {
+export default function MissionVisionCard({ title, description, badge_icon_text, show_badge, cards, examlock_image }: MissionVisionCardProps) {
   return (
     <div>
         <section className="mx-auto w-full max-w-7xl my-10 md:my-10 px-4 xl:px-0">
@@ -39,7 +40,7 @@ export default function MissionVisionCard({ title, description, badge_icon_text,
 
             <div className="flex items-center justify-center">
               <img
-                src="/layouts/exam-lock.svg"
+                src={`/storage/${examlock_image ?? 'layouts/exam-lock.svg'}`}
                 alt="examlock"
                 className="mx-auto w-60 sm:w-full h-auto"
               />

@@ -3,18 +3,23 @@ id: c64fd066-0dda-4614-8ab4-47d76c03d7cb
 blueprint: product
 title: ExamlockLite
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1762249199
+updated_at: 1762343325
 blocks:
   -
     id: mhkdloyn
     badge_text: 'ExamLock Lite'
-    heading: 'Lock Down Exams with Confidence'
+    heading:
+      text_in_black: 'Lock Down Exams with Confidence'
     description: 'ExamLock Lite Browser Extension offers a secure and controlled environment for online assessments ensuring academic integrity with every'
-    show_badge: false
+    show_badge: true
     'book a demobutton_text': 'Book a Demo'
     contactbutton_text: 'Contact Us'
     type: page_hero
     enabled: true
+    show_contact_button: false
+    show_extension_button: true
+    show_download_button: false
+    show_book_a_demo_button: true
   -
     id: mhk9iza7
     title: 'Focused. Restricted. Reliable.'
@@ -59,6 +64,8 @@ blocks:
         enabled: true
     type: intelligent_monitoring
     enabled: true
+    image:
+      - products/intelligent-monitoring.webp
   -
     id: mhkcn83h
     title: FAQ

@@ -277,7 +277,8 @@ export default function Header() {
                   Integration
                 </Link>
                 <Link
-                  href="/docs"
+                  href="https://examroom.ai/documentation"
+                  target='_blank'
                   className="border-b-1 hover:bg-accent flex cursor-pointer items-center justify-between px-4 py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

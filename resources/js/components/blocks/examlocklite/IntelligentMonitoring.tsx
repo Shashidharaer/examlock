@@ -26,7 +26,7 @@ export default function IntelligentMonitoring({ badge_text , title, details }: I
           <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8 w-full">
             <img
               className="w-full md:w-1/2 md:max-w-[520px] rounded-2xl border-1 p-4 bg-neutral-100/50 object-contain"
-              src="/products/intelligent-monitoring.svg"
+              src="/storage/products/intelligent-monitoring.webp"
               alt="intelligent monitoring"
             />
             <div className="flex flex-col gap-4 w-full md:flex-1">

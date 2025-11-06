@@ -285,6 +285,154 @@ dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 dashboard.form = dashboardForm
 
 /**
+* @see routes/web.php:29
+* @route '/download'
+*/
+export const download = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: download.url(options),
+    method: 'get',
+})
+
+download.definition = {
+    methods: ["get","head"],
+    url: '/download',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:29
+* @route '/download'
+*/
+download.url = (options?: RouteQueryOptions) => {
+    return download.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:29
+* @route '/download'
+*/
+download.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: download.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:29
+* @route '/download'
+*/
+download.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: download.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:29
+* @route '/download'
+*/
+const downloadForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: download.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:29
+* @route '/download'
+*/
+downloadForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: download.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:29
+* @route '/download'
+*/
+downloadForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: download.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+download.form = downloadForm
+
+/**
+* @see routes/web.php:34
+* @route '/extension'
+*/
+export const extension = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: extension.url(options),
+    method: 'get',
+})
+
+extension.definition = {
+    methods: ["get","head"],
+    url: '/extension',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:34
+* @route '/extension'
+*/
+extension.url = (options?: RouteQueryOptions) => {
+    return extension.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:34
+* @route '/extension'
+*/
+extension.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: extension.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:34
+* @route '/extension'
+*/
+extension.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: extension.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:34
+* @route '/extension'
+*/
+const extensionForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: extension.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:34
+* @route '/extension'
+*/
+extensionForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: extension.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:34
+* @route '/extension'
+*/
+extensionForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: extension.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+extension.form = extensionForm
+
+/**
 * @see \App\Http\Controllers\Auth\RegisteredUserController::register
 * @see app/Http/Controllers/Auth/RegisteredUserController.php:21
 * @route '/register'
@@ -366,7 +514,7 @@ registerForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 register.form = registerForm
 
 /**
-* @see routes/web.php:47
+* @see routes/web.php:57
 * @route '/{slug}'
 */
 export const page = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -380,7 +528,7 @@ page.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see routes/web.php:47
+* @see routes/web.php:57
 * @route '/{slug}'
 */
 page.url = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -406,7 +554,7 @@ page.url = (args: { slug: string | number } | [slug: string | number ] | string 
 }
 
 /**
-* @see routes/web.php:47
+* @see routes/web.php:57
 * @route '/{slug}'
 */
 page.get = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -415,7 +563,7 @@ page.get = (args: { slug: string | number } | [slug: string | number ] | string 
 })
 
 /**
-* @see routes/web.php:47
+* @see routes/web.php:57
 * @route '/{slug}'
 */
 page.head = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -424,7 +572,7 @@ page.head = (args: { slug: string | number } | [slug: string | number ] | string
 })
 
 /**
-* @see routes/web.php:47
+* @see routes/web.php:57
 * @route '/{slug}'
 */
 const pageForm = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -433,7 +581,7 @@ const pageForm = (args: { slug: string | number } | [slug: string | number ] | s
 })
 
 /**
-* @see routes/web.php:47
+* @see routes/web.php:57
 * @route '/{slug}'
 */
 pageForm.get = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -442,7 +590,7 @@ pageForm.get = (args: { slug: string | number } | [slug: string | number ] | str
 })
 
 /**
-* @see routes/web.php:47
+* @see routes/web.php:57
 * @route '/{slug}'
 */
 pageForm.head = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

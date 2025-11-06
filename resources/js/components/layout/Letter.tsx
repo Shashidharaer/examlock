@@ -1,20 +1,22 @@
-import RequestDemo from "@/components/common/RequestDemo";
+import RequestDemo from '@/components/common/RequestDemo';
 
 interface LetterProps {
-  title?: string;
-  description?: string | React.ReactNode;
+    title?: string;
+    description?: string | React.ReactNode;
 }
 
 export default function Letter({ title, description }: LetterProps) {
-  return (
-    <div className="flex flex-col items-center gap-6 bg-[linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)),url('/images/card-bg.png')] bg-cover bg-center bg-no-repeat p-12 rounded-lg w-full max-w-7xl border-1 border-primary mx-auto">
-      <h4 className="text-prime text-center text-2xl md:text-3xl font-medium max-w-2xl">
-        {title}
-      </h4>
-      <p className="text-sm md:text-base font-light text-center max-w-2xl">
-        {description}
-      </p>
-      <RequestDemo />
-    </div>
-  );
+    return (
+        <section className="mx-auto my-10 w-full max-w-7xl px-4 md:my-20 xl:px-0">
+            <div className="border-1 border-primary mx-auto flex w-full max-w-7xl flex-col items-center gap-6 rounded-lg bg-[linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)),url('/storage/images/card-bg.png')] bg-cover bg-center bg-no-repeat p-12">
+                <h4 className="text-prime max-w-2xl text-center text-2xl font-medium md:text-3xl">
+                    {title}
+                </h4>
+                <p className="max-w-2xl text-center text-sm font-light md:text-base">
+                    {description}
+                </p>
+                <RequestDemo />
+            </div>
+        </section>
+    );
 }

@@ -4,17 +4,24 @@ blueprint: pages
 title: Integration
 author: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1762260760
+updated_at: 1762338902
 blocks:
   -
     id: mhkgl9im
     badge_text: Integrations
-    heading: 'Seamless Integration with ExamLock'
+    heading:
+      text_in_black: 'Seamless Integration'
+      text_in_primary: 'with ExamLock'
     description: 'Connect securely and scale easily with our SDKs, APIs, and flexible plugin support.'
-    show_badge: false
+    show_badge: true
     'book a demobutton_text': 'Book a Demo'
     type: page_hero
     enabled: true
+    show_contact_button: false
+    show_extension_button: false
+    show_download_button: false
+    show_book_a_demo: true
+    show_book_a_demo_button: true
   -
     id: mhkh4tp0
     type: carousel_section

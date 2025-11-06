@@ -52,19 +52,23 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="/docs"
+                  href="https://examroom.ai/documentation"
                   className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
                 >
                   Docs
                 </a>
               </li>
               <li>
+                <li>
                 <a
-                  href="/raise-ticket"
-                  className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
+                  href="https://examroom.atlassian.net/servicedesk/customer/portals"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm md:text-base font-light text-gray-600 hover:text-primary transition-colors"
                 >
                   Raise a ticket
                 </a>
+              </li>
               </li>
               <li>
                 <a
@@ -76,7 +80,9 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="/status"
+                  href="https://services.examroom.ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
                 >
                   Status Page
@@ -197,7 +203,9 @@ export default function Footer() {
             <span className="text-sm text-gray-600">
               Powered by
             </span>
-            <img src="/storage/examroom.svg" alt="examroom logo" />
+            <a href="https://examroom.ai" target="_blank" rel="noopener noreferrer">
+              <img src="/storage/examroom.svg" alt="examroom logo" />
+            </a>
           </div>
         </div>
       </div>

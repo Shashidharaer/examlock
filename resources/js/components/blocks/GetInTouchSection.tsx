@@ -17,9 +17,9 @@ export default function GetInTouchSection({
 }: GetInTouchSectionProps) {
     return (
         <section className="mx-auto my-10 w-full max-w-7xl px-4 md:my-20 xl:px-0">
-            <div className="flex flex-row-reverse items-center gap-8 rounded-2xl bg-white p-6 md:gap-12 md:p-10 lg:p-14">
+            <div className="flex flex-col-reverse md:flex-row-reverse items-center gap-8 rounded-2xl bg-white p-6 md:gap-12 md:p-10 lg:p-14">
                 <img
-                    src={card_image}
+                    src={card_image?`/storage/${card_image}`:''}
                     alt={title}
                     className="h-auto max-h-72 w-full object-contain md:max-h-[420px]"
                     loading="lazy"

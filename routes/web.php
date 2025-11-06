@@ -25,6 +25,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 });
 
+// Download page - standalone without layout
+Route::get('/download', function () {
+    return Inertia::render('download');
+})->name('download');
+
+// Extension page - standalone without layout
+Route::get('/extension', function () {
+    return Inertia::render('extension');
+})->name('extension');
+
 // Form submission routes
 Route::post('/contact', [\App\Http\Controllers\FormController::class, 'submitContactForm'])->name('contact.submit');
 Route::post('/request-demo', [\App\Http\Controllers\FormController::class, 'submitRequestDemo'])->name('request-demo.submit');

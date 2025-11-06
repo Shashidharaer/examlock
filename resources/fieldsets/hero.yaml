@@ -1,6 +1,11 @@
 title: Hero
 fields:
   -
+    handle: show_badge
+    field:
+      type: toggle
+      display: 'Show Badge'
+  -
     handle: badge_text
     field:
       type: text
@@ -8,17 +13,48 @@ fields:
   -
     handle: heading
     field:
-      type: text
+      type: group
       display: Heading
+      fields:
+        -
+          handle: text_in_black
+          field:
+            type: text
+            display: 'Text in Black'
+            width: 50
+        -
+          handle: text_in_primary
+          field:
+            type: text
+            display: 'Text In Primary'
+            width: 50
   -
     handle: description
     field:
       type: textarea
       display: Description
   -
-    handle: show_badge
+    handle: show_book_a_demo_button
+    field:
+      default: true
+      type: toggle
+      display: 'Show Book a Demo Button'
+      width: 50
+  -
+    handle: show_contact_button
     field:
       type: toggle
-      display: 'Show Badge'
+      display: 'Show Contact Button'
+      width: 50
   -
-    import: button_group
+    handle: show_download_button
+    field:
+      type: toggle
+      display: 'Show Download Button'
+      width: 50
+  -
+    handle: show_extension_button
+    field:
+      type: toggle
+      display: 'Show Extension Button'
+      width: 50
