@@ -38,12 +38,8 @@ import OfficeSection from './blocks/OfficeSection';
 
 //examlock page blocks
 import CompatibilitySection from './blocks/examlock/CompatibiltySection';
-import LiveMonitoringCard from './blocks/examlock/LiveMonitoringCard';
-import IntrusionPreventionCard from './blocks/examlock/IntrusionPreventionCard';
-import QmsCard from './blocks/examlock/QmsCard';
 import Features from './blocks/examlock/Features';
 import AdvancedFeatures from './blocks/examlock/AdvancedFeatures';
-import OtherIntegrationCard from './blocks/examlock/OtherIntegrationCard';
 import Hero from './layout/PageHero';
 
 //examlock lite page blocks
@@ -99,12 +95,8 @@ const blockComponents = {
 
     //examlock page blocks
     compatibility: CompatibilitySection,
-    live_monitoring_card: LiveMonitoringCard,
-    intrusion_prevention_card: IntrusionPreventionCard,
-    qms_card: QmsCard,
     features: Features,
     advanced_features: AdvancedFeatures,
-    other_integration_card: OtherIntegrationCard,
     letter_section: Letter,
 
     //examlock lite page blocks
