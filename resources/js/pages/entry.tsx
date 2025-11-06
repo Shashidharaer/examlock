@@ -17,7 +17,9 @@ interface EntryPageProps {
 export default function Entry({ entry, navigation }: EntryPageProps) {
     return (
         <NavigationProvider navigation={navigation}>
-            <Head title={entry.title} />
+            <Head title={entry.title}>
+                <meta name="description" content={entry.data.meta_description || entry.data.description || 'ExamLock - Secure examination and content protection platform'} />
+            </Head>
 
             <div className="bg-pattern">
                 {/* Header */}

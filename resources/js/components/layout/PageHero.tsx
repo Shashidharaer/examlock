@@ -38,7 +38,7 @@ export default function Hero({
       </SectionTitle>
       <div className="mt-6 flex justify-center gap-4 mx-auto">
         {(show_book_a_demo_button !== false) && ( 
-        <div className="w-fit">
+        <div className="w-[150px]">
           <RequestDemo />
         </div>)}
         {show_contact_button && (<a href="/contact">

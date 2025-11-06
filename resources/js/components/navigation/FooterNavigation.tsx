@@ -59,7 +59,6 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <li>
                 <a
                   href="https://examroom.atlassian.net/servicedesk/customer/portals"
                   target="_blank"
@@ -68,7 +67,6 @@ export default function Footer() {
                 >
                   Raise a ticket
                 </a>
-              </li>
               </li>
               <li>
                 <a

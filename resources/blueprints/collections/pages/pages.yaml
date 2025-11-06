@@ -11,6 +11,14 @@ tabs:
               type: text
               required: true
           -
+            handle: meta_description
+            field:
+              type: textarea
+              display: 'Meta Description'
+              instructions: 'SEO meta description for this page (recommended 150-160 characters)'
+              character_limit: 160
+              validate: 'max:160'
+          -
             import: page_builder
   sidebar:
     display: Sidebar

@@ -15,15 +15,7 @@ import FeatureHomepageCard from './sections/FeatureHomepageCard';
 import Overview from './sections/Overview';
 import FAQSection from './sections/FAQSection';
 import TransformBrowser from './sections/TransformBrowser';
-import Resources from './blocks/Resources';
-import PrivacyPolicy from './blocks/PrivacyPolicy';
-import AccessibilityStatement from './blocks/AccessibilityStatement';
 import Announcements from './blocks/Announcements';
-import Compliance from './blocks/Compliance';
-import CookiesPolicy from './blocks/CookiesPolicy';
-import DataPrivacy from './blocks/DataPrivacy';
-import Gdpr from './blocks/Gdpr';
-import Ferpa from './blocks/Ferpa';
 import Download from './blocks/Download';
 import Extension from './blocks/Extension';
 import Letter from './layout/Letter';
@@ -69,16 +61,8 @@ const blockComponents = {
     overview_section: Overview,
     faq_section: FAQSection,
     stats_section: TransformBrowser,
-    resources: Resources,
     our_features: OurFeatures,
-    privacy_policy: PrivacyPolicy,
-    accessibility_statement: AccessibilityStatement,
     annoucement_section: Announcements,
-    compliance: Compliance,
-    cookies_policy: CookiesPolicy,
-    data_privacy: DataPrivacy,
-    gdpr: Gdpr,
-    ferpa: Ferpa,
     download: Download,
     extension: Extension,
     carousel_section: Carousel,

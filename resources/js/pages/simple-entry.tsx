@@ -12,7 +12,9 @@ interface SimpleEntryPageProps {
 export default function SimpleEntry({ entry }: SimpleEntryPageProps) {
     return (
         <>
-            <Head title={entry.title} />
+            <Head title={entry.title}>
+                <meta name="description" content={entry.data.meta_description || entry.data.description || entry.data.excerpt || 'ExamLock - Secure examination and content protection platform'} />
+            </Head>
             
             <div className="min-h-screen bg-white p-8 dark:bg-zinc-950">
                 <div className="mx-auto max-w-4xl">
