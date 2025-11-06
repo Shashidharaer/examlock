@@ -3,13 +3,13 @@ import { Icon } from "@iconify/react";
 
 export default function Download() {
   return (
-    <div>
+    <div className="bg-pattern">
       {/* Responsive, fixed header */}
       <div className="fixed top-0 left-0 w-full h-14 sm:h-16 md:h-20 bg-white/70 backdrop-blur-md z-10 shadow-sm">
         <div className="mx-auto max-w-7xl h-full flex items-center justify-between px-4 sm:px-6 md:px-8">
           <a href="/">
             <img
-              src="examlock.svg"
+              src="storage/examlock.svg"
               alt="Examlock Logo"
               className="h-8 sm:h-9 md:h-10 w-auto"
             />
@@ -27,7 +27,7 @@ export default function Download() {
       <div className="flex flex-col justify-center items-center min-h-screen pt-14 sm:pt-16 md:pt-20 px-4 py-8">
         <img
           className="mb-6 mt-4 w-16 sm:w-20 md:w-24 h-auto"
-          src="/examlock-no-text.svg"
+          src="storage/examlock-no-text.svg"
           alt="Examlock Logo"
         />
         <h1 className="text-3xl sm:text-4xl md:text-5xl text-center font-semibold">
@@ -93,9 +93,9 @@ export default function Download() {
           )}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mt-16 max-w-7xl p-1.5 border-1 border-primary/50 rounded-xl bg-[#f9f9f9] shadow-md items-center">
-          <div className="border-1 border-primary rounded-lg p-4 flex justify-center items-center">
-            <img src="/images/dashboard.png" alt="Examlock Screenshot" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mt-16 max-w-7xl p-1.5 border-1 border-primary/50 rounded-xl bg-[#f9f9f9] shadow-md items-center md:p-4">
+          <div className="border-1 border-primary rounded-lg flex justify-center items-center overflow-hidden">
+            <img src="storage/images/download.png" alt="Examlock Screenshot" className="object-cover w-full h-full"/>
           </div>
           <div className="flex flex-col gap-2 max-sm:p-4">
             <span className="text-primary py-1 px-2 text-xs sm:text-sm bg-accent/50 rounded-full w-fit">

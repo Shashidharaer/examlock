@@ -41,11 +41,10 @@ import CompatibilitySection from './blocks/examlock/CompatibiltySection';
 import LiveMonitoringCard from './blocks/examlock/LiveMonitoringCard';
 import IntrusionPreventionCard from './blocks/examlock/IntrusionPreventionCard';
 import QmsCard from './blocks/examlock/QmsCard';
-import IntegrationsCard from './blocks/examlock/IntegrationsCard';
 import Features from './blocks/examlock/Features';
 import AdvancedFeatures from './blocks/examlock/AdvancedFeatures';
 import OtherIntegrationCard from './blocks/examlock/OtherIntegrationCard';
-import Hero from './layout/Hero';
+import Hero from './layout/PageHero';
 
 //examlock lite page blocks
 import FocusedSection from './blocks/examlocklite/FocusedSection';
@@ -53,6 +52,7 @@ import IntelligentMonitoring from './blocks/examlocklite/IntelligentMonitoring';
 
 //examlens page blocks
 import WhyPaper from './blocks/examlens/WhyPaper';
+import StandardsCard from './blocks/examlens/StandardsCard';
 
 //lms page blocks
 import CardsSection from './blocks/lms/CardsSection';
@@ -95,13 +95,13 @@ const blockComponents = {
 
     // Product pages
     page_hero: Hero,
+    
 
     //examlock page blocks
     compatibility: CompatibilitySection,
     live_monitoring_card: LiveMonitoringCard,
     intrusion_prevention_card: IntrusionPreventionCard,
     qms_card: QmsCard,
-    integrations_card: IntegrationsCard,
     features: Features,
     advanced_features: AdvancedFeatures,
     other_integration_card: OtherIntegrationCard,
@@ -114,6 +114,7 @@ const blockComponents = {
 
     //examlens page blocks
     why_paper: WhyPaper,
+    standards_section: StandardsCard,
 
     //lms page blocks
     cards_section: CardsSection,

@@ -53,3 +53,25 @@ fields:
                   field:
                     type: textarea
                     display: Details
+        lists:
+          display: lists
+          sets:
+            listings:
+              display: listings
+              fields:
+                -
+                  handle: show_list_title
+                  field:
+                    default: true
+                    type: toggle
+                    display: 'Show List Title'
+                -
+                  handle: list_title
+                  field:
+                    type: text
+                    display: 'List Title'
+                -
+                  handle: list
+                  field:
+                    type: list
+                    display: list

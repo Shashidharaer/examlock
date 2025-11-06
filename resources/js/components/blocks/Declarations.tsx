@@ -4,7 +4,7 @@ interface DeclarationsProps {
     badge_title?: string;
     title?: string;
     description?: string;
-    para?: {heading?: string, text?: string}[];
+    para?: {heading?: string, text?: string; list_field?: string[]}[];
 }
 
 export default function Declarations({ badge_title, title, description, para }: DeclarationsProps) {
@@ -31,9 +31,19 @@ export default function Declarations({ badge_title, title, description, para }: 
                                 <h6 className="md:text-md text-prime font-medium">
                                     {item.heading}
                                 </h6>
-                                <p className="text-sm md:text-base font-light">
-                                    {item.text}
-                                </p>
+                                {item.text && (
+                                    <p className="text-sm md:text-base font-light">
+                                        {item.text}
+                                    </p>
+                                )}
+
+                                {item.list_field && item.list_field.length > 0 && (
+                                    <ul className="mt-2 mx-auto max-w-prose text-left list-disc list-outside text-sm md:text-base">
+                                        {item.list_field.map((li, liIndex) => (
+                                            <li key={liIndex}>{li}</li>
+                                        ))}
+                                    </ul>
+                                )}
                             </div>
                         ))}
                     </div>

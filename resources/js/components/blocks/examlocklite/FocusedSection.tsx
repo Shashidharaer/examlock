@@ -9,19 +9,19 @@ const cardDetails: { title: string; description: string; image: string }[] = [
     title: "No Distractions Allowed",
     description:
       "ExamLock Lite automatically restricts opening of additional tabs during assessments, ensuring candidates stay focused on the test.",
-    image: "/products/no_distraction.svg",
+    image: "/storage/products/no_distraction.svg",
   },
   {
     title: "No Cheating Shortcuts",
     description:
       "Key combinations like copy, paste, print screen, and other shortcuts are smartly detected and blocked in real-time.",
-    image: "/products/no_cheating.svg",
+    image: "/storage/products/no_cheating.svg",
   },
   {
     title: "Full-Screen Mode Only",
     description:
       "Once the test starts, the browser switches to non-resizable full-screen mode, users cannot minimize, switch windows, or multitask.",
-    image: "/products/full-screen.svg",
+    image: "/storage/products/full-screen.webp",
   },
 ];
 

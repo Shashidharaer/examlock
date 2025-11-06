@@ -15,6 +15,7 @@ interface CardWithAccordionProps {
 
 export default function CardWithAccordion({
     accordion_list,
+    card_image,
 }: CardWithAccordionProps) {
     return (
         <section className="mx-auto my-10 w-full max-w-7xl px-4 md:my-20 xl:px-0">
@@ -45,7 +46,7 @@ export default function CardWithAccordion({
                 </div>
                 <div className="border-1 flex w-full items-center justify-center rounded-lg bg-[#F9FAFB] p-3 sm:p-4 lg:basis-1/2">
                     <img
-                        src="/products/better-learning.svg"
+                        src={`/storage/${card_image ?? 'layouts/better_learning_illustration.webp'}`}
                         alt="better learning"
                         className="h-auto w-full max-w-[560px] object-contain"
                     />

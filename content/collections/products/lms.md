@@ -3,17 +3,22 @@ id: 7581f235-2a50-4d78-bffb-109a540ee4e6
 blueprint: product
 title: LMS
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1762253900
+updated_at: 1762349815
 blocks:
   -
     id: mhke5ijz
     badge_text: LMS
-    heading: 'Smart Learning. Real Results.'
+    heading:
+      text_in_black: 'Smart Learning. Real Results.'
     description: 'Enhance performance, track progress, and ensure compliance with a Learning Management System built for results. From onboarding to certification, our LMS simplifies course delivery, centralizes assessment management, gives you the visibility to optimize learning and drive measurable outcomes.'
-    show_badge: false
+    show_badge: true
     'book a demobutton_text': 'Book a Demo'
     type: page_hero
     enabled: true
+    show_contact_button: false
+    show_extension_button: false
+    show_download_button: false
+    show_book_a_demo_button: true
   -
     id: mhkfe3bu
     simple_card:
@@ -73,6 +78,8 @@ blocks:
         enabled: true
     type: card_with_accordion
     enabled: true
+    card_image:
+      - products/better-learning.webp
   -
     id: mhkfuecn
     title: FAQ

@@ -4,18 +4,25 @@ blueprint: pages
 title: 'About Us'
 author: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1762264485
+updated_at: 1762350054
 blocks:
   -
     id: mhkkknb3
     badge_text: 'About Us'
-    heading: 'Lock. Monitor. Protect. Secure Assessments.'
+    heading:
+      text_in_black: 'Lock. Monitor. Protect.'
+      text_in_primary: 'Secure Assessments.'
     description: 'We create secure, seamless, and data-driven assessment solutions that protect integrity and empower learning. From online exams to paper-based tests and organizational training, our platforms ensure fairness, compliance, and measurable results.'
-    show_badge: false
+    show_badge: true
     'book a demobutton_text': 'Book a Demo'
     contactbutton_text: 'Contact Us'
     type: page_hero
     enabled: true
+    show_contact_button: true
+    show_extension_button: false
+    show_download_button: false
+    show_book_a_demo: false
+    show_book_a_demo_button: false
   -
     id: mhkl4vab
     type: declaration_section
@@ -69,6 +76,8 @@ blocks:
         card_description: 'To be the global leader in trusted assessment technologies—creating a world where learning is measured with integrity, teaching is supported by data, and education is strengthened through transparency.'
         type: card
         enabled: true
+    examlock_image:
+      - layouts/examlock.webp
   -
     id: mhkli92h
     title: 'Secure Your Assessment with ExamLock'

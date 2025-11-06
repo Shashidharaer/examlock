@@ -4,3 +4,12 @@ fields:
     import: section
   -
     import: featured_card
+  -
+    handle: home_page_card
+    field:
+      type: grid
+      display: 'Home Page Card'
+      mode: stacked
+      fields:
+        -
+          import: home_page_card

@@ -164,6 +164,11 @@ fields:
               fields:
                 -
                   import: section
+            standards_section:
+              display: 'Standards Section'
+              fields:
+                -
+                  import: standard_card
         lms:
           display: LMS
           icon: presentation-board

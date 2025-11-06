@@ -5,7 +5,7 @@ title: Home
 excerpt: 'This is the homepage powered by Statamic'
 author: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1762295059
+updated_at: 1762338779
 blocks:
   -
     id: mhl3c5xa
@@ -57,17 +57,14 @@ blocks:
     badge_icon_text: 'Our Features'
     title: 'Powerful features to boost your Security'
     description: 'ExamLock is a secure browser environment for test-taking.'
-  -
-    id: mheygna4
-    type: feature_homepage_card
-    enabled: true
-    badge_text: 'Webcam Tampering Detection'
-    title: 'Restricts tampering with webcams'
-    description: 'ExamLock restricts tampering with webcams by ensuring the camera feed remains active and unaltered throughout the exam. It prevents students from disabling, covering, or reducing the feed with fake inputs, ensuring proctors always receive a genuine, uninterrupted video stream.'
-    'book a demobutton_text': 'Book a Demo'
-    contactbutton_text: 'Contact Us'
-    card_image:
-      - images/webcam_tampering.webp
+    home_page_card:
+      -
+        id: mhlua6uh
+        badge_text: 'Webcam Tampering Detection'
+        title: 'Restricts tampering with webcams'
+        description: 'ExamLock restricts tampering with webcams by ensuring the camera feed remains active and unaltered throughout the exam. It prevents students from disabling, covering, or reducing the feed with fake inputs, ensuring proctors always receive a genuine, uninterrupted video stream.'
+        card_image:
+          - images/webcam_tampering.webp
   -
     id: mheylfx9
     show_badge: true
@@ -89,6 +86,8 @@ blocks:
         description: "ExamLock's dashboard is designed to give you everything you need at a glance. With a clean, modern interface, you can monitor."
         'book a demobutton_text': 'Book a Demo'
         contactbutton_text: 'Contact Us'
+        card_image:
+          - images/dashboard_2.webp
     badge_icon_text: Overview
     title: 'A clear and intuitive dashboard'
     description: 'Designed to be simple, intuitive, and easy to navigate, giving users instant access to essential tools and insights.'
