@@ -18,7 +18,7 @@ This serves as a fallback if no page-specific meta description is provided.
 ### 2. **Dynamic Meta Descriptions in React Pages**
 
 #### a) Entry Page
-**File:** `/resources/js/pages/entry.tsx`
+**File:** `/resources/js/pages/index.tsx`
 
 Updated the Inertia `Head` component to include dynamic meta descriptions:
 ```tsx

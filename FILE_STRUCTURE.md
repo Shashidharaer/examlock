@@ -67,7 +67,7 @@ Request → Entry Lookup → Transform → Navigation → Inertia Render
 
 ### Frontend Files
 
-#### `resources/js/pages/entry.tsx`
+#### `resources/js/pages/index.tsx`
 **Purpose**: Main page component for all entries
 
 **Structure**:
@@ -211,7 +211,7 @@ tree:
 - **New data fields**: Update `types/statamic.ts` + controller transforms
 
 #### Styling Changes
-- **Overall layout**: `pages/entry.tsx`
+- **Overall layout**: `pages/index.tsx`
 - **Navigation styling**: `navigation/*.tsx` files
 - **Block styling**: `blocks/*.tsx` files
 
