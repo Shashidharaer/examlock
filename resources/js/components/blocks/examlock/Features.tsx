@@ -36,7 +36,7 @@ const SystemLockdownFeatures: { title: string; description: string }[] = [
   {
     title: "Cross-Platform Compatibility",
     description:
-      "Works across Windows, macOS, and iOS, customized to leverage each system’s security capabilities.",
+      "Works across Windows, macOS, and iOS, customized to leverage each system's security capabilities.",
   },
   {
     title: "Regular Updates",
@@ -57,9 +57,9 @@ export default function Features() {
           className="flex flex-col text-center items-center mb-0 mt-4"
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-2 md:mt-8">
-          {SystemLockdownFeatures.map((features) => {
+          {SystemLockdownFeatures.map((features, index) => {
             return (
-              <Card className="max-w-lg mx-auto shadow-sm w-full">
+              <Card key={index} className="max-w-lg mx-auto shadow-sm w-full">
                 <CardHeader className="flex flex-col gap-3">
                   {features.title}
                   <CardDescription>{features.description}</CardDescription>

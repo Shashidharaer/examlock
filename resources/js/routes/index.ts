@@ -433,6 +433,62 @@ extensionForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 extension.form = extensionForm
 
 /**
+* @see \App\Http\Controllers\SearchController::search
+* @see app/Http/Controllers/SearchController.php:14
+* @route '/api/search'
+*/
+export const search = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: search.url(options),
+    method: 'post',
+})
+
+search.definition = {
+    methods: ["post"],
+    url: '/api/search',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\SearchController::search
+* @see app/Http/Controllers/SearchController.php:14
+* @route '/api/search'
+*/
+search.url = (options?: RouteQueryOptions) => {
+    return search.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\SearchController::search
+* @see app/Http/Controllers/SearchController.php:14
+* @route '/api/search'
+*/
+search.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: search.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\SearchController::search
+* @see app/Http/Controllers/SearchController.php:14
+* @route '/api/search'
+*/
+const searchForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: search.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\SearchController::search
+* @see app/Http/Controllers/SearchController.php:14
+* @route '/api/search'
+*/
+searchForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: search.url(options),
+    method: 'post',
+})
+
+search.form = searchForm
+
+/**
 * @see \App\Http\Controllers\Auth\RegisteredUserController::register
 * @see app/Http/Controllers/Auth/RegisteredUserController.php:21
 * @route '/register'
@@ -514,7 +570,7 @@ registerForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 register.form = registerForm
 
 /**
-* @see routes/web.php:57
+* @see routes/web.php:60
 * @route '/{slug}'
 */
 export const page = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -528,7 +584,7 @@ page.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see routes/web.php:57
+* @see routes/web.php:60
 * @route '/{slug}'
 */
 page.url = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -554,7 +610,7 @@ page.url = (args: { slug: string | number } | [slug: string | number ] | string 
 }
 
 /**
-* @see routes/web.php:57
+* @see routes/web.php:60
 * @route '/{slug}'
 */
 page.get = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -563,7 +619,7 @@ page.get = (args: { slug: string | number } | [slug: string | number ] | string 
 })
 
 /**
-* @see routes/web.php:57
+* @see routes/web.php:60
 * @route '/{slug}'
 */
 page.head = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -572,7 +628,7 @@ page.head = (args: { slug: string | number } | [slug: string | number ] | string
 })
 
 /**
-* @see routes/web.php:57
+* @see routes/web.php:60
 * @route '/{slug}'
 */
 const pageForm = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -581,7 +637,7 @@ const pageForm = (args: { slug: string | number } | [slug: string | number ] | s
 })
 
 /**
-* @see routes/web.php:57
+* @see routes/web.php:60
 * @route '/{slug}'
 */
 pageForm.get = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -590,7 +646,7 @@ pageForm.get = (args: { slug: string | number } | [slug: string | number ] | str
 })
 
 /**
-* @see routes/web.php:57
+* @see routes/web.php:60
 * @route '/{slug}'
 */
 pageForm.head = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

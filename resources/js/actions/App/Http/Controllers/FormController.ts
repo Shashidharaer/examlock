@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\FormController::submitContactForm
-* @see app/Http/Controllers/FormController.php:14
+* @see app/Http/Controllers/FormController.php:22
 * @route '/contact'
 */
 export const submitContactForm = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ submitContactForm.definition = {
 
 /**
 * @see \App\Http\Controllers\FormController::submitContactForm
-* @see app/Http/Controllers/FormController.php:14
+* @see app/Http/Controllers/FormController.php:22
 * @route '/contact'
 */
 submitContactForm.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ submitContactForm.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\FormController::submitContactForm
-* @see app/Http/Controllers/FormController.php:14
+* @see app/Http/Controllers/FormController.php:22
 * @route '/contact'
 */
 submitContactForm.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -35,7 +35,7 @@ submitContactForm.post = (options?: RouteQueryOptions): RouteDefinition<'post'> 
 
 /**
 * @see \App\Http\Controllers\FormController::submitContactForm
-* @see app/Http/Controllers/FormController.php:14
+* @see app/Http/Controllers/FormController.php:22
 * @route '/contact'
 */
 const submitContactFormForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -45,7 +45,7 @@ const submitContactFormForm = (options?: RouteQueryOptions): RouteFormDefinition
 
 /**
 * @see \App\Http\Controllers\FormController::submitContactForm
-* @see app/Http/Controllers/FormController.php:14
+* @see app/Http/Controllers/FormController.php:22
 * @route '/contact'
 */
 submitContactFormForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -57,7 +57,7 @@ submitContactForm.form = submitContactFormForm
 
 /**
 * @see \App\Http\Controllers\FormController::submitRequestDemo
-* @see app/Http/Controllers/FormController.php:52
+* @see app/Http/Controllers/FormController.php:93
 * @route '/request-demo'
 */
 export const submitRequestDemo = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -72,7 +72,7 @@ submitRequestDemo.definition = {
 
 /**
 * @see \App\Http\Controllers\FormController::submitRequestDemo
-* @see app/Http/Controllers/FormController.php:52
+* @see app/Http/Controllers/FormController.php:93
 * @route '/request-demo'
 */
 submitRequestDemo.url = (options?: RouteQueryOptions) => {
@@ -81,7 +81,7 @@ submitRequestDemo.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\FormController::submitRequestDemo
-* @see app/Http/Controllers/FormController.php:52
+* @see app/Http/Controllers/FormController.php:93
 * @route '/request-demo'
 */
 submitRequestDemo.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -91,7 +91,7 @@ submitRequestDemo.post = (options?: RouteQueryOptions): RouteDefinition<'post'> 
 
 /**
 * @see \App\Http\Controllers\FormController::submitRequestDemo
-* @see app/Http/Controllers/FormController.php:52
+* @see app/Http/Controllers/FormController.php:93
 * @route '/request-demo'
 */
 const submitRequestDemoForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -101,7 +101,7 @@ const submitRequestDemoForm = (options?: RouteQueryOptions): RouteFormDefinition
 
 /**
 * @see \App\Http\Controllers\FormController::submitRequestDemo
-* @see app/Http/Controllers/FormController.php:52
+* @see app/Http/Controllers/FormController.php:93
 * @route '/request-demo'
 */
 submitRequestDemoForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

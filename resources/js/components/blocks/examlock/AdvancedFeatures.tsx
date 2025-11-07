@@ -57,9 +57,9 @@ export default function AdvancedFeatures() {
           className="flex flex-col text-center items-center mb-0 mt-4"
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-2 md:mt-8">
-          {AdvancedThreatDetection.map((features) => {
+          {AdvancedThreatDetection.map((features, index) => {
             return (
-              <Card className="max-w-lg mx-auto shadow-sm w-full">
+              <Card key={index} className="max-w-lg mx-auto shadow-sm w-full">
                 <CardHeader className="flex flex-col gap-3">
                   {features.title}
                   <CardDescription>{features.description}</CardDescription>

@@ -1,4 +1,4 @@
-import SectionTitle from "../common/SectionTitle";
+import SectionTitle from "./SectionTitle";
 
 interface CertificateionProps {
   title?: string;

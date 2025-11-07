@@ -7,7 +7,7 @@ import TextBlock from './blocks/TextBlock';
 import QuoteBlock from './blocks/QuoteBlock';
 import ImageBlock from './blocks/ImageBlock';
 import MainContentSection from './sections/MainContentSection';
-import Certification from './layout/Certification';
+import Certification from './common/Certification';
 import WhyChooseUs from './sections/WhyChooseUs';
 import OurFeatures from './sections/OurFeatures';
 import IntegrationsSection from './sections/IntegrationsSection';
@@ -15,24 +15,24 @@ import FeatureHomepageCard from './sections/FeatureHomepageCard';
 import Overview from './sections/Overview';
 import FAQSection from './sections/FAQSection';
 import TransformBrowser from './sections/TransformBrowser';
-import Announcements from './blocks/Announcements';
+import Announcements from './common/Announcements';
 import Download from './blocks/Download';
 import Extension from './blocks/Extension';
-import Letter from './layout/Letter';
-import FAQ from './blocks/FAQ';
-import Carousel from './blocks/Carousel';
-import InfoCard from './layout/info-card';
-import Declarations from './blocks/Declarations';
-import MissionVisionCard from './blocks/MissionVisionCard';
-import GetInTouchSection from './blocks/GetInTouchSection';
+import Letter from './common/Letter';
+import FAQ from './common/FAQ';
+import Carousel from './common/Carousel';
+import InfoCard from './common/info-card';
+import Declarations from './common/Declarations';
+import MissionVisionCard from './common/MissionVisionCard';
+import GetInTouchSection from './common/GetInTouchSection';
 import SectionTitle from './common/SectionTitle';
-import OfficeSection from './blocks/OfficeSection';
+import OfficeSection from './common/OfficeSection';
 
 //examlock page blocks
 import CompatibilitySection from './blocks/examlock/CompatibiltySection';
 import Features from './blocks/examlock/Features';
 import AdvancedFeatures from './blocks/examlock/AdvancedFeatures';
-import Hero from './layout/PageHero';
+import Hero from './common/PageHero';
 
 //examlock lite page blocks
 import FocusedSection from './blocks/examlocklite/FocusedSection';
