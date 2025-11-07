@@ -115,27 +115,6 @@ fields:
               fields:
                 -
                   import: section
-            live_monitoring_card:
-              display: 'Live Monitoring Card'
-              fields: {  }
-            intrusion_prevention_card:
-              display: 'Intrusion Prevention Card'
-              fields: {  }
-            qms_card:
-              display: 'QMS Card'
-              fields: {  }
-            integrations_card:
-              display: 'Integrations Card'
-              fields: {  }
-            features:
-              display: Features
-              fields: {  }
-            advanced_features:
-              display: 'Advanced Features'
-              fields: {  }
-            other_integration_card:
-              display: 'Other Integration Card'
-              fields: {  }
         examlocklite:
           display: ExamlockLite
           icon: login-key-2
@@ -326,3 +305,41 @@ fields:
                   field:
                     type: text
                     display: 'Notification Text'
+            features_section:
+              display: 'Features Section'
+              fields:
+                -
+                  import: section
+                -
+                  handle: cards
+                  field:
+                    type: replicator
+                    display: Cards
+                    sets:
+                      cards_sets:
+                        display: 'Cards Sets'
+                        sets:
+                          cards:
+                            display: Cards
+                            fields:
+                              -
+                                import: simple_card
+            advanced_features_section:
+              display: 'Advanced Features Section'
+              fields:
+                -
+                  import: section
+                -
+                  handle: cards
+                  field:
+                    type: replicator
+                    display: Cards
+                    sets:
+                      cards_sets:
+                        display: 'Cards Sets'
+                        sets:
+                          cards:
+                            display: Cards
+                            fields:
+                              -
+                                import: simple_card

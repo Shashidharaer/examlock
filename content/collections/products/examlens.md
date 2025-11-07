@@ -2,6 +2,13 @@
 id: 03b738eb-3620-46d9-a2e4-aa7d97c33bb3
 blueprint: product
 title: Examlens
+slug: examlens
+nav_description: 'Digital power for paper-based assessments.'
+nav_icon: 'mdi:scanner'
+info_title: 'AI-Powered Answer Sheet Evaluation'
+info_description: 'Transform grading with intelligent scanning and instant feedback. ExamLens combines AI precision with educator expertise for faster, accurate assessments.'
+button_text: 'Learn More'
+button_url: '/products/examlens'
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_at: 1762349385
 blocks:

@@ -2,6 +2,13 @@
 id: 7581f235-2a50-4d78-bffb-109a540ee4e6
 blueprint: product
 title: LMS
+slug: lms
+nav_description: 'Smart learning management system with real results.'
+nav_icon: 'mdi:school'
+info_title: 'Streamline Your Learning Environment'
+info_description: 'Comprehensive learning management system that integrates seamlessly with ExamLock. Manage courses, track progress, and deliver secure assessments all in one platform.'
+button_text: 'Explore LMS'
+button_url: '/products/lms'
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_at: 1762349815
 blocks:

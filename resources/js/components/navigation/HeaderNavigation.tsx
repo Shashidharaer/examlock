@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 import { Link, usePage, router } from "@inertiajs/react";
 import { useState, useEffect, useRef } from 'react';
 import Navigation from '../ui/nav';
+import { useNavigationByHandle } from '@/components/NavigationProvider';
 import axios from 'axios';
 
 // Type for search results
@@ -27,12 +28,12 @@ export default function Header() {
     branding?: { logo?: { url?: string; alt?: string } };
   };
 
+  const headerNav = useNavigationByHandle('header');
   const logoUrl = branding?.logo?.url;
   const logoAlt = branding?.logo?.alt;
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobileProductMenuOpen, setIsMobileProductMenuOpen] =
-    useState(false);
+  const [isMobileProductMenuOpen, setIsMobileProductMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
@@ -689,69 +690,49 @@ export default function Header() {
                       : 'max-h-0 opacity-0',
                   )}
                 >
-                  <li className="hover:bg-accent hover:text-primary cursor-pointer rounded-sm px-2 py-2 pl-4">
-                    <Link
-                      href="/products/examlock"
-                      onClick={() =>
-                        setIsMobileMenuOpen(false)
-                      }
-                    >
-                      ExamLock
-                    </Link>
-                  </li>
-                  <li className="hover:bg-accent hover:text-primary cursor-pointer rounded-sm px-2 py-2 pl-4">
-                    <Link
-                      href="/products/examlock-lite"
-                      onClick={() =>
-                        setIsMobileMenuOpen(false)
-                      }
-                    >
-                      ExamLock Lite
-                    </Link>
-                  </li>
-                  <li className="hover:bg-accent hover:text-primary cursor-pointer rounded-sm px-2 py-2 pl-4">
-                    <Link
-                      href="/products/examlens"
-                      onClick={() =>
-                        setIsMobileMenuOpen(false)
-                      }
-                    >
-                      ExamLens
-                    </Link>
-                  </li>
-                  <li className="hover:bg-accent hover:text-primary cursor-pointer rounded-sm px-2 py-2 pl-4">
-                    <Link
-                      href="/products/lms"
-                      onClick={() =>
-                        setIsMobileMenuOpen(false)
-                      }
-                    >
-                      LMS
-                    </Link>
-                  </li>
+                  {(() => {
+                    // Find the Products menu item from header navigation
+                    const productsItem = headerNav?.tree?.find((item: any) => 
+                      item.title?.toLowerCase() === 'products'
+                    );
+                    
+                    // Get product children if they exist
+                    const products = productsItem?.children || [];
+                    
+                    return products.map((product: any) => (
+                      <li key={product.id} className="hover:bg-accent hover:text-primary cursor-pointer rounded-sm px-2 py-2 pl-4">
+                        <Link
+                          href={product.url || '#'}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {product.title}
+                        </Link>
+                      </li>
+                    ));
+                  })()}
                 </ul>
-                <Link
-                  href="/integration"
-                  className="border-b-1 hover:bg-accent flex cursor-pointer items-center justify-between px-4 py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Integration
-                </Link>
-                <Link
-                  href="https://examroom.ai/documentation"
-                  target='_blank'
-                  className="border-b-1 hover:bg-accent flex cursor-pointer items-center justify-between px-4 py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Docs
-                </Link>
-                <Link
-                  href="/about"
-                  className="border-b-1 hover:bg-accent flex cursor-pointer items-center justify-between px-4 py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  About Us
-                </Link>
+                {(() => {
+                  // Get navigation items excluding Products and Home
+                  const navItems = headerNav?.tree?.filter((item: any) => {
+                    const title = item.title?.toLowerCase() || '';
+                    return title !== 'products' && title !== 'home';
+                  }) || [];
+                  
+                  return navItems.map((item: any) => {
+                    const isExternal = item.url?.startsWith('http');
+                    return (
+                      <Link
+                        key={item.id}
+                        href={item.url || '#'}
+                        target={isExternal ? '_blank' : undefined}
+                        className="border-b-1 hover:bg-accent flex cursor-pointer items-center justify-between px-4 py-2"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.title}
+                      </Link>
+                    );
+                  });
+                })()}
 
                 {/* Contact Button */}
                 <div className="mt-4 flex w-full justify-center gap-2">

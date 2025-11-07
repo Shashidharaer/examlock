@@ -1,4 +1,6 @@
 title: Header
 collections:
-  - products
   - pages
+  - products
+max_depth: 3
+root: true
