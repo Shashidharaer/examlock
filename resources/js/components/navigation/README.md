@@ -221,7 +221,7 @@ function CustomNavigation() {
 Navigation data is automatically provided to all Statamic entry pages:
 
 ```tsx
-// In entry.tsx
+// In index.tsx
 export default function Entry({ entry, navigation }) {
     return (
         <NavigationProvider navigation={navigation}>

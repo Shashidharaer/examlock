@@ -129,7 +129,7 @@ Edit: `content/collections/pages/home.md`
 
 ## 🎨 Customizing Display
 
-All entries use: `resources/js/pages/entry.tsx`
+All entries use: `resources/js/pages/index.tsx`
 
 To customize the homepage specifically:
 ```tsx

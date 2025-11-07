@@ -37,7 +37,7 @@ class StatamicEntryController extends Controller
         $navigationData = $this->getNavigationData();
 
         // Render with Inertia
-        return Inertia::render('entry', [
+        return Inertia::render('index', [
             'entry' => $entryData,
             'navigation' => $navigationData,
             'branding' => $this->getBrandingData(),
@@ -54,7 +54,7 @@ class StatamicEntryController extends Controller
         // Get navigation data
         $navigationData = $this->getNavigationData();
         
-        return Inertia::render('entry', [
+        return Inertia::render('index', [
             'entry' => $entryData,
             'navigation' => $navigationData,
             'branding' => $this->getBrandingData(),
