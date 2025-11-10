@@ -24,6 +24,7 @@ class FormController extends Controller
         // Validate the form data
         $validated = $request->validate([
             'phone' => 'required|string',
+            'country_code' => 'required|string',
             'email' => 'required|email',
             'your_address' => 'required|string',
         ]);
@@ -33,11 +34,14 @@ class FormController extends Controller
             return back()->with('success', 'Thank you for your submission!');
         }
 
+        // Combine country code and phone number
+        $fullPhone = $validated['country_code'] . ' ' . $validated['phone'];
+
         // Submit to HubSpot
         try {
             $hubspotFields = [
                 'email' => $validated['email'],
-                'phone' => $validated['phone'],
+                'phone' => $fullPhone,
                 'message' => $validated['your_address'],
             ];
 
@@ -70,9 +74,13 @@ class FormController extends Controller
         $form = Form::find('contact_us');
 
         if ($form) {
-            // Create a submission in Statamic
+            // Create a submission in Statamic with full phone number
+            $submissionData = array_merge($validated, [
+                'phone' => $fullPhone
+            ]);
+            
             $submission = $form->makeSubmission();
-            $submission->data($validated);
+            $submission->data($submissionData);
             $submission->save();
 
             // Send any configured emails

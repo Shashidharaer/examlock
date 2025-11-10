@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { Icon } from '@iconify/react';
-import { Form } from '@inertiajs/react';
+import { Form, usePage } from '@inertiajs/react';
+import { useEffect, useRef, useState } from 'react';
+import CountryCodeSelector from '@/components/ui/country-code-selector';
 
 interface GetInTouchSectionProps {
     badge_text?: string;
@@ -15,8 +17,54 @@ export default function GetInTouchSection({
     badge_text,
     description,
 }: GetInTouchSectionProps) {
+    const sectionRef = useRef<HTMLElement>(null);
+    const page = usePage<any>();
+    const successMessage = page.props.success as string | undefined;
+    const [countryCode, setCountryCode] = useState('+1');
+    const [selectedCountry, setSelectedCountry] = useState('US');
+    const [phoneNumber, setPhoneNumber] = useState('');
+
+    const handleCountryChange = (dialCode: string, countryCode: string) => {
+        setCountryCode(dialCode);
+        setSelectedCountry(countryCode);
+    };
+    
+    // Debug: log to see what we're getting
+    useEffect(() => {
+        console.log('Page props:', page.props);
+        console.log('Success message:', successMessage);
+    }, [page.props, successMessage]);
+
+    // Preserve scroll position on form submission
+    useEffect(() => {
+        const handleStart = () => {
+            if (sectionRef.current) {
+                sessionStorage.setItem('contactFormScrollY', window.scrollY.toString());
+            }
+        };
+        
+        const handleFinish = () => {
+            const savedScroll = sessionStorage.getItem('contactFormScrollY');
+            if (savedScroll) {
+                // Use setTimeout to ensure DOM has updated
+                setTimeout(() => {
+                    window.scrollTo(0, parseInt(savedScroll, 10));
+                    sessionStorage.removeItem('contactFormScrollY');
+                }, 0);
+            }
+        };
+
+        document.addEventListener('inertia:start', handleStart);
+        document.addEventListener('inertia:finish', handleFinish);
+
+        return () => {
+            document.removeEventListener('inertia:start', handleStart);
+            document.removeEventListener('inertia:finish', handleFinish);
+        };
+    }, []);
+
     return (
-        <section className="mx-auto my-10 w-full max-w-7xl px-4 md:my-20 xl:px-0">
+        <section ref={sectionRef} className="mx-auto my-10 w-full max-w-7xl px-4 md:my-20 xl:px-0">
             <div className="flex flex-col-reverse md:flex-row-reverse items-center gap-8 rounded-2xl bg-white p-6 md:gap-12 md:p-10 lg:p-14">
                 <img
                     src={card_image?`/storage/${card_image}`:''}
@@ -46,33 +94,44 @@ export default function GetInTouchSection({
                         action="/contact"
                         method="post"
                         className="mt-6"
-                        resetOnSuccess={true}
                     >
-                        {({ processing, errors, wasSuccessful }) => (
+                        {({ processing, errors }) => (
                             <>
-                                {wasSuccessful ? (
+                                {successMessage ? (
                                     <div className="mt-6 rounded-md bg-green-50 p-4 text-green-700">
-                                        Thank you for your message! We'll be in
-                                        touch soon.
+                                        Thank you for your message! We'll be in touch soon.
                                     </div>
                                 ) : (
-                                    <>
-                                        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                                <>
+                                        <div className="flex flex-col md:flex-row gap-2">
                                             <div>
-                                                <input
-                                                    type="tel"
-                                                    name="phone"
-                                                    placeholder="Phone"
-                                                    defaultValue=""
-                                                    className="w-full rounded border p-2 text-sm md:text-base"
-                                                />
+                                                <div className="flex">
+                                                    <CountryCodeSelector
+                                                        value={countryCode}
+                                                        selectedCountryCode={selectedCountry}
+                                                        onChange={handleCountryChange}
+                                                    />
+                                                    <input
+                                                        type="tel"
+                                                        name="phone"
+                                                        placeholder="Phone number"
+                                                        value={phoneNumber}
+                                                        onChange={(e) => setPhoneNumber(e.target.value)}
+                                                        className="flex-1 rounded-r border p-2 text-sm md:text-base"
+                                                    />
+                                                    <input
+                                                        type="hidden"
+                                                        name="country_code"
+                                                        value={countryCode}
+                                                    />
+                                                </div>
                                                 {errors.phone && (
                                                     <div className="mt-1 text-xs text-red-500">
                                                         {errors.phone}
                                                     </div>
                                                 )}
                                             </div>
-                                            <div>
+                                            <div className="flex-1">
                                                 <input
                                                     type="email"
                                                     name="email"

@@ -43,10 +43,6 @@ export default function Navigation() {
     console.error('No header navigation data found:', headerNav);
     return null;
   }
-  
-  // Debug: Log navigation data
-  console.log('Header Navigation:', headerNav);
-  console.log('Header Nav Tree:', headerNav.tree);
 
   // Find navigation items from Statamic by title (not id, since CP uses UUIDs)
   const productsNav = headerNav.tree.find((item) => item.title.toLowerCase() === 'products');
