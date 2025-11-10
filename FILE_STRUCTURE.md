@@ -34,7 +34,7 @@ examlock/
         │       ├── 📄 FooterNavigation.tsx
         │       └── 📄 StatamicNav.tsx
         ├── 📁 pages/                # Page components
-        │   └── 📄 entry.tsx         # Main entry page
+        │   └── 📄 index.tsx         # Main entry page
         └── 📁 types/                # TypeScript definitions
             └── 📄 statamic.ts       # Statamic type definitions
 ```
@@ -67,7 +67,7 @@ Request → Entry Lookup → Transform → Navigation → Inertia Render
 
 ### Frontend Files
 
-#### `resources/js/pages/entry.tsx`
+#### `resources/js/pages/index.tsx`
 **Purpose**: Main page component for all entries
 
 **Structure**:
@@ -180,7 +180,7 @@ tree:
 ```
 1. routes/web.php → Route matching
 2. StatamicEntryController.php → Data processing
-3. entry.tsx → Page rendering
+3. index.tsx → Page rendering
 4. BlockRenderer.tsx → Block processing
 5. Block components → Individual rendering
 ```
@@ -196,7 +196,7 @@ tree:
 ### Block Flow
 ```
 1. StatamicEntryController.php → transformEntry()
-2. entry.tsx → Block data passed
+2. index.tsx → Block data passed
 3. BlockRenderer.tsx → Type mapping
 4. Block components → Individual rendering
 ```
@@ -211,7 +211,7 @@ tree:
 - **New data fields**: Update `types/statamic.ts` + controller transforms
 
 #### Styling Changes
-- **Overall layout**: `pages/entry.tsx`
+- **Overall layout**: `pages/index.tsx`
 - **Navigation styling**: `navigation/*.tsx` files
 - **Block styling**: `blocks/*.tsx` files
 
@@ -223,11 +223,13 @@ tree:
 ### File Dependencies
 
 ```
+```
 StatamicEntryController.php
     ↓ (provides data)
-entry.tsx
+index.tsx
     ↓ (uses)
 NavigationProvider.tsx + BlockRenderer.tsx
+```
     ↓ (renders)
 Navigation components + Block components
 ```

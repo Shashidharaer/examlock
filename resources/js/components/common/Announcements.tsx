@@ -1,5 +1,5 @@
 import SectionTitle from '@/components/common/SectionTitle';
-import AnnouncementCard from '@/components/layout/AnnoucementCard';
+import AnnouncementCard from '@/components/common/AnnoucementCard';
 
 interface AnnouncementCardProps {
     annoucement_card?: [

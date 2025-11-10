@@ -2,67 +2,50 @@ import SectionTitle from "@/components/common/SectionTitle";
 import { Card, CardDescription, CardHeader } from "@/components/ui/card";
 import { Icon } from "@iconify/react";
 
-const AdvancedThreatDetection: { title: string; description: string }[] = [
-  {
-    title: "IP Address Tracking",
-    description:
-      "Pinpoints student locations and flags irregularities in real time.",
-  },
-  {
-    title: "Obscuring Text",
-    description:
-      "Protects sensitive content from being captured or read by external viewers or tools.",
-  },
-  {
-    title: "Screen Recording Detection",
-    description:
-      "Identifies and blocks all screen recording attempts during the test.",
-  },
-  {
-    title: "Spyware Detection",
-    description:
-      "Monitors for hidden applications or background tools attempting to breach security.",
-  },
-  {
-    title: "Screencast / Screen Mirroring Block",
-    description:
-      "Detects and stops screen sharing and mirroring across devices.",
-  },
-  {
-    title: "AI / GPT Extension  Detection",
-    description:
-      "Flags use of AI writing tools and browser-based GPT extensions during active assessments.",
-  },
-  {
-    title: "Plagiarism Detection",
-    description:
-      "Compares real-time student responses against extensive databases and web sources, instantly flagging copied or paraphrased content.",
-  },
-  {
-    title: "Web-Scraper Defense",
-    description:
-      "ExamLock monitors online platforms for test content leaks across Web2 (including the Dark Web) and selectively on Web3 to detect potential content breaches and enable immediate action.",
-  },
-];
+interface AdvancedFeatureCard {
+  id?: string;
+  card_title?: string;
+  card_description?: string;
+  type?: string;
+  enabled?: boolean;
+}
 
-export default function AdvancedFeatures() {
+interface AdvancedFeaturesProps {
+  id?: string;
+  badge_icon_text?: string;
+  title?: string;
+  show_badge?: boolean;
+  type?: string;
+  enabled?: boolean;
+  cards?: AdvancedFeatureCard[];
+}
+
+export default function AdvancedFeatures({ 
+  badge_icon_text, 
+  title, 
+  show_badge = true, 
+  cards = [] 
+}: AdvancedFeaturesProps) {
+  // Filter only enabled cards
+  const enabledCards = cards.filter(card => card.enabled);
+
   return (
      <section className="mx-auto w-full max-w-7xl my-10 md:my-20 px-4 xl:px-0">
         <SectionTitle
-          title="Advanced Threat Detection"
+          title={title}
           badgeIcon={
-            <Icon icon="gg:loadbar-doc" className="w-4 h-4 text-white" />
+            show_badge ? <Icon icon="gg:loadbar-doc" className="w-4 h-4 text-white" /> : undefined
           }
-          badgeTitle="Advanced features"
+          badgeTitle={badge_icon_text}
           className="flex flex-col text-center items-center mb-0 mt-4"
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-2 md:mt-8">
-          {AdvancedThreatDetection.map((features) => {
+          {enabledCards.map((feature) => {
             return (
-              <Card className="max-w-lg mx-auto shadow-sm w-full">
+              <Card key={feature.id} className="max-w-lg mx-auto shadow-sm w-full">
                 <CardHeader className="flex flex-col gap-3">
-                  {features.title}
-                  <CardDescription>{features.description}</CardDescription>
+                  {feature.card_title}
+                  <CardDescription>{feature.card_description}</CardDescription>
                 </CardHeader>
               </Card>
             );

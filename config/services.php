@@ -35,4 +35,17 @@ return [
         ],
     ],
 
+    'hubspot' => [
+        'api_key' => env('HUBSPOT_API_KEY'),
+        'portal_id' => env('HUBSPOT_PORTAL_ID'),
+        'forms' => [
+            'contact' => env('HUBSPOT_CONTACT_FORM_GUID'),
+            'demo' => env('HUBSPOT_DEMO_FORM_GUID'),
+        ],
+        'lists' => [
+            'demo_requests' => env('HUBSPOT_DEMO_REQUEST_LIST_ID'),
+            'contact_us' => env('HUBSPOT_CONTACT_US_LIST_ID'),
+        ],
+    ],
+
 ];

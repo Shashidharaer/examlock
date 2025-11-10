@@ -100,7 +100,7 @@ index.form = indexForm
 
 /**
 * @see \Statamic\Http\Controllers\CP\Taxonomies\TermsController::create
-* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:222
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:224
 * @route '/cp/taxonomies/{taxonomy}/terms/create/{site}'
 */
 export const create = (args: { taxonomy: string | number, site: string | number } | [taxonomy: string | number, site: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -115,7 +115,7 @@ create.definition = {
 
 /**
 * @see \Statamic\Http\Controllers\CP\Taxonomies\TermsController::create
-* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:222
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:224
 * @route '/cp/taxonomies/{taxonomy}/terms/create/{site}'
 */
 create.url = (args: { taxonomy: string | number, site: string | number } | [taxonomy: string | number, site: string | number ], options?: RouteQueryOptions) => {
@@ -141,7 +141,7 @@ create.url = (args: { taxonomy: string | number, site: string | number } | [taxo
 
 /**
 * @see \Statamic\Http\Controllers\CP\Taxonomies\TermsController::create
-* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:222
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:224
 * @route '/cp/taxonomies/{taxonomy}/terms/create/{site}'
 */
 create.get = (args: { taxonomy: string | number, site: string | number } | [taxonomy: string | number, site: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -151,7 +151,7 @@ create.get = (args: { taxonomy: string | number, site: string | number } | [taxo
 
 /**
 * @see \Statamic\Http\Controllers\CP\Taxonomies\TermsController::create
-* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:222
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:224
 * @route '/cp/taxonomies/{taxonomy}/terms/create/{site}'
 */
 create.head = (args: { taxonomy: string | number, site: string | number } | [taxonomy: string | number, site: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -161,7 +161,7 @@ create.head = (args: { taxonomy: string | number, site: string | number } | [tax
 
 /**
 * @see \Statamic\Http\Controllers\CP\Taxonomies\TermsController::create
-* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:222
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:224
 * @route '/cp/taxonomies/{taxonomy}/terms/create/{site}'
 */
 const createForm = (args: { taxonomy: string | number, site: string | number } | [taxonomy: string | number, site: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -171,7 +171,7 @@ const createForm = (args: { taxonomy: string | number, site: string | number } |
 
 /**
 * @see \Statamic\Http\Controllers\CP\Taxonomies\TermsController::create
-* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:222
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:224
 * @route '/cp/taxonomies/{taxonomy}/terms/create/{site}'
 */
 createForm.get = (args: { taxonomy: string | number, site: string | number } | [taxonomy: string | number, site: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -181,7 +181,7 @@ createForm.get = (args: { taxonomy: string | number, site: string | number } | [
 
 /**
 * @see \Statamic\Http\Controllers\CP\Taxonomies\TermsController::create
-* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:222
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:224
 * @route '/cp/taxonomies/{taxonomy}/terms/create/{site}'
 */
 createForm.head = (args: { taxonomy: string | number, site: string | number } | [taxonomy: string | number, site: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -198,7 +198,7 @@ create.form = createForm
 
 /**
 * @see \Statamic\Http\Controllers\CP\Taxonomies\TermsController::store
-* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:277
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:279
 * @route '/cp/taxonomies/{taxonomy}/terms/{site}'
 */
 export const store = (args: { taxonomy: string | number, site: string | number } | [taxonomy: string | number, site: string | number ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -213,7 +213,7 @@ store.definition = {
 
 /**
 * @see \Statamic\Http\Controllers\CP\Taxonomies\TermsController::store
-* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:277
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:279
 * @route '/cp/taxonomies/{taxonomy}/terms/{site}'
 */
 store.url = (args: { taxonomy: string | number, site: string | number } | [taxonomy: string | number, site: string | number ], options?: RouteQueryOptions) => {
@@ -239,7 +239,7 @@ store.url = (args: { taxonomy: string | number, site: string | number } | [taxon
 
 /**
 * @see \Statamic\Http\Controllers\CP\Taxonomies\TermsController::store
-* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:277
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:279
 * @route '/cp/taxonomies/{taxonomy}/terms/{site}'
 */
 store.post = (args: { taxonomy: string | number, site: string | number } | [taxonomy: string | number, site: string | number ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -249,7 +249,7 @@ store.post = (args: { taxonomy: string | number, site: string | number } | [taxo
 
 /**
 * @see \Statamic\Http\Controllers\CP\Taxonomies\TermsController::store
-* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:277
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:279
 * @route '/cp/taxonomies/{taxonomy}/terms/{site}'
 */
 const storeForm = (args: { taxonomy: string | number, site: string | number } | [taxonomy: string | number, site: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -259,7 +259,7 @@ const storeForm = (args: { taxonomy: string | number, site: string | number } | 
 
 /**
 * @see \Statamic\Http\Controllers\CP\Taxonomies\TermsController::store
-* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:277
+* @see vendor/statamic/cms/src/Http/Controllers/CP/Taxonomies/TermsController.php:279
 * @route '/cp/taxonomies/{taxonomy}/terms/{site}'
 */
 storeForm.post = (args: { taxonomy: string | number, site: string | number } | [taxonomy: string | number, site: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

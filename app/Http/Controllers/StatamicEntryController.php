@@ -37,7 +37,7 @@ class StatamicEntryController extends Controller
         $navigationData = $this->getNavigationData();
 
         // Render with Inertia
-        return Inertia::render('entry', [
+        return Inertia::render('index', [
             'entry' => $entryData,
             'navigation' => $navigationData,
             'branding' => $this->getBrandingData(),
@@ -54,7 +54,7 @@ class StatamicEntryController extends Controller
         // Get navigation data
         $navigationData = $this->getNavigationData();
         
-        return Inertia::render('entry', [
+        return Inertia::render('index', [
             'entry' => $entryData,
             'navigation' => $navigationData,
             'branding' => $this->getBrandingData(),
@@ -114,6 +114,7 @@ class StatamicEntryController extends Controller
                 $handle = $nav->handle();
                 \Log::info("Processing navigation: {$handle}");
                 
+                // Transform Statamic's navigation structure
                 $transformed = $this->transformNavigation($nav);
                 $navigationData[$handle] = $transformed;
                 
@@ -241,37 +242,55 @@ class StatamicEntryController extends Controller
             
             foreach ($tree as $item) {
                 try {
+                    // Check if this is a direct URL/manual navigation item or an entry reference
                     $itemId = $item['id'] ?? null;
                     $entryId = $item['entry'] ?? null;
+                    $itemUrl = $item['url'] ?? null;
+                    $itemTitle = $item['title'] ?? null;
                     
-                    if (!$entryId) {
-                        \Log::warning("Navigation item {$itemId} has no entry reference");
+                    // Handle manual navigation items (with title, may or may not have URL)
+                    if (!$entryId && $itemTitle) {
+                        $navItem = [
+                            'id' => $itemId,
+                            'title' => $itemTitle,
+                            'url' => $itemUrl ?? '#',
+                            'data' => $item['data'] ?? null,
+                            'children' => isset($item['children']) && is_array($item['children']) 
+                                ? $this->transformNavTree($item['children']) 
+                                : [],
+                        ];
+                        
+                        $transformed[] = $navItem;
+                        \Log::info("Manual navigation item added: {$itemTitle}");
                         continue;
                     }
                     
-                    // Find the entry
-                    $entry = \Statamic\Facades\Entry::find($entryId);
-                    
-                    if (!$entry) {
-                        \Log::warning("Navigation item {$itemId} references non-existent entry: {$entryId}");
-                        continue;
-                    }
-                    
-                    $transformed[] = [
-                        'id' => $itemId,
-                        'title' => $entry->value('title'),
-                        'url' => $entry->url(),
-                        'entry_data' => [
-                            'id' => $entry->id(),
-                            'slug' => $entry->slug(),
-                            'collection' => $entry->collectionHandle(),
-                            'published' => $entry->published(),
+                    // Handle entry-based navigation items
+                    if ($entryId) {
+                        // Find the entry
+                        $entry = \Statamic\Facades\Entry::find($entryId);
+                        
+                        if (!$entry) {
+                            \Log::warning("Navigation item {$itemId} references non-existent entry: {$entryId}");
+                            continue;
+                        }
+                        
+                        $navItem = [
+                            'id' => $itemId,
+                            'title' => $entry->value('title'),
+                            'url' => $entry->url(),
                             'data' => $entry->data()->all(),
-                        ],
-                        'children' => [], // Handle children if needed later
-                    ];
+                            'children' => isset($item['children']) && is_array($item['children']) 
+                                ? $this->transformNavTree($item['children']) 
+                                : [],
+                        ];
+                        
+                        $transformed[] = $navItem;
+                        \Log::info("Entry-based navigation item '{$entry->value('title')}' linked to entry: {$entry->id()}");
+                        continue;
+                    }
                     
-                    \Log::info("Navigation item '{$entry->value('title')}' linked to entry: {$entry->id()}");
+                    \Log::warning("Navigation item {$itemId} has neither entry reference nor manual URL/title");
                     
                 } catch (\Exception $e) {
                     \Log::error("Error transforming navigation item: " . $e->getMessage());
@@ -279,6 +298,7 @@ class StatamicEntryController extends Controller
                 }
             }
             
+            \Log::info("Transformed " . count($transformed) . " navigation items");
             return $transformed;
         } catch (\Exception $e) {
             \Log::error("Error transforming navigation tree: " . $e->getMessage());

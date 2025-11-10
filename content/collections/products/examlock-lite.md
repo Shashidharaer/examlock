@@ -2,6 +2,13 @@
 id: c64fd066-0dda-4614-8ab4-47d76c03d7cb
 blueprint: product
 title: ExamlockLite
+slug: examlock-lite
+nav_description: 'Browser extension for secure assessments.'
+nav_icon: 'mdi:puzzle'
+info_title: 'Lock Down Exams with Confidence'
+info_description: 'ExamLock Lite Browser Extension offers a secure and controlled environment for online assessments ensuring academic integrity with every click.'
+button_text: 'Get Extension'
+button_url: '/extension'
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_at: 1762343325
 blocks:

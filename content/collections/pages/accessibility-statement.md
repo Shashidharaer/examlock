@@ -4,7 +4,7 @@ blueprint: pages
 title: 'Accessibility Statement'
 author: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1762353424
+updated_at: 1762771418
 blocks:
   -
     id: mhkrpqph
@@ -20,7 +20,6 @@ blocks:
     show_extension_button: false
   -
     id: mhm3pqwn
-    badge_title: 'Accessibility Statement'
     description: |-
       ExamLock is committed to providing an accessible website to all of our users and clients, regardless of technology or ability. We are constantly working to increase the accessibility of our website and observe to standards and guidelines to maintain accessibility.
       We adhere to and follow the guidelines put in place by the Web Content Accessibility Guidelines 2.0 put in place by the World Wide Web Consortium (W3C). These guidelines explain how to make web access and content more accessible for people with disabilities.

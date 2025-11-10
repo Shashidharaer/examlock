@@ -20,7 +20,7 @@ export default function HeroSection({ heading, description, buttons }: HeroSecti
           {description}
         </p>
         <div className="flex gap-4 justify-center">
-          <div className="w-fit">
+          <div className="w-[150px]">
             <RequestDemo />
           </div>
           <a href={buttons?.secondary_btn_link} rel="noopener noreferrer">

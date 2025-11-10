@@ -4,7 +4,7 @@ blueprint: pages
 title: Integration
 author: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1762338902
+updated_at: 1762423550
 blocks:
   -
     id: mhkgl9im
@@ -82,6 +82,8 @@ blocks:
         enabled: true
     type: info_card
     enabled: true
+    card_image:
+      - products/integration.webp
   -
     id: mhkjtre1
     badge_title: 'xAPI (Experience API)'
@@ -116,6 +118,8 @@ blocks:
         enabled: true
     type: info_card
     enabled: true
+    card_image:
+      - integration/xapi.webp
   -
     id: mhkk2ovk
     badge_title: SCORM
@@ -125,6 +129,8 @@ blocks:
     centered: true
     type: info_card
     enabled: true
+    card_image:
+      - integration/scorm.webp
   -
     id: mhkkbqya
     badge_title: cmi5
@@ -153,6 +159,8 @@ blocks:
         enabled: true
     type: info_card
     enabled: true
+    card_image:
+      - integration/cmi5.webp
   -
     id: mhkkfhge
     badge_title: 'H5P (HTML5 Package)'
@@ -205,6 +213,8 @@ blocks:
         enabled: true
     type: info_card
     enabled: true
+    card_image:
+      - integration/h5p.webp
   -
     id: mhkkji97
     title: 'Connect Securely and Scale Easily'

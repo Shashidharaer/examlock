@@ -30,7 +30,7 @@ export default function Hero({
     <div className="w-full py-20 text-center bg-linear-to-t from-white to-transparent px-4 xl:px-0 mb-0">
       <SectionTitle
         badgeTitle={badge_text ? badge_text : 'No Badge Provided'}
-        description={description ? description : 'No Description Provided'}
+        description={description}
         badgeIcon={show_badge}
       >
         <span className="text-black">{heading?.text_in_black}</span><br/>
@@ -38,7 +38,7 @@ export default function Hero({
       </SectionTitle>
       <div className="mt-6 flex justify-center gap-4 mx-auto">
         {(show_book_a_demo_button !== false) && ( 
-        <div className="w-fit">
+        <div className="w-[150px]">
           <RequestDemo />
         </div>)}
         {show_contact_button && (<a href="/contact">

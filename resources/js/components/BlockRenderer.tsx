@@ -1,90 +1,78 @@
 import { type StatamicBlock } from '@/types/statamic';
-
-// Import all block components
-import NotificationBanner from './sections/NotificationBanner';
-import HeroSection from './sections/HeroSection';
-import TextBlock from './blocks/TextBlock';
-import QuoteBlock from './blocks/QuoteBlock';
+import Extension from './blocks/Extension';
+import Download from './blocks/Download';
 import ImageBlock from './blocks/ImageBlock';
+import QuoteBlock from './blocks/QuoteBlock';
+
+// Import landing page block components
+import HeroSection from './sections/HeroSection';
 import MainContentSection from './sections/MainContentSection';
-import Certification from './layout/Certification';
 import WhyChooseUs from './sections/WhyChooseUs';
 import OurFeatures from './sections/OurFeatures';
-import IntegrationsSection from './sections/IntegrationsSection';
 import FeatureHomepageCard from './sections/FeatureHomepageCard';
+import TextBlock from './blocks/TextBlock';
+import IntegrationsSection from './sections/IntegrationsSection';
 import Overview from './sections/Overview';
 import FAQSection from './sections/FAQSection';
 import TransformBrowser from './sections/TransformBrowser';
-import Resources from './blocks/Resources';
-import PrivacyPolicy from './blocks/PrivacyPolicy';
-import AccessibilityStatement from './blocks/AccessibilityStatement';
-import Announcements from './blocks/Announcements';
-import Compliance from './blocks/Compliance';
-import CookiesPolicy from './blocks/CookiesPolicy';
-import DataPrivacy from './blocks/DataPrivacy';
-import Gdpr from './blocks/Gdpr';
-import Ferpa from './blocks/Ferpa';
-import Download from './blocks/Download';
-import Extension from './blocks/Extension';
-import Letter from './layout/Letter';
-import FAQ from './blocks/FAQ';
-import Carousel from './blocks/Carousel';
-import InfoCard from './layout/info-card';
-import Declarations from './blocks/Declarations';
-import MissionVisionCard from './blocks/MissionVisionCard';
-import GetInTouchSection from './blocks/GetInTouchSection';
-import SectionTitle from './common/SectionTitle';
-import OfficeSection from './blocks/OfficeSection';
 
-//examlock page blocks
-import CompatibilitySection from './blocks/examlock/CompatibiltySection';
-import LiveMonitoringCard from './blocks/examlock/LiveMonitoringCard';
-import IntrusionPreventionCard from './blocks/examlock/IntrusionPreventionCard';
-import QmsCard from './blocks/examlock/QmsCard';
+// Other common components
+import Hero from './common/PageHero';
+import Letter from './common/Letter';
+import Certification from './common/Certification';
+import FAQ from './common/FAQ';
+import Carousel from './common/Carousel';
+import InfoCard from './common/info-card';
+import Declarations from './common/Declarations';
+import MissionVisionCard from './common/MissionVisionCard';
+import GetInTouchSection from './common/GetInTouchSection';
+import SectionTitle from './common/SectionTitle';
+import OfficeSection from './common/OfficeSection';
+import Announcements from './common/Announcements';
+import NotificationBanner from './sections/NotificationBanner';
 import Features from './blocks/examlock/Features';
 import AdvancedFeatures from './blocks/examlock/AdvancedFeatures';
-import OtherIntegrationCard from './blocks/examlock/OtherIntegrationCard';
-import Hero from './layout/PageHero';
 
-//examlock lite page blocks
+//examlock page blocks components
+import CompatibilitySection from './blocks/examlock/CompatibiltySection';
+
+//examlock lite page blocks components
 import FocusedSection from './blocks/examlocklite/FocusedSection';
 import IntelligentMonitoring from './blocks/examlocklite/IntelligentMonitoring';
 
-//examlens page blocks
+//examlens page blocks components
 import WhyPaper from './blocks/examlens/WhyPaper';
 import StandardsCard from './blocks/examlens/StandardsCard';
 
-//lms page blocks
+//lms page blocks components
 import CardsSection from './blocks/lms/CardsSection';
 import CardWithAccordion from './blocks/lms/CardWithAccordion';
 
 // Block component registry
 const blockComponents = {
-    notification_banner: NotificationBanner,
-    hero_section: HeroSection,
-    text_block: TextBlock,
-    quote_block: QuoteBlock,
+    // Basic blocks
+    extension: Extension,
+    download: Download,
     image_block: ImageBlock,
+    quote_block: QuoteBlock,
+    text_block: TextBlock,
+
+    // Landing page sections
+    hero_section: HeroSection,
     main_content_section: MainContentSection,
-    certification: Certification,
     why_choose_us: WhyChooseUs,
+    our_features: OurFeatures,
     feature_homepage_card: FeatureHomepageCard,
     integration_section: IntegrationsSection,
     overview_section: Overview,
     faq_section: FAQSection,
     stats_section: TransformBrowser,
-    resources: Resources,
-    our_features: OurFeatures,
-    privacy_policy: PrivacyPolicy,
-    accessibility_statement: AccessibilityStatement,
-    annoucement_section: Announcements,
-    compliance: Compliance,
-    cookies_policy: CookiesPolicy,
-    data_privacy: DataPrivacy,
-    gdpr: Gdpr,
-    ferpa: Ferpa,
-    download: Download,
-    extension: Extension,
+
+    // Common components
+    page_hero: Hero,
+    letter_section: Letter,
+    certification: Certification,
+    faq: FAQ,
     carousel_section: Carousel,
     info_card: InfoCard,
     declaration_section: Declarations,
@@ -92,31 +80,23 @@ const blockComponents = {
     get_in_touch_section: GetInTouchSection,
     simple_section: SectionTitle,
     office_section: OfficeSection,
+    annoucement_section: Announcements,
+    notification_banner: NotificationBanner,
 
-    // Product pages
-    page_hero: Hero,
-    
-
-    //examlock page blocks
+    // ExamLock page blocks
+    features_section: Features,
+    advanced_features_section: AdvancedFeatures,
     compatibility: CompatibilitySection,
-    live_monitoring_card: LiveMonitoringCard,
-    intrusion_prevention_card: IntrusionPreventionCard,
-    qms_card: QmsCard,
-    features: Features,
-    advanced_features: AdvancedFeatures,
-    other_integration_card: OtherIntegrationCard,
-    letter_section: Letter,
 
-    //examlock lite page blocks
+    // ExamLock Lite page blocks
     focused_section: FocusedSection,
     intelligent_monitoring: IntelligentMonitoring,
-    faq: FAQ,
 
-    //examlens page blocks
+    // ExamLens page blocks
     why_paper: WhyPaper,
     standards_section: StandardsCard,
 
-    //lms page blocks
+    // LMS page blocks
     cards_section: CardsSection,
     card_with_accordion: CardWithAccordion,
 

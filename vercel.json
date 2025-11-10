@@ -19,6 +19,7 @@
           "config/**",
           "routes/**",
           "storage/app/.gitignore",
+          "storage/app/public/**",
           "storage/framework/.gitignore",
           "storage/logs/.gitignore",
           "resources/views/**",
@@ -40,6 +41,10 @@
     {
       "src": "/assets/(.*)",
       "dest": "/assets/$1"
+    },
+    {
+      "src": "/storage/(.*)",
+      "dest": "/storage/$1"
     },
     {
       "src": "/(favicon\\.ico|robots\\.txt|logo\\.svg|apple-touch-icon\\.png)",

@@ -1,13 +1,30 @@
 import { Icon } from '@iconify/react';
-import { usePage } from '@inertiajs/react';
+import { usePage, Link } from '@inertiajs/react';
+import { useFooterNavigation } from '@/components/NavigationProvider';
 
 export default function Footer() {
   const { branding } = usePage().props as {
     branding?: { logo?: { url?: string; alt?: string } };
   };
 
+  const footerNav = useFooterNavigation();
   const logoUrl = branding?.logo?.url;
   const logoAlt = branding?.logo?.alt || 'Logo';
+
+  // Categorize navigation items
+  const pagesItems = footerNav?.tree?.filter((item: any) => {
+    const title = item.title?.toLowerCase() || '';
+    return ['about', 'docs', 'raise', 'announcements', 'status', 'contact'].some(keyword => 
+      title.includes(keyword)
+    );
+  }) || [];
+
+  const privacyItems = footerNav?.tree?.filter((item: any) => {
+    const title = item.title?.toLowerCase() || '';
+    return ['privacy', 'accessibility', 'cookies', 'data', 'ferpa', 'gdpr', 'compliance'].some(keyword => 
+      title.includes(keyword)
+    );
+  }) || [];
 
   return (
     <footer className="mt-10 pb-8 md:mt-20">
@@ -42,60 +59,25 @@ export default function Footer() {
               Pages
             </h3>
             <ul className="space-y-3">
-              <li>
-                <a
-                  href="/about"
-                  className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
-                >
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://examroom.ai/documentation"
-                  className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
-                >
-                  Docs
-                </a>
-              </li>
-              <li>
-                <li>
-                <a
-                  href="https://examroom.atlassian.net/servicedesk/customer/portals"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm md:text-base font-light text-gray-600 hover:text-primary transition-colors"
-                >
-                  Raise a ticket
-                </a>
-              </li>
-              </li>
-              <li>
-                <a
-                  href="/announcements"
-                  className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
-                >
-                  Announcements
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://services.examroom.ai/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
-                >
-                  Status Page
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/contact"
-                  className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
-                >
-                  Contact Us
-                </a>
-              </li>
+              {pagesItems.map((item: any) => {
+                const isExternal = item.url?.startsWith('http');
+                const Component = isExternal ? 'a' : Link;
+                const linkProps = isExternal 
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {};
+
+                return (
+                  <li key={item.id}>
+                    <Component
+                      href={item.url || '#'}
+                      {...linkProps}
+                      className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
+                    >
+                      {item.title}
+                    </Component>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -105,62 +87,25 @@ export default function Footer() {
               Privacy
             </h3>
             <ul className="space-y-3">
-              <li>
-                <a
-                  href="/privacy-policy"
-                  className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
-                >
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/accessibility-statement"
-                  className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
-                >
-                  Accessibility Statement
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/cookies-policy"
-                  className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
-                >
-                  Cookies Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/data-privacy"
-                  className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
-                >
-                  Data Privacy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/ferpa"
-                  className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
-                >
-                  FERPA
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gdpr"
-                  className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
-                >
-                  GDPR
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/compliance"
-                  className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
-                >
-                  Compliance
-                </a>
-              </li>
+              {privacyItems.map((item: any) => {
+                const isExternal = item.url?.startsWith('http');
+                const Component = isExternal ? 'a' : Link;
+                const linkProps = isExternal 
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {};
+
+                return (
+                  <li key={item.id}>
+                    <Component
+                      href={item.url || '#'}
+                      {...linkProps}
+                      className="hover:text-primary text-sm font-light text-gray-600 transition-colors md:text-base"
+                    >
+                      {item.title}
+                    </Component>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -197,7 +142,7 @@ export default function Footer() {
         {/* Bottom Footer */}
         <div className="container mt-12 flex flex-col items-center justify-between border-t border-gray-200 pt-8 md:flex-row">
           <p className="text-sm text-gray-600">
-            © 2014-2025 ExamLock. All rights reserved.
+            © 2014-{new Date().getFullYear()} ExamLock. All rights reserved.
           </p>
           <div className="mt-4 flex items-center gap-2 md:mt-0">
             <span className="text-sm text-gray-600">

@@ -1,6 +1,7 @@
 title: Products
 template: products/show
 layout: layout
+route: /products/{slug}
 revisions: false
 sort_dir: asc
 date_behavior:

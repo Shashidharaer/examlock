@@ -1,5 +1,4 @@
 import { Icon } from '@iconify/react';
-import React from 'react';
 
 // Types matching the provided JSON structure
 interface StandardsInfoItem {
