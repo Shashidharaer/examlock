@@ -48,7 +48,7 @@ export default function SectionTitle({
         {title}
         {children}
       </h2>
-      <p
+      {description && <p
         className={cn(
           {
             "text-sm md:text-xl text-gray-600 max-w-2xl font-light mx-auto":
@@ -58,7 +58,7 @@ export default function SectionTitle({
         )}
       >
         {description}
-      </p>
+      </p>}
     </div>
   );
 }

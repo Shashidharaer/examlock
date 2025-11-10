@@ -46,10 +46,18 @@ export default function Carousel({ title, description, cards }: CarouselItem) {
                     <PrevButton
                         onClick={onPrevButtonClick}
                         disabled={prevBtnDisabled}
+                        style={{
+                            opacity: prevBtnDisabled ? 0.6 : 1,
+                            cursor: prevBtnDisabled ? 'not-allowed' : 'pointer',
+                        }}
                     />
                     <NextButton
                         onClick={onNextButtonClick}
                         disabled={nextBtnDisabled}
+                        style={{
+                            opacity: nextBtnDisabled ? 0.6 : 1,
+                            cursor: nextBtnDisabled ? 'not-allowed' : 'pointer',
+                        }}
                     />
                 </div>
             </div>

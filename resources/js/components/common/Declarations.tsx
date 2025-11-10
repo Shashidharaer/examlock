@@ -11,7 +11,7 @@ export default function Declarations({ badge_title, title, description, para }: 
     return (
         <section className="mx-auto mb-10 mt-0.5 w-full max-w-7xl px-4 md:mb-20 xl:px-0">
             <div className="flex w-full flex-col items-center gap-8 rounded-lg bg-white px-4 pb-16 pt-8 md:px-20">
-                <div className="shadow-sm/4 inset-shadow-md flex w-max items-center gap-2 rounded-full border border-gray-200 bg-white p-1 pr-3">
+                {badge_title && (<div className="shadow-sm/4 inset-shadow-md flex w-max items-center gap-2 rounded-full border border-gray-200 bg-white p-1 pr-3">
                     <div className="bg-shine flex h-6 w-6 items-center justify-center rounded-full">
                         <Icon
                             icon="gg:loadbar-doc"
@@ -19,11 +19,11 @@ export default function Declarations({ badge_title, title, description, para }: 
                         />
                     </div>
                     <span className="text-sm text-gray-600">{badge_title}</span>
-                </div>
-                <h4 className="text-prime text-3xl font-medium">{title}</h4>
-                <blockquote className="text-center text-sm font-light md:text-base">
+                </div> )}
+                {title && (<h4 className="text-prime text-3xl font-medium">{title}</h4>)}
+                {description && ( <blockquote className="text-center text-sm font-light md:text-base">
                     {description}
-                </blockquote>
+                </blockquote>)}
                 {para && para.length > 0 && (
                     <div className="mt-1 md:mt-2 grid w-full max-w-4xl grid-cols-1 gap-8">
                         {para.map((item, index) => (
@@ -38,7 +38,7 @@ export default function Declarations({ badge_title, title, description, para }: 
                                 )}
 
                                 {item.list_field && item.list_field.length > 0 && (
-                                    <ul className="mt-2 mx-auto max-w-prose text-left list-disc list-outside text-sm md:text-base">
+                                    <ul className="mt-2 mx-auto max-w-prose text-left list-disc list-outside text-sm md:text-base ml-8">
                                         {item.list_field.map((li, liIndex) => (
                                             <li key={liIndex}>{li}</li>
                                         ))}

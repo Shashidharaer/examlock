@@ -4,13 +4,10 @@ blueprint: pages
 title: 'Privacy Policy'
 author: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1762353359
+updated_at: 1762771455
 blocks:
   -
     id: mhkrovw3
-    badge_text: 'Privacy Policy'
-    heading:
-      text_in_black: 'Privacy Policy'
     show_badge: false
     type: page_hero
     enabled: true
@@ -18,6 +15,8 @@ blocks:
     show_contact_button: false
     show_download_button: false
     show_extension_button: false
+    heading:
+      text_in_black: 'Privacy Policy'
   -
     id: mhm3d23d
     description: "Welcome to ExamLock.IO. This website and all other ExamRoom.AI Sites (“Site(s)”) are owned and operated by ExamRoom.AI, 1025 Greenwood Boulevard Suite 401 Lake Mary, Florida 32746(“ExamRoom.AI,” “we,” “us,” or “our''). Please review these Privacy Policies (“Policies”) before using this Site, as they are a legally binding agreement between you (“You”, “your”) and ExamRoom.AI governing your use of this Site and represent the entire understanding between you and ExamRoom.AI regarding your use of this Site. These Policies expressly incorporate by reference and include ExamRoom.AI's Privacy Policy and any guidelines, rules or disclaimers that may be posted and updated on specific webpages or on notices that are sent to you. By accessing or using the Site(s), you are indicating your agreement to be bound by the Policies. If you do not agree with these Policies, do not use this Site(s). Certain ExamRoom.AI Websites, including but not limited to password protected sites, contain Privacy Policies in addition to or different from these Policies, and the Privacy Policies posted on such Websites shall apply."
@@ -146,5 +145,4 @@ blocks:
         enabled: true
     type: declaration_section
     enabled: true
-    badge_title: 'Privacy Policy'
 ---

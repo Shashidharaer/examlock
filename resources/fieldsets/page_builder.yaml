@@ -119,11 +119,6 @@ fields:
           display: ExamlockLite
           icon: login-key-2
           sets:
-            examlock_lite_hero:
-              display: 'Examlock Lite Hero'
-              fields:
-                -
-                  import: hero
             focused_section:
               display: 'Focused Section'
               fields:
