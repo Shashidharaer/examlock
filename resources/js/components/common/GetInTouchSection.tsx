@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/button';
+import CountryCodeSelector from '@/components/ui/country-code-selector';
 import { Icon } from '@iconify/react';
 import { Form, usePage } from '@inertiajs/react';
 import { useEffect, useRef, useState } from 'react';
-import CountryCodeSelector from '@/components/ui/country-code-selector';
 
 interface GetInTouchSectionProps {
     badge_text?: string;
@@ -28,7 +28,7 @@ export default function GetInTouchSection({
         setCountryCode(dialCode);
         setSelectedCountry(countryCode);
     };
-    
+
     // Debug: log to see what we're getting
     useEffect(() => {
         console.log('Page props:', page.props);
@@ -39,10 +39,13 @@ export default function GetInTouchSection({
     useEffect(() => {
         const handleStart = () => {
             if (sectionRef.current) {
-                sessionStorage.setItem('contactFormScrollY', window.scrollY.toString());
+                sessionStorage.setItem(
+                    'contactFormScrollY',
+                    window.scrollY.toString(),
+                );
             }
         };
-        
+
         const handleFinish = () => {
             const savedScroll = sessionStorage.getItem('contactFormScrollY');
             if (savedScroll) {
@@ -65,9 +68,9 @@ export default function GetInTouchSection({
 
     return (
         <section ref={sectionRef} className="my-10 w-full px-4 md:my-20">
-            <div className="flex flex-col-reverse mx-auto max-w-7xl md:flex-row-reverse items-center gap-8 rounded-2xl bg-white p-6 md:gap-12 md:p-10 lg:p-14">
+            <div className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-8 rounded-2xl bg-white p-6 lg:flex-row-reverse md:gap-12 md:p-10 lg:p-14">
                 <img
-                    src={card_image?`/storage/${card_image}`:''}
+                    src={card_image ? `/storage/${card_image}` : ''}
                     alt={title}
                     className="h-auto max-h-72 w-full object-contain md:max-h-[420px]"
                     loading="lazy"
@@ -90,33 +93,38 @@ export default function GetInTouchSection({
                     <p className="text-base font-light sm:text-lg">
                         {description}
                     </p>
-                    <Form
-                        action="/contact"
-                        method="post"
-                        className="mt-6"
-                    >
+                    <Form action="/contact" method="post" className="mt-6">
                         {({ processing, errors }) => (
                             <>
                                 {successMessage ? (
                                     <div className="mt-6 rounded-md bg-green-50 p-4 text-green-700">
-                                        Thank you for your message! We'll be in touch soon.
+                                        Thank you for your message! We'll be in
+                                        touch soon.
                                     </div>
                                 ) : (
-                                <>
-                                        <div className="flex flex-col md:flex-row gap-2">
+                                    <>
+                                        <div className="flex flex-col gap-2">
                                             <div>
                                                 <div className="flex">
                                                     <CountryCodeSelector
                                                         value={countryCode}
-                                                        selectedCountryCode={selectedCountry}
-                                                        onChange={handleCountryChange}
+                                                        selectedCountryCode={
+                                                            selectedCountry
+                                                        }
+                                                        onChange={
+                                                            handleCountryChange
+                                                        }
                                                     />
                                                     <input
                                                         type="tel"
                                                         name="phone"
                                                         placeholder="Phone number"
                                                         value={phoneNumber}
-                                                        onChange={(e) => setPhoneNumber(e.target.value)}
+                                                        onChange={(e) =>
+                                                            setPhoneNumber(
+                                                                e.target.value,
+                                                            )
+                                                        }
                                                         className="flex-1 rounded-r border p-2 text-sm md:text-base"
                                                     />
                                                     <input

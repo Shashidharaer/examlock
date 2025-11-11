@@ -51,7 +51,6 @@ export default function Header() {
     return (
       <>
         {parts.map((part, index) => {
-          // Every odd index is the highlighted part (between **)
           if (index % 2 === 1) {
             return (
               <span key={index} className="bg-yellow-200 font-semibold text-gray-900 px-1 rounded">
@@ -735,8 +734,8 @@ export default function Header() {
                 })()}
 
                 {/* Contact Button */}
-                <div className="mt-4 flex w-full justify-center gap-2">
-                  <Button variant="outline">Login</Button>
+                <div className="mt-4 flex w-full justify-between gap-2">
+                  <Button variant="outline" className='flex-1'>Login</Button>
                   <Button
                     asChild
                     className="bg-primary flex items-center gap-2 px-3 py-2 text-sm font-medium text-white transition-colors sm:px-4"

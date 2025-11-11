@@ -23,15 +23,15 @@ export default function WhyChooseUs({
           description={description}
         />
 
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
-          {/* Activity tracking & insights */}
+        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-3">
+          
           <WhatMakeCard
             icon="storage/layouts/activity.svg"
             title="Activity tracking & insights"
             description="ExamLock has designed features and algorithms to detect and deter cheating and item theft."
             imageSrc="storage/layouts/activity_illustration.webp"
           />
-          {/* Content safety features */}
+          
           <WhatMakeCard
             icon="storage/layouts/content_safety.svg"
             title="Content safety features"
@@ -39,7 +39,6 @@ export default function WhyChooseUs({
             imageSrc="storage/layouts/content_safe_illustration.webp"
           />
 
-          {/* Programmed to detect and block */}
           <WhatMakeCard
             icon="storage/layouts/detection.svg"
             title="Programmed to detect and block"
