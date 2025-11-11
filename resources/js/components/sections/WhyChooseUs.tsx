@@ -13,7 +13,7 @@ export default function WhyChooseUs({
   description,
 }: WhyChooseUsProps) {
   return (
-    <section className="container mx-auto my-10 px-4 md:my-20">
+    <section className="w-full mx-auto my-10 px-4 md:my-20">
       <div className='max-w-7xl mx-auto'>
         <SectionTitle
           desClassName="md:max-w-7xl mx-auto text-sm md:text-xl text-gray-600 font-light"

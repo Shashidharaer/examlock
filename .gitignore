@@ -11,6 +11,10 @@
 /storage/pail
 /vendor
 .DS_Store
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+composer.lock
 .env
 .env.backup
 .env.production

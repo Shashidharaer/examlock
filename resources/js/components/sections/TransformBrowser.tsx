@@ -8,7 +8,7 @@ interface StatsSectionProps {
 
 export default function TransformBrowserSection({ badge_text, title, card_image }: StatsSectionProps) {
   return (
-    <section className="container mx-auto px-4 my-10 md:my-20">
+    <section className="w-full mx-auto px-4 my-10 md:my-20">
       <HomepageCard
         badgeTitle={badge_text}
         title={title}

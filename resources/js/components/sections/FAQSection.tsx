@@ -53,7 +53,7 @@ export default function FAQSection({
   const faqList = transformFaqData(faq);
 
   return (
-    <section className="container mx-auto my-10 px-4 md:my-20">
+    <section className="w-full mx-auto my-10 px-4 md:my-20">
       <div className="mx-auto max-w-7xl">
         <div className="rounded-2xl">
           <div className="flex flex-col gap-8 lg:flex-row">
