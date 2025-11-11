@@ -4,7 +4,7 @@ import RequestDemo from "@/components/common/RequestDemo";
 
 interface HeroProps {
   badge_text?: string;
-  heading?: {text_in_black?: string; text_in_primary?: string};
+  heading?: { text_in_black?: string; text_in_primary?: string };
   description?: string;
   disableCTA?: boolean;
 
@@ -33,18 +33,18 @@ export default function Hero({
         description={description}
         badgeIcon={show_badge}
       >
-        <span className="text-black">{heading?.text_in_black}</span><br/>
+        <span className="text-black">{heading?.text_in_black}</span><br />
         <span className="text-primary"> {heading?.text_in_primary}</span>
       </SectionTitle>
       <div className="mt-6 flex justify-center gap-4 mx-auto">
-        {(show_book_a_demo_button !== false) && ( 
-        <div className="w-[150px]">
-          <RequestDemo />
-        </div>)}
+        {(show_book_a_demo_button !== false) && (
+          <div className="w-[150px]">
+            <RequestDemo />
+          </div>)}
         {show_contact_button && (<a href="/contact">
-            <Button variant="default" size="lg" className="w-[150px]">
-              Contact Us
-              <svg
+          <Button variant="default" size="lg" className="w-[150px]">
+            Contact Us
+            <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
@@ -55,8 +55,8 @@ export default function Hero({
                 d="M16.175 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.175l-4.9-4.9q-.3-.3-.288-.7t.313-.7q.3-.275.7-.288t.7.288l6.6 6.6q.15.15.213.325t.062.375t-.062.375t-.213.325l-6.6 6.6q-.275.275-.687.275T11.3 19.3q-.3-.3-.3-.712t.3-.713z"
               />
             </svg>
-            </Button>
-          </a>)}
+          </Button>
+        </a>)}
         {show_extension_button ? (
           <a href="/extension">
             <Button variant="outline" size="lg" className="w-[150px]">

@@ -64,8 +64,8 @@ export default function GetInTouchSection({
     }, []);
 
     return (
-        <section ref={sectionRef} className="mx-auto my-10 w-full max-w-7xl px-4 md:my-20 xl:px-0">
-            <div className="flex flex-col-reverse md:flex-row-reverse items-center gap-8 rounded-2xl bg-white p-6 md:gap-12 md:p-10 lg:p-14">
+        <section ref={sectionRef} className="my-10 w-full px-4 md:my-20">
+            <div className="flex flex-col-reverse mx-auto max-w-7xl md:flex-row-reverse items-center gap-8 rounded-2xl bg-white p-6 md:gap-12 md:p-10 lg:p-14">
                 <img
                     src={card_image?`/storage/${card_image}`:''}
                     alt={title}

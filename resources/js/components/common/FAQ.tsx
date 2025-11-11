@@ -7,7 +7,8 @@ interface FAQProps {
 
 export default function FAQ({ title, qna }: FAQProps) {
   return (
-    <section className="mx-auto w-full max-w-7xl my-10 md:my-20 px-4 xl:px-0">
+    <section className="w-full my-10 md:my-20 px-4">
+      <div className="max-w-7xl mx-auto ">
         <h2 className="text-prime text-3xl md:text-5xl font-medium mb-8 md:mb-16 text-center">
           {title}
         </h2>
@@ -32,6 +33,7 @@ export default function FAQ({ title, qna }: FAQProps) {
             </AccordionItem>
           ))}
         </Accordion>
-      </section>
+      </div>
+    </section>
   )
 }

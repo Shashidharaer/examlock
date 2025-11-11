@@ -6,8 +6,8 @@ interface CardsSectionProps {
 
 export default function CardsSection({ simple_card }: CardsSectionProps) {
   return (
-    <section className="mx-auto w-full max-w-7xl my-10 md:my-20 px-4 xl:px-0">
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+    <section className="my-10 md:my-20 px-4 w-full">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 mx-auto max-w-7xl">
             {simple_card?.map((card, index) => (
               <Card key={index}>
                 <CardHeader>
