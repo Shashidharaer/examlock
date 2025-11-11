@@ -1,10 +1,10 @@
-import SectionTitle from "../common/SectionTitle";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from '@/components/ui/accordion';
+import SectionTitle from '../common/SectionTitle';
 
 interface FAQ {
   question: string;
@@ -18,7 +18,9 @@ interface FAQItemProps {
   faq?: { [key: string]: string }[];
 }
 
-const transformFaqData = (faqData: { [key: string]: string }[] | undefined): FAQ[] => {
+const transformFaqData = (
+  faqData: { [key: string]: string }[] | undefined,
+): FAQ[] => {
   if (!faqData) {
     return [];
   }
@@ -27,10 +29,10 @@ const transformFaqData = (faqData: { [key: string]: string }[] | undefined): FAQ
   for (let i = 1; i <= 5; i++) {
     const questionKey = `question_${i}`;
     const answerKey = `q${i}_answer`;
-    
+
     // Find the object that contains the question and answer
-    const questionItem = faqData.find(item => item[questionKey]);
-    const answerItem = faqData.find(item => item[answerKey]);
+    const questionItem = faqData.find((item) => item[questionKey]);
+    const answerItem = faqData.find((item) => item[answerKey]);
 
     if (questionItem && answerItem) {
       faqs.push({
@@ -42,14 +44,19 @@ const transformFaqData = (faqData: { [key: string]: string }[] | undefined): FAQ
   return faqs;
 };
 
-export default function FAQSection({ faq, badge_icon_text, title, description }: FAQItemProps) {
+export default function FAQSection({
+  faq,
+  badge_icon_text,
+  title,
+  description,
+}: FAQItemProps) {
   const faqList = transformFaqData(faq);
 
   return (
-    <section className="container mx-auto px-4 my-10 md:my-20">
-      <div className="max-w-7xl mx-auto">
-        <div className=" rounded-2xl">
-          <div className="flex flex-col lg:flex-row gap-8">
+    <section className="container mx-auto my-10 px-4 md:my-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="rounded-2xl">
+          <div className="flex flex-col gap-8 lg:flex-row">
             {/* Left side - FAQ Info */}
             <div className="lg:w-1/2">
               <SectionTitle
@@ -63,7 +70,7 @@ export default function FAQSection({ faq, badge_icon_text, title, description }:
             </div>
 
             {/* Right side - FAQ Items */}
-            <div className="lg:w-1/2 space-y-4">
+            <div className="space-y-4 lg:w-1/2">
               <Accordion
                 type="single"
                 collapsible
@@ -75,13 +82,13 @@ export default function FAQSection({ faq, badge_icon_text, title, description }:
                     value={`item-${index}`}
                     className={`border-b border-gray-200 data-[state=open]:bg-white`}
                   >
-                    <AccordionTrigger className="px-4 py-6 text-left w-full flex justify-between items-center data-[state=open]:bg-white">
-                      <span className="md:text-xl font-medium">
+                    <AccordionTrigger className="flex w-full items-center justify-between px-4 py-6 text-left data-[state=open]:bg-white">
+                      <span className="font-medium md:text-xl">
                         {item.question}
                       </span>
                     </AccordionTrigger>
-                    <AccordionContent className="px-4 pb-4 border-t border-gray-200 data-[state=open]:bg-white">
-                      <p className="text-gray-600 pt-3 md:text-md font-light">
+                    <AccordionContent className="border-t border-gray-200 px-4 pb-4 data-[state=open]:bg-white">
+                      <p className="md:text-md pt-3 font-light text-gray-600">
                         {item.answer}
                       </p>
                     </AccordionContent>

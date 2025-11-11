@@ -25,8 +25,8 @@ export default function Carousel({ title, description, cards }: CarouselItem) {
     } = usePrevNextButtons(emblaApi);
 
     return (
-        <>
-            <div className="mb-16 mt-16 px-4 md:mb-24 xl:px-0">
+        <section className='w-full my-10 md:my-20 px-4'>
+            <div className="max-w-7xl mx-auto">
                 <SectionTitle title={title} description={description} />
             </div>
             <div className="embla" ref={emblaRef}>
@@ -61,6 +61,6 @@ export default function Carousel({ title, description, cards }: CarouselItem) {
                     />
                 </div>
             </div>
-        </>
+        </section>
     );
 }

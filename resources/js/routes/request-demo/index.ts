@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\FormController::submit
-* @see app/Http/Controllers/FormController.php:93
+* @see app/Http/Controllers/FormController.php:101
 * @route '/request-demo'
 */
 export const submit = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ submit.definition = {
 
 /**
 * @see \App\Http\Controllers\FormController::submit
-* @see app/Http/Controllers/FormController.php:93
+* @see app/Http/Controllers/FormController.php:101
 * @route '/request-demo'
 */
 submit.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ submit.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\FormController::submit
-* @see app/Http/Controllers/FormController.php:93
+* @see app/Http/Controllers/FormController.php:101
 * @route '/request-demo'
 */
 submit.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -35,7 +35,7 @@ submit.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\FormController::submit
-* @see app/Http/Controllers/FormController.php:93
+* @see app/Http/Controllers/FormController.php:101
 * @route '/request-demo'
 */
 const submitForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -45,7 +45,7 @@ const submitForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =>
 
 /**
 * @see \App\Http\Controllers\FormController::submit
-* @see app/Http/Controllers/FormController.php:93
+* @see app/Http/Controllers/FormController.php:101
 * @route '/request-demo'
 */
 submitForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

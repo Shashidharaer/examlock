@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { Button } from "../ui/button";
+import { Button } from "./button";
 import React from "react";
 import RequestDemo from "../common/RequestDemo";
 

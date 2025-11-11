@@ -27,8 +27,8 @@ export default function Footer() {
   }) || [];
 
   return (
-    <footer className="mt-10 pb-8 md:mt-20">
-      <div className="container mx-auto max-w-7xl px-4 xl:px-0">
+    <footer className="mt-10 pb-8 md:mt-20 px-4">
+      <div className="container mx-auto max-w-7xl">
         <div className="flex flex-wrap justify-between gap-8">
           {/* Logo and Description */}
           <div className="lg:col-span-1">

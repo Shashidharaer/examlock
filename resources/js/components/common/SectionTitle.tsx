@@ -23,7 +23,7 @@ export default function SectionTitle({
   return (
     <div
       className={cn(
-        { "flex flex-col text-center items-center mb-12 mt-4": !className },
+        { "flex flex-col text-center items-center mb-8 mt-4": !className },
         className
       )}
     >

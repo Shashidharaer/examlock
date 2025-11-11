@@ -30,14 +30,14 @@ export default function AdvancedFeatures({
   const enabledCards = cards.filter(card => card.enabled);
 
   return (
-     <section className="mx-auto w-full max-w-7xl my-10 md:my-20 px-4 xl:px-0">
+     <section className="w-full my-10 md:my-20 px-4">
+      <div className="mx-auto max-w-7xl">
         <SectionTitle
           title={title}
           badgeIcon={
             show_badge ? <Icon icon="gg:loadbar-doc" className="w-4 h-4 text-white" /> : undefined
           }
           badgeTitle={badge_icon_text}
-          className="flex flex-col text-center items-center mb-0 mt-4"
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-2 md:mt-8">
           {enabledCards.map((feature) => {
@@ -51,6 +51,7 @@ export default function AdvancedFeatures({
             );
           })}
         </div>
+      </div>
       </section>
   )
 }

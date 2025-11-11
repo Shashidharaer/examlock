@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/button";
 import RequestDemo from "../common/RequestDemo";
 
 interface HeroSectionProps {
-  heading?: {text_in_black?: string, text_in_primary?: string};
+  heading?: { text_in_black?: string, text_in_primary?: string };
   description?: string;
-  buttons?: {primary_btn: string, secondary_btn: string; secondary_btn_link: string};
+  buttons?: { primary_btn: string, secondary_btn: string; secondary_btn_link: string };
 }
 
 export default function HeroSection({ heading, description, buttons }: HeroSectionProps) {

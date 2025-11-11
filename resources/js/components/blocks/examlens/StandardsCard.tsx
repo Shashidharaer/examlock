@@ -23,8 +23,8 @@ export default function StandardsCard({ badge_text, title, description, info }: 
   const visibleInfo = (info ?? []).filter((i) => i?.enabled !== false);
 
   return (
-    <section className="mx-auto w-full max-w-7xl my-10 md:my-20 px-4 xl:px-0">
-      <div className="bg-white rounded-2xl py-4 md:py-8 sm:py-12 px-4 sm:p-8 lg:p-16">
+    <section className="w-full my-10 md:my-20 px-4">
+      <div className="max-w-7xl mx-auto bg-white rounded-2xl py-4 md:py-8 sm:py-12 px-4 sm:p-8 lg:p-16">
         <div className="flex flex-col items-center text-center">
           <div className="flex items-center gap-2 border border-gray-200 bg-white rounded-full w-max p-1 pr-3 shadow-sm/4 inset-shadow-md">
             <div className="w-6 h-6 rounded-full flex items-center justify-center bg-shine">

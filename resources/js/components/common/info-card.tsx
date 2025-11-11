@@ -20,9 +20,9 @@ export default function InfoCard({
     info,
 }: InfoCardProps) {
     return (
-        <section className="mx-auto my-10 w-full max-w-7xl px-4 md:my-20 xl:px-0">
+        <section className="my-10 w-full px-4 md:my-20">
             <div
-                className={`flex flex-col-reverse rounded-2xl bg-white p-5 sm:p-8 md:p-14 ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} ${
+                className={`flex flex-col-reverse rounded-2xl bg-white p-5 sm:p-8 md:p-14 mx-auto max-w-7xl ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} ${
                     centered
                         ? 'items-center md:items-center'
                         : 'items-start md:items-start'
