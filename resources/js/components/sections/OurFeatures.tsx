@@ -17,7 +17,7 @@ interface OurFeaturesProps {
 
 export default function PowerfulFeaturesSection({ badge_icon_text, title, description, home_page_card }: OurFeaturesProps) {
   return (
-    <section className="container mx-auto px-4 my-10 md:my-20">
+    <section className="w-full mx-auto px-4 my-10 md:my-20">
       <div className="max-w-7xl mx-auto">
         <SectionTitle
           badgeIcon
