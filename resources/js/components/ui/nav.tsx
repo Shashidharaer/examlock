@@ -8,7 +8,9 @@ import { useNavigationByHandle } from "@/components/NavigationProvider";
 export default function Navigation() {
   const headerNav = useNavigationByHandle('header');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpenedByClick, setIsOpenedByClick] = useState(false);
   const [hoveredPageIndex, setHoveredPageIndex] = useState<number>(0);
+  const [selectedProductIndex, setSelectedProductIndex] = useState<number>(0);
   const [selectedPath, setSelectedPath] = useState<string>("/");
   const timeoutRef = useRef<number | null>(null);
 
@@ -16,6 +18,13 @@ export default function Navigation() {
     if (typeof window !== "undefined") {
       setSelectedPath(window.location.pathname || "/");
     }
+    // Find the initially selected product based on the current URL
+    const initialProductIndex = productPages.findIndex(p => p.url === window.location.pathname);
+    if (initialProductIndex !== -1) {
+      setSelectedProductIndex(initialProductIndex);
+      setHoveredPageIndex(initialProductIndex);
+    }
+
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
@@ -23,19 +32,40 @@ export default function Navigation() {
     };
   }, []);
 
-  // Open/close menu without altering URL on hover
   const handleMouseEnter = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
     }
-    setIsMenuOpen(true);
+    if (!isOpenedByClick) {
+      setIsMenuOpen(true);
+    }
   };
 
   const handleMouseLeave = () => {
-    timeoutRef.current = window.setTimeout(() => {
-      setIsMenuOpen(false);
-    }, 200);
+    // When mouse leaves, reset hover to the selected product
+    setHoveredPageIndex(selectedProductIndex);
+    if (!isOpenedByClick) {
+      timeoutRef.current = window.setTimeout(() => {
+        setIsMenuOpen(false);
+      }, 200);
+    }
+  };
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const newIsOpenedByClick = !isOpenedByClick;
+    setIsOpenedByClick(newIsOpenedByClick);
+    setIsMenuOpen(newIsOpenedByClick);
+    setSelectedPath("/products");
+  };
+
+  const handleProductClick = (url: string, index: number) => {
+    setSelectedPath(url);
+    setSelectedProductIndex(index);
+    setHoveredPageIndex(index);
+    setIsMenuOpen(false);
+    setIsOpenedByClick(false);
   };
 
   // Return null if no navigation data
@@ -81,7 +111,7 @@ export default function Navigation() {
         >
         <Link
           href="#"
-          onClick={() => setSelectedPath("/products")}
+          onClick={handleClick}
           className={cn(
             "text-gray-700 hover:text-gray-900 font-medium text-sm transition-colors h-full flex justify-center items-center",
             { active: isProductsActive }
@@ -110,7 +140,7 @@ export default function Navigation() {
         >
           <div className="text-[14px] border-r-1 p-4 flex flex-col gap-2 w-content whitespace-nowrap">
             <h4 className="font-medium uppercase text-[#6B7280] mb-4">
-              Products
+              {productsNav.title}
             </h4>
             {productPages.map((item, idx) => (
               <Link
@@ -119,16 +149,16 @@ export default function Navigation() {
                 onMouseEnter={() => {
                   setHoveredPageIndex(idx);
                 }}
-                onClick={() => setSelectedPath(item.url || "/")}
+                onClick={() => handleProductClick(item.url || "/", idx)}
                 className={cn(
                   "py-2 px-2 rounded-sm cursor-pointer transition-colors text-sm block",
                   {
-                    "bg-primary/5 text-primary": hoveredPageIndex === idx,
+                    "bg-primary/5 text-primary": selectedProductIndex === idx,
                     "hover:bg-accent hover:text-primary":
-                      hoveredPageIndex !== idx,
+                      selectedProductIndex !== idx,
                   }
                 )}
-                aria-current={hoveredPageIndex === idx ? "true" : undefined}
+                aria-current={selectedProductIndex === idx ? "true" : undefined}
               >
                 {item.title}
               </Link>
@@ -149,7 +179,7 @@ export default function Navigation() {
                       <Link
                         key={feature.id}
                         href={feature.url || '#'}
-                        onClick={() => setSelectedPath(feature.url || '#')}
+                        onClick={() => handleProductClick(feature.url || '#', selectedProductIndex)}
                         className="text-[12px] bg-[#F9FAFB80] border border-[#E5E7EB] rounded-lg p-4 max-w-xs block"
                       >
                         <h4 className="font-medium">{feature.title}</h4>
