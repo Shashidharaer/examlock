@@ -1,8 +1,8 @@
 
 import { useState } from "react";
 import DocsSidebar from "./DocsSidebar";
-import DocsArticle from "./DocsArticle";
-import RelatedArticles from "./RelatedArticles";
+import DocsArticle from "./ArticleContent";
+import TableOfContents from "./TableOfContents";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@iconify/react";
@@ -21,6 +21,9 @@ export default function Docs() {
   return (
     <div className="min-h-screen w-full">
       {/* Main Content Area */}
+      {/* <section className="w-full px-4 py-8">
+        <DocResources />
+      </section> */}
       <main className="py-8">
         <div className="container mx-auto px-4 max-w-7xl">
           {/* Breadcrumb and Mobile Menu Button */}
@@ -77,19 +80,19 @@ export default function Docs() {
 
             {/* Main Content - Article */}
             <div className="flex-1 min-w-0">
-              <div className=" rounded-lg p-6 md:p-8 lg:p-10">
+              <div id="docs-article-content" className=" rounded-lg p-6 md:p-8 lg:p-10">
                 <DocsArticle />
               </div>
               
-              {/* Related Articles for Mobile/Tablet */}
+              {/* Table of Contents for Mobile/Tablet */}
               <div className="xl:hidden mt-8 border-t border-gray-200 pt-8">
-                <RelatedArticles />
+                <TableOfContents contentSelector="#docs-article-content" />
               </div>
             </div>
 
-            {/* Right Sidebar - Related Articles (Desktop) */}
+            {/* Right Sidebar - Table of Contents (Desktop) */}
             <div className="hidden xl:block">
-              <RelatedArticles />
+              <TableOfContents contentSelector="#docs-article-content" />
             </div>
           </div>
         </div>

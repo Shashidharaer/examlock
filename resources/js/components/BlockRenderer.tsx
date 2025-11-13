@@ -49,7 +49,8 @@ import CardsSection from './blocks/lms/CardsSection';
 import CardWithAccordion from './blocks/lms/CardWithAccordion';
 
 //Documentation page blocks components
-import Docs from './blocks/docs/Docs';
+import Docs from './blocks/docs/Articles';
+import Resouces from './blocks/docs/Resources';
 
 // Block component registry
 const blockComponents = {
@@ -105,6 +106,7 @@ const blockComponents = {
 
     // Documentation page blocks
     doc_features: Docs,
+    resouces: Resouces,
 
 } as const;
 

@@ -90,7 +90,7 @@ export default function DocsSidebar() {
   };
 
   return (
-    <aside className="w-full lg:w-64 shrink-0 lg:pr-6">
+    <aside className="w-full lg:w-64 shrink-0 lg:pr-6 sticky md:top-24">
       <nav className="lg:sticky lg:top-24 space-y-1">
         {docsSections.map((section) => {
           const isOpen = openSections.includes(section.title);
