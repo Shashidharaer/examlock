@@ -68,6 +68,15 @@ Route::get('/{slug}', function (string $slug) {
         return app(StatamicEntryController::class)->transformAndRender($entry);
     }
     
+    // If not found in pages, try other collections (like resouces)
+    $entry = \Statamic\Facades\Entry::query()
+        ->where('slug', $slug)
+        ->first();
+    
+    if ($entry) {
+        return app(StatamicEntryController::class)->transformAndRender($entry);
+    }
+    
     // If not found, 404
     abort(404);
 })
