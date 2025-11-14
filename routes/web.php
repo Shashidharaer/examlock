@@ -38,6 +38,7 @@ Route::get('/extension', function () {
 // Form submission routes
 Route::post('/contact', [\App\Http\Controllers\FormController::class, 'submitContactForm'])->name('contact.submit');
 Route::post('/request-demo', [\App\Http\Controllers\FormController::class, 'submitRequestDemo'])->name('request-demo.submit');
+Route::post('/newsletter', [\App\Http\Controllers\FormController::class, 'submitNewsletter'])->name('newsletter.submit');
 
 // Search route
 Route::post('/api/search', [\App\Http\Controllers\SearchController::class, 'search'])->name('search');
@@ -61,6 +62,15 @@ Route::get('/{slug}', function (string $slug) {
     // First, try to find in 'pages' collection
     $entry = \Statamic\Facades\Entry::query()
         ->where('collection', 'pages')
+        ->where('slug', $slug)
+        ->first();
+    
+    if ($entry) {
+        return app(StatamicEntryController::class)->transformAndRender($entry);
+    }
+    
+    // If not found in pages, try other collections (like resouces)
+    $entry = \Statamic\Facades\Entry::query()
         ->where('slug', $slug)
         ->first();
     

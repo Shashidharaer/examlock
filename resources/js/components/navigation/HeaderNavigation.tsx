@@ -663,75 +663,68 @@ export default function Header() {
                     </div>
                   )}
                 </div>
-                <button
-                  type="button"
-                  className="border-b-1 hover:bg-accent flex cursor-pointer items-center justify-between px-4 py-2 text-left"
-                  onClick={handleMenuClick}
-                >
-                  Products
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M12 14.975q-.2 0-.375-.062T11.3 14.7l-4.6-4.6q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l3.9 3.9l3.9-3.9q.275-.275.7-.275t.7.275t.275.7t-.275.7l-4.6 4.6q-.15.15-.325.213t-.375.062"
-                    />
-                  </svg>
-                </button>
-                <ul
-                  className={cn(
-                    'flex flex-col overflow-hidden font-light text-neutral-500 transition-all duration-200 ease-in-out',
-                    isMobileProductMenuOpen
-                      ? 'max-h-64 opacity-100'
-                      : 'max-h-0 opacity-0',
-                  )}
-                >
-                  {(() => {
-                    // Find the Products menu item from header navigation
-                    const productsItem = headerNav?.tree?.find((item: any) => 
-                      item.title?.toLowerCase() === 'products'
-                    );
-                    
-                    // Get product children if they exist
-                    const products = productsItem?.children || [];
-                    
-                    return products.map((product: any) => (
-                      <li key={product.id} className="hover:bg-accent hover:text-primary cursor-pointer rounded-sm px-2 py-2 pl-4">
-                        <Link
-                          href={product.url || '#'}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {product.title}
-                        </Link>
-                      </li>
-                    ));
-                  })()}
-                </ul>
-                {(() => {
-                  // Get navigation items excluding Products and Home
-                  const navItems = headerNav?.tree?.filter((item: any) => {
-                    const title = item.title?.toLowerCase() || '';
-                    return title !== 'products' && title !== 'home';
-                  }) || [];
-                  
-                  return navItems.map((item: any) => {
-                    const isExternal = item.url?.startsWith('http');
+                
+                {/* Dynamic Navigation Items */}
+                {headerNav?.tree?.map((item: any) => {
+                  const hasChildren = item.children && item.children.length > 0;
+                  const isExternal = item.url?.startsWith('http');
+
+                  if (hasChildren) {
                     return (
-                      <Link
-                        key={item.id}
-                        href={item.url || '#'}
-                        target={isExternal ? '_blank' : undefined}
-                        className="border-b-1 hover:bg-accent flex cursor-pointer items-center justify-between px-4 py-2"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {item.title}
-                      </Link>
+                      <div key={item.id}>
+                        <button
+                          type="button"
+                          className="border-b-1 hover:bg-accent flex w-full cursor-pointer items-center justify-between px-4 py-2 text-left"
+                          onClick={() => item.title.toLowerCase() === 'products' && handleMenuClick()}
+                        >
+                          {item.title}
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            className={cn('transition-transform', isMobileProductMenuOpen ? 'rotate-180' : '')}
+                          >
+                            <path
+                              fill="currentColor"
+                              d="M12 14.975q-.2 0-.375-.062T11.3 14.7l-4.6-4.6q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l3.9 3.9l3.9-3.9q.275-.275.7-.275t.7.275t.275.7t-.275.7l-4.6 4.6q-.15.15-.325.213t-.375.062"
+                            />
+                          </svg>
+                        </button>
+                        <ul
+                          className={cn(
+                            'flex flex-col overflow-hidden font-light text-neutral-500 transition-all duration-300 ease-in-out',
+                            isMobileProductMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0',
+                          )}
+                        >
+                          {item.children.map((child: any) => (
+                            <li key={child.id} className="hover:bg-accent hover:text-primary cursor-pointer rounded-sm px-2 py-2 pl-8">
+                              <Link
+                                href={child.url || '#'}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {child.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     );
-                  });
-                })()}
+                  }
+
+                  // Render simple link for items without children
+                  return (
+                    <Link
+                      key={item.id}
+                      href={item.url || '#'}
+                      target={isExternal ? '_blank' : undefined}
+                      className="border-b-1 hover:bg-accent flex cursor-pointer items-center justify-between px-4 py-2"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.title}
+                    </Link>
+                  );
+                })}
 
                 {/* Contact Button */}
                 <div className="mt-4 flex w-full justify-between gap-2">

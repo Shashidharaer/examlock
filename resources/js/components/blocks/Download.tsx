@@ -1,25 +1,51 @@
 import { Button } from "@/components/ui/button";
 import { Icon } from "@iconify/react";
+import { Link } from "@inertiajs/react";
+import { useState } from "react";
+import { QRCodeSVG } from 'qrcode.react';
 
 export default function Download() {
+  const [showQRModal, setShowQRModal] = useState(false);
+  const [selectedPlatform, setSelectedPlatform] = useState<'iOS' | 'Android' | null>(null);
+
+  const handleMobileDownload = (platform: 'iOS' | 'Android') => {
+    setSelectedPlatform(platform);
+    setShowQRModal(true);
+  };
+
+  const closeModal = () => {
+    setShowQRModal(false);
+    setSelectedPlatform(null);
+  };
+
+  // Download URLs for QR codes
+  const getDownloadUrl = () => {
+    if (selectedPlatform === 'iOS') {
+      return 'https://apps.apple.com/app/examlock';
+    }
+    return 'https://play.google.com/store/apps/details?id=com.examlock';
+  };
+
   return (
     <div className="bg-pattern">
       {/* Responsive, fixed header */}
       <div className="fixed top-0 left-0 w-full h-14 sm:h-16 md:h-20 bg-white/70 backdrop-blur-md z-10 shadow-sm">
         <div className="mx-auto max-w-7xl h-full flex items-center justify-between px-4 sm:px-6 md:px-8">
-          <a href="/">
+          <Link href="/">
             <img
               src="storage/examlock.svg"
               alt="Examlock Logo"
               className="h-8 sm:h-9 md:h-10 w-auto"
             />
+          </Link>
+          <a href="https://examroom.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="outline"
+              className="shadow-none text-xs sm:text-sm md:text-base px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2"
+            >
+              Contact Support
+            </Button>
           </a>
-          <Button
-            variant="outline"
-            className="shadow-none text-xs sm:text-sm md:text-base px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2"
-          >
-            Contact Support
-          </Button>
         </div>
       </div>
 
@@ -72,24 +98,22 @@ export default function Download() {
             </a>
           )}
           {!/iPhone|iPad|iPod/.test(navigator.platform) && (
-            <a href="#">
-              <Button
-                variant="outline"
-                className="text-neutral-800 border-neutral-300 rounded-lg shadow-none text-xs sm:text-sm px-3 sm:px-4 py-1.5"
-              >
-                iOS
-              </Button>
-            </a>
+            <Button
+              variant="outline"
+              onClick={() => handleMobileDownload('iOS')}
+              className="text-neutral-800 border-neutral-300 rounded-lg shadow-none text-xs sm:text-sm px-3 sm:px-4 py-1.5 cursor-pointer"
+            >
+              iOS
+            </Button>
           )}
           {!navigator.platform.includes("Android") && (
-            <a href="#">
-              <Button
-                variant="outline"
-                className="text-neutral-800 border-neutral-300 rounded-lg shadow-none text-xs sm:text-sm px-3 sm:px-4 py-1.5"
-              >
-                Android
-              </Button>
-            </a>
+            <Button
+              variant="outline"
+              onClick={() => handleMobileDownload('Android')}
+              className="text-neutral-800 border-neutral-300 rounded-lg shadow-none text-xs sm:text-sm px-3 sm:px-4 py-1.5 cursor-pointer"
+            >
+              Android
+            </Button>
           )}
         </div>
 
@@ -112,12 +136,80 @@ export default function Download() {
               guarantees exam integrity and a seamless experience—no
               disruptions, no lost work.
             </p>
-            <Button variant="outline" className="w-fit text-sm sm:text-base">
+            {/* <Button variant="outline" className="w-fit text-sm sm:text-base">
               Explore
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>
+
+      {/* QR Code Modal */}
+      {showQRModal && selectedPlatform && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={closeModal}
+        >
+          <div 
+            className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 sm:p-8 relative animate-in fade-in zoom-in duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <Icon icon="mdi:close" className="size-6" />
+            </button>
+
+            {/* Content */}
+            <div className="text-center">
+              <div className="mb-4">
+                <Icon 
+                  icon={selectedPlatform === 'iOS' ? 'mdi:apple' : 'mdi:android'} 
+                  className="size-12 mx-auto text-primary"
+                />
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                Download for {selectedPlatform}
+              </h3>
+              <p className="text-sm text-gray-600 mb-6">
+                Scan this QR code with your {selectedPlatform} device to download the app
+              </p>
+
+              {/* QR Code */}
+              <div className="bg-gray-100 rounded-xl p-6 mb-6">
+                <div className="bg-white p-4 rounded-lg inline-block shadow-sm">
+                  <QRCodeSVG 
+                    value={getDownloadUrl()} 
+                    size={192}
+                    level="H"
+                    includeMargin={false}
+                  />
+                </div>
+              </div>
+
+              {/* Store Badges */}
+              <div className="flex flex-col gap-3">
+                <p className="text-xs text-gray-500">Or download directly from:</p>
+                <a 
+                  href={getDownloadUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+                >
+                  <Icon 
+                    icon={selectedPlatform === 'iOS' ? 'mdi:apple' : 'mdi:google-play'} 
+                    className="size-5"
+                  />
+                  <span className="text-sm font-medium">
+                    {selectedPlatform === 'iOS' ? 'App Store' : 'Google Play'}
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

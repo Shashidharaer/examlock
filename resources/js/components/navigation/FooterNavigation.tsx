@@ -1,15 +1,30 @@
 import { Icon } from '@iconify/react';
-import { usePage, Link } from '@inertiajs/react';
+import { usePage, Link, useForm } from '@inertiajs/react';
 import { useFooterNavigation } from '@/components/NavigationProvider';
+import { FormEventHandler } from 'react';
 
 export default function Footer() {
-  const { branding } = usePage().props as {
+  const { branding, flash } = usePage().props as {
     branding?: { logo?: { url?: string; alt?: string } };
+    flash?: { success?: string };
   };
 
   const footerNav = useFooterNavigation();
   const logoUrl = branding?.logo?.url;
   const logoAlt = branding?.logo?.alt || 'Logo';
+
+  const { data, setData, post, processing, errors, reset } = useForm({
+    email: '',
+    honeypot: '', // Anti-spam field
+  });
+
+  const submit: FormEventHandler = (e) => {
+    e.preventDefault();
+    post('/newsletter', {
+      preserveScroll: true,
+      onSuccess: () => reset('email'),
+    });
+  };
 
   // Categorize navigation items
   const pagesItems = footerNav?.tree?.filter((item: any) => {
@@ -116,26 +131,55 @@ export default function Footer() {
                 Subscribe Our Weekly Newsletter
               </h3>
               <p className="mb-4 text-sm font-light text-gray-600">
-                Regular updates ensure that readers have access
-                to fresh perspectives, making Poster a
-                must-read.
+                Stay updated with the latest news, features, and security insights from ExamLock.
               </p>
+              {flash?.success && (
+                <div className="mb-4 rounded-lg bg-green-50 p-3 text-sm text-green-600">
+                  {flash.success}
+                </div>
+              )}
+              {errors.email && (
+                <div className="mb-4 rounded-lg bg-red-50 p-3 text-sm text-red-600">
+                  {errors.email}
+                </div>
+              )}
             </div>
 
-            <div className="relative rounded-full bg-white shadow-lg">
+            <form onSubmit={submit}>
+              {/* Honeypot field - hidden from users */}
               <input
-                type="email"
-                placeholder="Email address"
-                className="focus:ring-accent w-full rounded-full border border-gray-300 px-4 py-3 pr-24 text-sm focus:border-transparent focus:outline-none focus:ring-2"
+                type="text"
+                name="honeypot"
+                value={data.honeypot}
+                onChange={(e) => setData('honeypot', e.target.value)}
+                style={{ display: 'none' }}
+                tabIndex={-1}
+                autoComplete="off"
               />
-              <button className="bg-primary absolute bottom-1 right-1 top-1 rounded-full px-4 text-sm text-white transition-colors hover:bg-[#004a87]">
-                Subscribe{' '}
-                <Icon
-                  icon="mdi:arrow-right"
-                  className="ml-1 inline-block"
+              
+              <div className="relative rounded-full bg-white shadow-lg">
+                <input
+                  type="email"
+                  placeholder="Email address"
+                  value={data.email}
+                  onChange={(e) => setData('email', e.target.value)}
+                  disabled={processing}
+                  required
+                  className="focus:ring-accent w-full rounded-full border border-gray-300 px-4 py-3 pr-24 text-sm focus:border-transparent focus:outline-none focus:ring-2 disabled:opacity-50"
                 />
-              </button>
-            </div>
+                <button 
+                  type="submit"
+                  disabled={processing}
+                  className="bg-primary absolute bottom-1 right-1 top-1 rounded-full px-4 text-sm text-white transition-colors hover:bg-[#004a87] disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {processing ? 'Subscribing...' : 'Subscribe'}
+                  <Icon
+                    icon="mdi:arrow-right"
+                    className="ml-1 inline-block"
+                  />
+                </button>
+              </div>
+            </form>
           </div>
         </div>
 

@@ -24,7 +24,6 @@ export default function Certification({
     <section className="px-4 my-8">
       <div className="mx-auto max-w-7xl">
         <SectionTitle
-          className="flex flex-col text-center items-center"
           title={title || "Scale with security."}
           description={
             description ||

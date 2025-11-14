@@ -48,6 +48,11 @@ import StandardsCard from './blocks/examlens/StandardsCard';
 import CardsSection from './blocks/lms/CardsSection';
 import CardWithAccordion from './blocks/lms/CardWithAccordion';
 
+//Documentation page blocks components
+import Resouces from './blocks/resouces/Resources';
+import Articles from './blocks/resouces/Articles';
+
+
 // Block component registry
 const blockComponents = {
     // Basic blocks
@@ -99,6 +104,10 @@ const blockComponents = {
     // LMS page blocks
     cards_section: CardsSection,
     card_with_accordion: CardWithAccordion,
+
+    // Documentation page blocks
+    resouces: Resouces,
+    doc_features: Articles,
 
 } as const;
 

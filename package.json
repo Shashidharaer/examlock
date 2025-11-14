@@ -4,11 +4,15 @@
     "scripts": {
         "build": "vite build",
         "build:ssr": "vite build && vite build --ssr",
+        "build:ssg": "npm run build:ssr && php artisan statamic:ssg:generate",
         "dev": "vite",
         "format": "prettier --write resources/",
         "format:check": "prettier --check resources/",
         "lint": "eslint . --fix",
         "types": "tsc --noEmit",
+        "ssg:generate": "php artisan statamic:ssg:generate",
+        "ssg:generate:fast": "php artisan statamic:ssg:generate --workers=auto",
+        "ssg:clear": "php artisan statamic:ssg:clear",
         "vercel-build": "vite build && cp -r storage/app/public public/storage"
     },
     "devDependencies": {
@@ -61,6 +65,7 @@
         "input-otp": "^1.4.2",
         "laravel-vite-plugin": "^2.0",
         "lucide-react": "^0.475.0",
+        "qrcode.react": "^4.2.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
         "tailwind-merge": "^3.3.1",

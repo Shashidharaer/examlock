@@ -4,7 +4,7 @@ blueprint: pages
 title: Docs
 author: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1762423676
+updated_at: 1762947656
 blocks:
   -
     id: mhls6kfs
@@ -21,4 +21,16 @@ blocks:
     show_contact_button: false
     show_download_button: false
     show_extension_button: false
+  -
+    id: mhvtaxsd
+    heading: 'Key Features'
+    type: doc_features
+    enabled: true
+    content:
+      -
+        type: paragraph
+        content:
+          -
+            type: text
+            text: 'Some Text'
 ---

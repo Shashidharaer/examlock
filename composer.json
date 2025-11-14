@@ -16,7 +16,9 @@
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "laravel/wayfinder": "^0.1.9",
-        "statamic/cms": "^5.65"
+        "spatie/fork": "^1.2",
+        "statamic/cms": "^5.65",
+        "statamic/ssg": "^3.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

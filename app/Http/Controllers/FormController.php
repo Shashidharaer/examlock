@@ -184,4 +184,71 @@ class FormController extends Controller
         // Return back with success message (Inertia response)
         return back()->with('success', 'Thank you for requesting a demo! We\'ll be in touch soon.');
     }
+
+    /**
+     * Handle the newsletter subscription form submission.
+     */
+    public function submitNewsletter(Request $request)
+    {
+        // Validate the form data
+        $validated = $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        // Check honeypot (if filled, it's spam)
+        if ($request->filled('honeypot')) {
+            return back()->with('success', 'Thank you for subscribing!');
+        }
+
+        // Submit to HubSpot
+        try {
+            $hubspotFields = [
+                'email' => $validated['email'],
+            ];
+
+            // Get form GUID from config
+            $formGuid = config('services.hubspot.forms.newsletter');
+            
+            if ($formGuid) {
+                $hubspotSuccess = $this->hubspot->submitForm($formGuid, $hubspotFields);
+
+                if ($hubspotSuccess) {
+                    Log::info('Newsletter subscription submitted to HubSpot successfully', [
+                        'email' => $validated['email'],
+                    ]);
+                } else {
+                    Log::warning('HubSpot submission failed but continuing with Statamic save', [
+                        'email' => $validated['email'],
+                    ]);
+                }
+            } else {
+                Log::info('HubSpot newsletter form GUID not configured, skipping HubSpot submission');
+            }
+        } catch (\Exception $e) {
+            Log::error('HubSpot newsletter submission exception', [
+                'error' => $e->getMessage(),
+                'email' => $validated['email'],
+            ]);
+        }
+
+        // Get the Statamic form
+        $form = Form::find('newsletter');
+
+        if ($form) {
+            // Create a submission in Statamic
+            $submission = $form->makeSubmission();
+            $submission->data($validated);
+            $submission->save();
+
+            // Send any configured emails
+            if ($form->email()) {
+                foreach ($form->email() as $email) {
+                    \Statamic\Facades\Email::send($email, $submission);
+                }
+            }
+        }
+
+        // Return back with success message (Inertia response)
+        return back()->with('success', 'Thank you for subscribing to our newsletter!');
+    }
 }

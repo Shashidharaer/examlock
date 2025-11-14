@@ -111,6 +111,62 @@ submitRequestDemoForm.post = (options?: RouteQueryOptions): RouteFormDefinition<
 
 submitRequestDemo.form = submitRequestDemoForm
 
-const FormController = { submitContactForm, submitRequestDemo }
+/**
+* @see \App\Http\Controllers\FormController::submitNewsletter
+* @see app/Http/Controllers/FormController.php:191
+* @route '/newsletter'
+*/
+export const submitNewsletter = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: submitNewsletter.url(options),
+    method: 'post',
+})
+
+submitNewsletter.definition = {
+    methods: ["post"],
+    url: '/newsletter',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\FormController::submitNewsletter
+* @see app/Http/Controllers/FormController.php:191
+* @route '/newsletter'
+*/
+submitNewsletter.url = (options?: RouteQueryOptions) => {
+    return submitNewsletter.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\FormController::submitNewsletter
+* @see app/Http/Controllers/FormController.php:191
+* @route '/newsletter'
+*/
+submitNewsletter.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: submitNewsletter.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\FormController::submitNewsletter
+* @see app/Http/Controllers/FormController.php:191
+* @route '/newsletter'
+*/
+const submitNewsletterForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: submitNewsletter.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\FormController::submitNewsletter
+* @see app/Http/Controllers/FormController.php:191
+* @route '/newsletter'
+*/
+submitNewsletterForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: submitNewsletter.url(options),
+    method: 'post',
+})
+
+submitNewsletter.form = submitNewsletterForm
+
+const FormController = { submitContactForm, submitRequestDemo, submitNewsletter }
 
 export default FormController

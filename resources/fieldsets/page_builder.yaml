@@ -338,3 +338,10 @@ fields:
                             fields:
                               -
                                 import: simple_card
+        docs:
+          display: Docs
+          icon: media-news-paper
+          sets:
+            doc_features:
+              display: 'Doc Features'
+              fields: {  }

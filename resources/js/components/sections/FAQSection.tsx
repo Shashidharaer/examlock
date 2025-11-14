@@ -63,7 +63,7 @@ export default function FAQSection({
                 desClassName="md:max-w-7xl mx-auto text-sm md:text-xl text-gray-600 font-light"
                 badgeIcon
                 badgeTitle={badge_icon_text}
-                className="text-left"
+                className="flex flex-col items-center md:items-start text-center md:text-left"
                 title={title}
                 description={description}
               />
