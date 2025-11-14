@@ -6,6 +6,16 @@
 $_ENV['VERCEL'] = '1';
 putenv('VERCEL=1');
 
+// Dynamically set APP_URL and ASSET_URL based on Vercel environment
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$appUrl = $protocol . '://' . $host;
+
+$_ENV['APP_URL'] = $appUrl;
+$_ENV['ASSET_URL'] = $appUrl;
+putenv('APP_URL=' . $appUrl);
+putenv('ASSET_URL=' . $appUrl);
+
 // Create necessary writable directories in /tmp FIRST
 $tmpDirs = [
     '/tmp/storage/framework/sessions',
