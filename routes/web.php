@@ -38,6 +38,7 @@ Route::get('/extension', function () {
 // Form submission routes
 Route::post('/contact', [\App\Http\Controllers\FormController::class, 'submitContactForm'])->name('contact.submit');
 Route::post('/request-demo', [\App\Http\Controllers\FormController::class, 'submitRequestDemo'])->name('request-demo.submit');
+Route::post('/newsletter', [\App\Http\Controllers\FormController::class, 'submitNewsletter'])->name('newsletter.submit');
 
 // Search route
 Route::post('/api/search', [\App\Http\Controllers\SearchController::class, 'search'])->name('search');

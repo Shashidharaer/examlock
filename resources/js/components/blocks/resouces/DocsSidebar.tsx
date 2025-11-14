@@ -15,7 +15,7 @@ interface DocsNavSection {
 
 const docsSections: DocsNavSection[] = [
   {
-    title: "Credentia Platform - Candidate",
+    title: "Examlock Platform",
     items: [
       { title: "Candidate Handbook", href: "/docs/getting-started/introduction" },
       { title: "FAQs", href: "/docs/getting-started/quick-start" },

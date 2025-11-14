@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Icon } from "@iconify/react";
+import { Link } from "@inertiajs/react";
 
 interface MainContentSectionProps{
   title?: string;
@@ -28,13 +29,16 @@ export default function MainContentSection({ title, description, image }: MainCo
             <p className="md:text-md text-[#606060] font-light leading-relaxed">
               {description}
             </p>
-            <Button
-              variant="outline"
-              size="lg"
-              className="md:my-4"
-            >
-              Learn More
-            </Button>
+            <Link href="/products/examlock">
+                <Button
+                variant="outline"
+                size="lg"
+                className="md:my-4 cursor-pointer"
+              >
+                Learn More
+              </Button>
+            </Link>
+            
           </div>
 
           {/* Right Content - Dashboard Mockup */}

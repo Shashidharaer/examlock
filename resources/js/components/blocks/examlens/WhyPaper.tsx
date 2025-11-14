@@ -7,7 +7,7 @@ interface WhyPaperProps {
 
 export default function WhyPaper({ title, description }: WhyPaperProps) {
     return (
-        <section className="my-10 w-full px-4 md:my-20 lg:mb-40">
+        <section className="my-10 w-full px-4 md:my-20">
             <div className='max-w-7xl mx-auto'>
                 <SectionTitle
                     title={title}
