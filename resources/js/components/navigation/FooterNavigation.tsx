@@ -29,7 +29,7 @@ export default function Footer() {
   // Categorize navigation items
   const pagesItems = footerNav?.tree?.filter((item: any) => {
     const title = item.title?.toLowerCase() || '';
-    return ['about', 'docs', 'raise', 'announcements', 'status', 'contact'].some(keyword => 
+    return ['about', 'resources', 'raise', 'announcements', 'status', 'contact'].some(keyword => 
       title.includes(keyword)
     );
   }) || [];

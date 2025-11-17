@@ -1,0 +1,25 @@
+title: Resources
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: description
+    field:
+      type: textarea
+      display: Description
+  -
+    handle: article_link
+    field:
+      type: link
+      display: Article_link
+      width: 50
+      select_across_sites: true
+  -
+    handle: link_text
+    field:
+      type: text
+      display: 'Link Text'
+      width: 50

@@ -5,8 +5,7 @@ import protect from './protect'
 import password9cfa90 from './password'
 import account from './account'
 /**
-* @see \App\Http\Controllers\StatamicEntryController::entry
-* @see app/Http/Controllers/StatamicEntryController.php:20
+* @see routes/web.php:69
 * @route '/{collection}/{slug}'
 */
 export const entry = (args: { collection: string | number, slug: string | number } | [collection: string | number, slug: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -20,8 +19,7 @@ entry.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Http\Controllers\StatamicEntryController::entry
-* @see app/Http/Controllers/StatamicEntryController.php:20
+* @see routes/web.php:69
 * @route '/{collection}/{slug}'
 */
 entry.url = (args: { collection: string | number, slug: string | number } | [collection: string | number, slug: string | number ], options?: RouteQueryOptions) => {
@@ -46,8 +44,7 @@ entry.url = (args: { collection: string | number, slug: string | number } | [col
 }
 
 /**
-* @see \App\Http\Controllers\StatamicEntryController::entry
-* @see app/Http/Controllers/StatamicEntryController.php:20
+* @see routes/web.php:69
 * @route '/{collection}/{slug}'
 */
 entry.get = (args: { collection: string | number, slug: string | number } | [collection: string | number, slug: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -56,8 +53,7 @@ entry.get = (args: { collection: string | number, slug: string | number } | [col
 })
 
 /**
-* @see \App\Http\Controllers\StatamicEntryController::entry
-* @see app/Http/Controllers/StatamicEntryController.php:20
+* @see routes/web.php:69
 * @route '/{collection}/{slug}'
 */
 entry.head = (args: { collection: string | number, slug: string | number } | [collection: string | number, slug: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -66,8 +62,7 @@ entry.head = (args: { collection: string | number, slug: string | number } | [co
 })
 
 /**
-* @see \App\Http\Controllers\StatamicEntryController::entry
-* @see app/Http/Controllers/StatamicEntryController.php:20
+* @see routes/web.php:69
 * @route '/{collection}/{slug}'
 */
 const entryForm = (args: { collection: string | number, slug: string | number } | [collection: string | number, slug: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -76,8 +71,7 @@ const entryForm = (args: { collection: string | number, slug: string | number } 
 })
 
 /**
-* @see \App\Http\Controllers\StatamicEntryController::entry
-* @see app/Http/Controllers/StatamicEntryController.php:20
+* @see routes/web.php:69
 * @route '/{collection}/{slug}'
 */
 entryForm.get = (args: { collection: string | number, slug: string | number } | [collection: string | number, slug: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -86,8 +80,7 @@ entryForm.get = (args: { collection: string | number, slug: string | number } | 
 })
 
 /**
-* @see \App\Http\Controllers\StatamicEntryController::entry
-* @see app/Http/Controllers/StatamicEntryController.php:20
+* @see routes/web.php:69
 * @route '/{collection}/{slug}'
 */
 entryForm.head = (args: { collection: string | number, slug: string | number } | [collection: string | number, slug: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

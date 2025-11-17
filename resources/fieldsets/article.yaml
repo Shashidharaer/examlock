@@ -1,0 +1,24 @@
+title: Article
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: content
+    field:
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - quote
+        - link
+        - image
+        - table
+        - strikethrough
+        - asset
+        - code
+      type: markdown
+      display: Content

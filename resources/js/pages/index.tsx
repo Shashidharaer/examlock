@@ -12,9 +12,10 @@ import { Head } from '@inertiajs/react';
 interface EntryPageProps {
     entry: StatamicEntry;
     navigation: NavigationContext;
+    collectionStructure?: any;
 }
 
-export default function Entry({ entry, navigation }: EntryPageProps) {
+export default function Entry({ entry, navigation, collectionStructure }: EntryPageProps) {
     return (
         <NavigationProvider navigation={navigation}>
             <Head title={entry.title}>
@@ -32,7 +33,10 @@ export default function Entry({ entry, navigation }: EntryPageProps) {
                         {/* Blocks Content */}
                         {(entry.data.blocks || entry.content.blocks) && (
                             <section>
-                                <BlockRenderer blocks={(entry.data.blocks || entry.content.blocks) as StatamicBlock[]} />
+                                <BlockRenderer 
+                                    blocks={(entry.data.blocks || entry.content.blocks) as StatamicBlock[]} 
+                                    collectionStructure={collectionStructure}
+                                />
                             </section>
                         )}
                     </div>

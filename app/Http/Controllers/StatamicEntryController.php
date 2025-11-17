@@ -54,10 +54,14 @@ class StatamicEntryController extends Controller
         // Get navigation data
         $navigationData = $this->getNavigationData();
         
+        // Get collection structure if entry belongs to a structured collection
+        $collectionStructure = $this->getCollectionStructure($entry);
+        
         return Inertia::render('index', [
             'entry' => $entryData,
             'navigation' => $navigationData,
             'branding' => $this->getBrandingData(),
+            'collectionStructure' => $collectionStructure,
         ]);
     }
 
@@ -304,5 +308,143 @@ class StatamicEntryController extends Controller
             \Log::error("Error transforming navigation tree: " . $e->getMessage());
             return [];
         }
+    }
+
+    /**
+     * Get collection structure for sidebar navigation
+     */
+    protected function getCollectionStructure(EntryModel $entry): ?array
+    {
+        try {
+            $collection = $entry->collection();
+            \Log::info("Getting collection structure for entry: {$entry->slug()}, collection: {$collection->handle()}");
+            
+            // Only process structured collections
+            if (!$collection || !$collection->hasStructure()) {
+                \Log::info("Collection does not have structure or is null");
+                return null;
+            }
+            
+            // Get the collection structure tree
+            $structure = $collection->structure();
+            if (!$structure) {
+                \Log::info("Structure is null");
+                return null;
+            }
+            
+            $tree = $structure->in(\Statamic\Facades\Site::default()->handle());
+            if (!$tree) {
+                \Log::info("Tree is null");
+                return null;
+            }
+            
+            \Log::info("Tree retrieved, transforming collection tree");
+            // Transform the tree into sidebar sections
+            $result = $this->transformCollectionTree($tree->tree(), $collection->handle());
+            \Log::info("Collection structure result: " . json_encode($result));
+            
+            return $result;
+            
+        } catch (\Exception $e) {
+            \Log::error("Error getting collection structure: " . $e->getMessage());
+            \Log::error("Stack trace: " . $e->getTraceAsString());
+            return null;
+        }
+    }
+
+    /**
+     * Transform collection tree into sidebar navigation format
+     */
+    protected function transformCollectionTree(array $tree, string $collectionHandle): array
+    {
+        $sections = [];
+        $standaloneItems = [];
+        $isFirstItem = true;
+        
+        foreach ($tree as $item) {
+            try {
+                $entryId = $item['entry'] ?? null;
+                
+                if (!$entryId) {
+                    continue;
+                }
+                
+                $entry = \Statamic\Facades\Entry::find($entryId);
+                
+                if (!$entry) {
+                    continue;
+                }
+                
+                // Skip the root/index entry (first item in structured collections)
+                if ($isFirstItem && $entry->slug() === $collectionHandle) {
+                    $isFirstItem = false;
+                    continue;
+                }
+                
+                $isFirstItem = false;
+                
+                $title = $entry->value('title');
+                $slug = $entry->slug();
+                $url = $entry->url();
+                
+                // Check if this entry has children - if so, it's a section
+                $hasChildren = isset($item['children']) && is_array($item['children']) && count($item['children']) > 0;
+                
+                if ($hasChildren) {
+                    // This is a parent/section
+                    $section = [
+                        'title' => $title,
+                        'items' => []
+                    ];
+                    
+                    // Process children
+                    foreach ($item['children'] as $childItem) {
+                        $childEntryId = $childItem['entry'] ?? null;
+                        
+                        if (!$childEntryId) {
+                            continue;
+                        }
+                        
+                        $childEntry = \Statamic\Facades\Entry::find($childEntryId);
+                        
+                        if (!$childEntry) {
+                            continue;
+                        }
+                        
+                        $section['items'][] = [
+                            'title' => $childEntry->value('title'),
+                            'href' => $childEntry->url(),
+                            'slug' => $childEntry->slug(),
+                        ];
+                    }
+                    
+                    // Only add section if it has items
+                    if (count($section['items']) > 0) {
+                        $sections[] = $section;
+                    }
+                } else {
+                    // This is a standalone item - collect them for later
+                    $standaloneItems[] = [
+                        'title' => $title,
+                        'href' => $url,
+                        'slug' => $slug,
+                    ];
+                }
+                
+            } catch (\Exception $e) {
+                \Log::error("Error transforming collection tree item: " . $e->getMessage());
+                continue;
+            }
+        }
+        
+        // If we have standalone items, add them as a separate section
+        if (count($standaloneItems) > 0) {
+            $sections[] = [
+                'title' => 'Other Resources',
+                'items' => $standaloneItems
+            ];
+        }
+        
+        return $sections;
     }
 }

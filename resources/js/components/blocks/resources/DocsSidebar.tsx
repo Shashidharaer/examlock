@@ -6,6 +6,7 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 interface DocsNavItem {
   title: string;
   href: string;
+  slug?: string;
 }
 
 interface DocsNavSection {
@@ -13,70 +14,16 @@ interface DocsNavSection {
   items: DocsNavItem[];
 }
 
-const docsSections: DocsNavSection[] = [
-  {
-    title: "Examlock Platform",
-    items: [
-      { title: "Candidate Handbook", href: "/docs/getting-started/introduction" },
-      { title: "FAQs", href: "/docs/getting-started/quick-start" },
-    ],
-  },
-  {
-    title: "Getting Started",
-    items: [
-      { title: "Installation", href: "/docs/getting-started/installation" },
-    ],
-  },
-  {
-    title: "Update Profile",
-    items: [
-      { title: "Profile Overview", href: "/docs/user-profile/overview" },
-      { title: "Update Profile", href: "/docs/user-profile/update" },
-      { title: "Change Password", href: "/docs/user-profile/change-password" },
-      { title: "Reset Password", href: "/docs/user-profile/reset-password" },
-    ],
-  },
-  {
-    title: "Testing Application Form",
-    items: [
-        { title: "Overview", href: "/docs/examlock/overview" },
-    ]
-  },
-  {
-    title: "Exam Options",
-    items: [
-      { title: "Taking an Exam", href: "/docs/exams/taking-exam" },
-      { title: "View Results", href: "/docs/exams/view-results" },
-      { title: "Exam Settings", href: "/docs/exams/settings" },
-    ],
-  },
-  {
-    title: "Renew Registration & Reciprocity",
-    items: [
-      { title: "How can I renew my registration certificate?", href: "/docs/help/registration-certificate" },
-      { title: "How to Apply for Reciprocity?", href: "/docs/help/contact-support" },
-    ],
-  },
-  {
-    title: "Payment Options",
-    items: [
-      { title: "Report Overview", href: "/docs/reports/overview" },
-    ],
-  },
-  {
-    title: "System/Internet Requirements",
-    items: [
-      { title: "Account Settings", href: "/docs/settings/account" },
-    ],
-  },
-];
+interface DocsSidebarProps {
+  sections?: DocsNavSection[];
+}
 
-export default function DocsSidebar() {
+export default function DocsSidebar({ sections = [] }: DocsSidebarProps) {
   const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
   const [openSections, setOpenSections] = useState<string[]>(() => {
     // Automatically open the section containing the active link
-    const activeSection = docsSections.find(section =>
-      section.items.some(item => pathname === item.href || pathname?.startsWith(item.href))
+    const activeSection = sections.find((section: DocsNavSection) =>
+      section.items.some((item: DocsNavItem) => pathname === item.href || pathname?.startsWith(item.href))
     );
     return activeSection ? [activeSection.title] : [];
   });
@@ -89,12 +36,17 @@ export default function DocsSidebar() {
     );
   };
 
+  // If no sections provided, don't render anything
+  if (!sections || sections.length === 0) {
+    return null;
+  }
+
   return (
     <aside className="w-full lg:w-64 shrink-0 lg:pr-6 sticky md:top-24">
       <nav className="lg:sticky lg:top-24 space-y-1">
-        {docsSections.map((section) => {
+        {sections.map((section: DocsNavSection) => {
           const isOpen = openSections.includes(section.title);
-          const isSectionActive = section.items.some(item => pathname === item.href || pathname?.startsWith(item.href));
+          const isSectionActive = section.items.some((item: DocsNavItem) => pathname === item.href || pathname?.startsWith(item.href));
 
           return (
             <div key={section.title}>
@@ -117,10 +69,10 @@ export default function DocsSidebar() {
               </button>
               {isOpen && (
                 <ul className="pl-6 mt-2 space-y-1 border-l border-gray-200">
-                  {section.items.map((item) => {
+                  {section.items.map((item: DocsNavItem) => {
                     const isActive = pathname === item.href;
                     return (
-                      <li key={item.href}>
+                      <li key={item.href || item.slug}>
                         <Link
                           href={item.href}
                           className={cn(
