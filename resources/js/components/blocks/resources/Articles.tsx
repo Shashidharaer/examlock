@@ -27,23 +27,33 @@ interface ArticlesPageProps {
   type?: string;
   enabled?: boolean;
   sidebar_sections?: DocsNavSection[];
-  collectionStructure?: DocsNavSection[];
 }
 
 export default function Docs({ 
   title = "Documentation",
   content = "",
   sidebar_sections,
-  collectionStructure
 }: ArticlesPageProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
-  // Get collection structure from page props (Inertia)
+  // Get sidebar navigation from page props (Inertia)
   const { props } = usePage();
-  const pageCollectionStructure = (props as any).collectionStructure;
+  const navigation = (props as any).navigation;
   
-  // Use collection structure from page props, or fall back to component props
-  const sidebarData = pageCollectionStructure || collectionStructure || sidebar_sections;
+  // Transform sidebar navigation to match expected format
+  const sidebarData = navigation?.sidebar?.tree ? transformSidebarNavigation(navigation.sidebar.tree) : sidebar_sections;
+
+  // Helper function to transform navigation structure
+  function transformSidebarNavigation(tree: any[]): DocsNavSection[] {
+    return tree.map((section: any) => ({
+      title: section.title,
+      items: (section.children || []).map((child: any) => ({
+        title: child.title,
+        href: child.url,
+        slug: child.data?.slug || child.url?.split('/').pop()
+      }))
+    }));
+  }
 
   // Build dynamic breadcrumb based on current path
   const pathname = typeof window !== 'undefined' ? window.location.pathname : '';

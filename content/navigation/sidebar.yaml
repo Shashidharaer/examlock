@@ -1,0 +1,5 @@
+title: Sidebar
+collections:
+  - resources
+max_depth: 2
+root: false

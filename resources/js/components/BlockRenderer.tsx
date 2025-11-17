@@ -115,10 +115,9 @@ type BlockType = keyof typeof blockComponents;
 
 interface BlockRendererProps {
     blocks: StatamicBlock[];
-    collectionStructure?: any;
 }
 
-export default function BlockRenderer({ blocks, collectionStructure }: BlockRendererProps) {
+export default function BlockRenderer({ blocks }: BlockRendererProps) {
     return (
         <div className="space-y-8">
             {blocks.map((block) => {
@@ -164,7 +163,6 @@ export default function BlockRenderer({ blocks, collectionStructure }: BlockRend
                         key={block.id} 
                         block={block}
                         {...block} // Spread all block properties as props
-                        collectionStructure={collectionStructure} // Pass collection structure to all blocks
                     />
                 );
             })}
