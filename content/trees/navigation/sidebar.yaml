@@ -1,0 +1,38 @@
+tree:
+  -
+    id: knowledge-hub-section
+    title: 'Knowledge Hub'
+    children:
+      -
+        id: 63e9461a-c2d3-4ec5-828d-e253266b684c
+        entry: 24df23b5-313c-4d1b-add2-b49a59b76f87
+      -
+        id: 91fd1f6a-e577-436f-9e4c-9a7681210f77
+        entry: 94e18244-b85c-4ee5-8337-e1cd52344926
+      -
+        id: d034dbec-dd6a-40d8-8d06-7f8adef45cb3
+        entry: 4e135062-375d-418e-8bb4-436988957dc3
+  -
+    id: manuals-section
+    title: Manuals
+    children:
+      -
+        id: a6db9bac-810e-4276-b4b2-946d852ea603
+        entry: 99059c57-04f4-44ae-b645-e5cefae64e58
+      -
+        id: accessibility-entry
+        entry: 3cd85df2-c41a-4cea-96ed-239a6157c2e4
+  -
+    id: apis-section
+    title: APIs
+    children:
+      -
+        id: 5a24063f-58ff-41ab-9a0c-d66753d65755
+        entry: a5440ca9-b33f-40d8-bb58-88aa1e3c6e8b
+  -
+    id: sdks-section
+    title: SDKs
+    children:
+      -
+        id: 72dfd724-66ee-43c7-9878-c2a859769a6d
+        entry: 004057a2-3044-4c4f-8339-a6a49e5401db

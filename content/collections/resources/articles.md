@@ -36,7 +36,7 @@ blocks:
         link_text: 'View Manuals'
         type: article
         enabled: true
-        article_link: manual
+        article_link: manuals
       -
         id: mi2wnec1
         title: APIs
@@ -44,7 +44,7 @@ blocks:
         link_text: 'View API Docs'
         type: article
         enabled: true
-        article_link: api
+        article_link: apis
       -
         id: mi2wnpxp
         title: SDK
@@ -52,7 +52,7 @@ blocks:
         link_text: 'Download SDK'
         type: article
         enabled: true
-        article_link: sdk
+        article_link: sdks
       -
         id: mi2wo7de
         title: 'System Status'
@@ -64,5 +64,5 @@ blocks:
     type: resources_section
     enabled: true
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1763378034
+updated_at: 1763382073
 ---
