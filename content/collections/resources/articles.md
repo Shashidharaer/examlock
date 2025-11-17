@@ -61,8 +61,8 @@ blocks:
         type: article
         enabled: true
         article_link: 'https://services.examroom.ai/'
-    type: resources_section
+    type: articles_section
     enabled: true
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1763382073
+updated_at: 1763387227
 ---
