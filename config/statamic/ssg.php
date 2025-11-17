@@ -40,13 +40,6 @@ return [
 
     'copy' => [
         public_path('build') => 'build',
-        public_path('assets') => 'assets',
-        public_path('storage') => 'storage',
-        public_path('favicon.ico') => 'favicon.ico',
-        public_path('favicon.svg') => 'favicon.svg',
-        public_path('apple-touch-icon.png') => 'apple-touch-icon.png',
-        public_path('logo.svg') => 'logo.svg',
-        public_path('robots.txt') => 'robots.txt',
     ],
 
     'symlinks' => [
@@ -64,8 +57,7 @@ return [
     */
 
     'urls' => [
-        '/download',
-        '/extension',
+        //
     ],
 
     /*
@@ -78,14 +70,7 @@ return [
     */
 
     'exclude' => [
-        '/dashboard',
-        '/login',
-        '/register',
-        '/password/*',
-        '/api/*',
-        '/contact',
-        '/request-demo',
-        '/newsletter',
+        //
     ],
 
     /*
@@ -129,5 +114,16 @@ return [
     */
 
     'failures' => false, // 'errors' or 'warnings'
+
+    'before_generate' => function () {
+        // Start Inertia SSR server before generation
+        shell_exec('php artisan inertia:start-ssr > /dev/null 2>&1 &');
+        sleep(2); // Wait for SSR server to start
+    },
+
+    'after_generate' => function () {
+        // Stop SSR server after generation
+        shell_exec('php artisan inertia:stop-ssr');
+    },
 
 ];

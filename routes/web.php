@@ -51,8 +51,33 @@ require __DIR__.'/auth.php';
 // This route handles all Statamic entries with Inertia
 // IMPORTANT: This must be at the END so it doesn't interfere with other routes
 
+// Specific route for /resources to handle resources collection root entry
+Route::get('/resources', function () {
+    $entry = \Statamic\Facades\Entry::query()
+        ->where('collection', 'resources')
+        ->where('slug', 'articles')
+        ->first();
+    
+    if ($entry) {
+        return app(StatamicEntryController::class)->transformAndRender($entry);
+    }
+    
+    abort(404);
+})->name('resources');
+
 // First try: /{collection}/{slug} format
-Route::get('/{collection}/{slug}', [StatamicEntryController::class, 'show'])
+Route::get('/{collection}/{slug}', function (string $collection, string $slug) {
+    $entry = \Statamic\Facades\Entry::query()
+        ->where('collection', $collection)
+        ->where('slug', $slug)
+        ->first();
+    
+    if ($entry) {
+        return app(StatamicEntryController::class)->transformAndRender($entry);
+    }
+    
+    abort(404);
+})
     ->name('statamic.entry')
     ->where('collection', '(?!cp|api|graphql|!/)[a-z0-9_-]+') // Exclude Statamic routes
     ->where('slug', '[a-z0-9_-]+');
@@ -69,8 +94,9 @@ Route::get('/{slug}', function (string $slug) {
         return app(StatamicEntryController::class)->transformAndRender($entry);
     }
     
-    // If not found in pages, try other collections (like resouces)
+    // Second, try to find in 'resources' collection
     $entry = \Statamic\Facades\Entry::query()
+        ->where('collection', 'resources')
         ->where('slug', $slug)
         ->first();
     

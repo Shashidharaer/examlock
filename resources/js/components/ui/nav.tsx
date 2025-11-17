@@ -79,7 +79,7 @@ export default function Navigation() {
   const productPages = productsNav?.children || [];
   const homeNav = headerNav.tree.find((item) => item.title.toLowerCase() === 'home');
   const integrationNav = headerNav.tree.find((item) => item.title.toLowerCase() === 'integration');
-  const docsNav = headerNav.tree.find((item) => item.title.toLowerCase() === 'docs');
+  const resourcesNav = headerNav.tree.find((item) => item.title.toLowerCase() === 'resources');
   const aboutNav = headerNav.tree.find((item) => item.title.toLowerCase() === 'about us');
 
   const isProductsActive = selectedPath.startsWith("/products");
@@ -243,17 +243,17 @@ export default function Navigation() {
         </Link>
       )}
       
-      {docsNav && (
+      {resourcesNav && (
         <Link
-          href={docsNav.url}
-          onClick={() => setSelectedPath(docsNav.url)}
+          href={resourcesNav.url}
+          onClick={() => setSelectedPath(resourcesNav.url)}
           className={cn(
             "text-gray-700 hover:text-gray-900 font-medium text-sm transition-colors h-full flex justify-center items-center",
-            { active: selectedPath === docsNav.url }
+            { active: selectedPath === resourcesNav.url }
           )}
-          target={docsNav.data?.target}
+          target={resourcesNav.data?.target}
         >
-          {docsNav.title}
+          {resourcesNav.title}
         </Link>
       )}
       

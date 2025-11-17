@@ -338,10 +338,29 @@ fields:
                             fields:
                               -
                                 import: simple_card
-        docs:
-          display: Docs
+        resources:
+          display: Resources
           icon: media-news-paper
           sets:
-            doc_features:
-              display: 'Doc Features'
-              fields: {  }
+            resources_section:
+              display: 'Resources Section'
+              fields:
+                -
+                  handle: resource_articles
+                  field:
+                    type: replicator
+                    display: 'Resource Articles'
+                    sets:
+                      new_set_group:
+                        display: 'New Set Group'
+                        sets:
+                          article:
+                            display: Article
+                            fields:
+                              -
+                                import: resources
+            articles_page:
+              display: 'Articles Page'
+              fields:
+                -
+                  import: article

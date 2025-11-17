@@ -570,7 +570,81 @@ registerForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 register.form = registerForm
 
 /**
-* @see routes/web.php:61
+* @see routes/web.php:55
+* @route '/resources'
+*/
+export const resources = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: resources.url(options),
+    method: 'get',
+})
+
+resources.definition = {
+    methods: ["get","head"],
+    url: '/resources',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:55
+* @route '/resources'
+*/
+resources.url = (options?: RouteQueryOptions) => {
+    return resources.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:55
+* @route '/resources'
+*/
+resources.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: resources.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:55
+* @route '/resources'
+*/
+resources.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: resources.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:55
+* @route '/resources'
+*/
+const resourcesForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: resources.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:55
+* @route '/resources'
+*/
+resourcesForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: resources.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:55
+* @route '/resources'
+*/
+resourcesForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: resources.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+resources.form = resourcesForm
+
+/**
+* @see routes/web.php:86
 * @route '/{slug}'
 */
 export const page = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -584,7 +658,7 @@ page.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see routes/web.php:61
+* @see routes/web.php:86
 * @route '/{slug}'
 */
 page.url = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -610,7 +684,7 @@ page.url = (args: { slug: string | number } | [slug: string | number ] | string 
 }
 
 /**
-* @see routes/web.php:61
+* @see routes/web.php:86
 * @route '/{slug}'
 */
 page.get = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -619,7 +693,7 @@ page.get = (args: { slug: string | number } | [slug: string | number ] | string 
 })
 
 /**
-* @see routes/web.php:61
+* @see routes/web.php:86
 * @route '/{slug}'
 */
 page.head = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -628,7 +702,7 @@ page.head = (args: { slug: string | number } | [slug: string | number ] | string
 })
 
 /**
-* @see routes/web.php:61
+* @see routes/web.php:86
 * @route '/{slug}'
 */
 const pageForm = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -637,7 +711,7 @@ const pageForm = (args: { slug: string | number } | [slug: string | number ] | s
 })
 
 /**
-* @see routes/web.php:61
+* @see routes/web.php:86
 * @route '/{slug}'
 */
 pageForm.get = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -646,7 +720,7 @@ pageForm.get = (args: { slug: string | number } | [slug: string | number ] | str
 })
 
 /**
-* @see routes/web.php:61
+* @see routes/web.php:86
 * @route '/{slug}'
 */
 pageForm.head = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

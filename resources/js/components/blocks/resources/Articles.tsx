@@ -7,23 +7,72 @@ import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@iconify/react";
 import { cn } from "@/lib/utils";
+import { usePage } from "@inertiajs/react";
 
-export default function Docs() {
+interface DocsNavItem {
+  title: string;
+  href: string;
+  slug?: string;
+}
+
+interface DocsNavSection {
+  title: string;
+  items: DocsNavItem[];
+}
+
+interface ArticlesPageProps {
+  id?: string;
+  title?: string;
+  content?: string;
+  type?: string;
+  enabled?: boolean;
+  sidebar_sections?: DocsNavSection[];
+  collectionStructure?: DocsNavSection[];
+}
+
+export default function Docs({ 
+  title = "Documentation",
+  content = "",
+  sidebar_sections,
+  collectionStructure
+}: ArticlesPageProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  
+  // Get collection structure from page props (Inertia)
+  const { props } = usePage();
+  const pageCollectionStructure = (props as any).collectionStructure;
+  
+  // Use collection structure from page props, or fall back to component props
+  const sidebarData = pageCollectionStructure || collectionStructure || sidebar_sections;
 
+  // Build dynamic breadcrumb based on current path
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+  const pathSegments = pathname.split('/').filter(Boolean);
+  
+  // Map collection names to their correct slugs/labels
+  const collectionMapping: Record<string, { label: string; href: string }> = {
+    'resources': { label: 'Resources', href: '/resources' },
+  };
+  
   const breadcrumbItems = [
     { label: "Home", href: "/" },
-    { label: "Documentation", href: "/docs" },
-    { label: "Help & Support", href: "/docs/help" },
-    { label: "Registration Certificate", href: "/docs/help/registration-certificate" },
+    ...pathSegments.slice(0, -1).map((segment, index) => {
+      // Check if this segment has a mapping
+      const mapped = collectionMapping[segment];
+      if (mapped) {
+        return { label: mapped.label, href: mapped.href };
+      }
+      
+      // Otherwise, build from segment
+      const href = '/' + pathSegments.slice(0, index + 1).join('/');
+      const label = segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' ');
+      return { label, href };
+    }),
+    { label: title, href: "#" }, // Current page
   ];
 
   return (
     <div className="min-h-screen w-full">
-      {/* Main Content Area */}
-      {/* <section className="w-full px-4 py-8">
-        <DocResources />
-      </section> */}
       <main className="py-8">
         <div className="container mx-auto px-4 max-w-7xl">
           {/* Breadcrumb and Mobile Menu Button */}
@@ -75,13 +124,13 @@ export default function Docs() {
                   </Button>
                 </div>
               )}
-              <DocsSidebar />
+              <DocsSidebar sections={sidebarData} />
             </div>
 
             {/* Main Content - Article */}
             <div className="flex-1 min-w-0">
               <div id="docs-article-content" className=" rounded-lg p-6 md:p-8 lg:p-10">
-                <DocsArticle />
+                <DocsArticle title={title} content={content} />
               </div>
               
               {/* Table of Contents for Mobile/Tablet */}

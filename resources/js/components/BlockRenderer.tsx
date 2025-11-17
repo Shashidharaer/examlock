@@ -49,8 +49,8 @@ import CardsSection from './blocks/lms/CardsSection';
 import CardWithAccordion from './blocks/lms/CardWithAccordion';
 
 //Documentation page blocks components
-import Resouces from './blocks/resouces/Resources';
-import Articles from './blocks/resouces/Articles';
+import Resources from './blocks/resources/Resources';
+import Articles from './blocks/resources/Articles';
 
 
 // Block component registry
@@ -106,8 +106,8 @@ const blockComponents = {
     card_with_accordion: CardWithAccordion,
 
     // Documentation page blocks
-    resouces: Resouces,
-    doc_features: Articles,
+    resources_section: Resources,
+    articles_page: Articles,
 
 } as const;
 
@@ -115,9 +115,10 @@ type BlockType = keyof typeof blockComponents;
 
 interface BlockRendererProps {
     blocks: StatamicBlock[];
+    collectionStructure?: any;
 }
 
-export default function BlockRenderer({ blocks }: BlockRendererProps) {
+export default function BlockRenderer({ blocks, collectionStructure }: BlockRendererProps) {
     return (
         <div className="space-y-8">
             {blocks.map((block) => {
@@ -163,6 +164,7 @@ export default function BlockRenderer({ blocks }: BlockRendererProps) {
                         key={block.id} 
                         block={block}
                         {...block} // Spread all block properties as props
+                        collectionStructure={collectionStructure} // Pass collection structure to all blocks
                     />
                 );
             })}

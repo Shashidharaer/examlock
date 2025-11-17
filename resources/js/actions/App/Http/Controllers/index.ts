@@ -2,14 +2,12 @@ import Auth from './Auth'
 import FormController from './FormController'
 import SearchController from './SearchController'
 import Settings from './Settings'
-import StatamicEntryController from './StatamicEntryController'
 
 const Controllers = {
     Auth: Object.assign(Auth, Auth),
     FormController: Object.assign(FormController, FormController),
     SearchController: Object.assign(SearchController, SearchController),
     Settings: Object.assign(Settings, Settings),
-    StatamicEntryController: Object.assign(StatamicEntryController, StatamicEntryController),
 }
 
 export default Controllers
