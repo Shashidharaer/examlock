@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import { Button } from "./button";
 import React from "react";
 import RequestDemo from "../common/RequestDemo";
+import { Link } from "@inertiajs/react";
 
 type HomepageCardProps = {
   badgeTitle?: string;
@@ -58,15 +59,16 @@ function HomepageCard({
           {cardButton && (
             <div className="flex gap-4">
               <RequestDemo />
-              <a href="/contact" className="w-full">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-1 border-primary text-primary max-sm:p-4 w-full sm:w-[150px] text-xs sm:text-sm"
-                >
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-1 border-primary text-primary max-sm:p-4 w-full sm:w-[150px] text-xs sm:text-sm"
+              >
+                <Link href="/contact">
                   Contact Us
-                </Button>
-              </a>
+                </Link>
+              </Button>
             </div>
           )}
         </div>

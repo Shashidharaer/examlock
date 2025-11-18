@@ -484,7 +484,7 @@ export default function Header() {
             <span className="hidden h-[1.5rem] w-[1px] bg-[#ebe7e0] lg:block"></span>
             {/* Login - Hidden on mobile */}
             <Link
-              href="#"
+              href="/login"
               className="hidden text-sm font-medium text-gray-700 transition-colors hover:text-gray-900 lg:block"
             >
               Login
@@ -728,7 +728,13 @@ export default function Header() {
 
                 {/* Contact Button */}
                 <div className="mt-4 flex w-full justify-between gap-2">
-                  <Button variant="outline" className='flex-1'>Login</Button>
+                  <Button 
+                    variant="outline" 
+                    className='flex-1'
+                    asChild
+                  >
+                    <Link href="/login">Login</Link>
+                  </Button>
                   <Button
                     asChild
                     className="bg-primary flex items-center gap-2 px-3 py-2 text-sm font-medium text-white transition-colors sm:px-4"
