@@ -365,40 +365,9 @@ export default function Header() {
                 {/* Search Results Dropdown */}
                 {showResults && searchQuery.length >= 2 && (
                   <div className="absolute left-0 top-full mt-2 w-full bg-white border-2 border-gray-300 rounded-lg shadow-2xl max-h-96 overflow-y-auto z-[100]">
-                    {/* In-Page Matches */}
-                    {inPageMatches.length > 0 && (
-                      <div className="border-b border-gray-200">
-                        <div className="px-4 py-2 bg-blue-50 text-xs font-semibold text-blue-900 uppercase tracking-wide">
-                          On This Page ({inPageMatches.length})
-                        </div>
-                        <ul className="py-1">
-                          {inPageMatches.map((match, index) => (
-                            <li
-                              key={`page-${index}`}
-                              className="px-4 py-2.5 hover:bg-blue-50 cursor-pointer border-b last:border-b-0 transition-all duration-150"
-                              onMouseDown={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                handleInPageMatchClick(index);
-                              }}
-                              role="button"
-                              tabIndex={0}
-                            >
-                              <div className="flex items-start gap-2">
-                                <Icon icon="mdi:file-find" className="text-blue-600 size-4 flex-shrink-0 mt-0.5" />
-                                <div className="text-sm text-gray-700 leading-relaxed">
-                                  {renderContext(match.context)}
-                                </div>
-                              </div>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-
-                    {/* Route/Page Results */}
+                    {/* Route/Page Results - Show First */}
                     {searchResults.length > 0 && (
-                      <div>
+                      <div className="border-b border-gray-200">
                         <div className="px-4 py-2 bg-gray-50 text-xs font-semibold text-gray-700 uppercase tracking-wide">
                           Pages ({searchResults.length})
                         </div>
@@ -429,6 +398,37 @@ export default function Header() {
                                   <div className="text-xs text-primary font-medium mt-0.5 uppercase tracking-wide">
                                     {result.type || 'Page'}
                                   </div>
+                                </div>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* In-Page Matches - Show Second */}
+                    {inPageMatches.length > 0 && (
+                      <div>
+                        <div className="px-4 py-2 bg-blue-50 text-xs font-semibold text-blue-900 uppercase tracking-wide">
+                          On This Page ({inPageMatches.length})
+                        </div>
+                        <ul className="py-1">
+                          {inPageMatches.map((match, index) => (
+                            <li
+                              key={`page-${index}`}
+                              className="px-4 py-2.5 hover:bg-blue-50 cursor-pointer border-b last:border-b-0 transition-all duration-150"
+                              onMouseDown={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                handleInPageMatchClick(index);
+                              }}
+                              role="button"
+                              tabIndex={0}
+                            >
+                              <div className="flex items-start gap-2">
+                                <Icon icon="mdi:file-find" className="text-blue-600 size-4 flex-shrink-0 mt-0.5" />
+                                <div className="text-sm text-gray-700 leading-relaxed">
+                                  {renderContext(match.context)}
                                 </div>
                               </div>
                             </li>
@@ -587,40 +587,9 @@ export default function Header() {
                   {/* Mobile Search Results */}
                   {showResults && searchQuery.length >= 2 && (
                     <div className="max-h-64 overflow-y-auto border-t pt-2 bg-gray-50 rounded-b">
-                      {/* In-Page Matches */}
-                      {inPageMatches.length > 0 && (
-                        <div className="mb-2">
-                          <div className="px-3 py-1.5 bg-blue-50 text-xs font-semibold text-blue-900 uppercase tracking-wide">
-                            On This Page ({inPageMatches.length})
-                          </div>
-                          <ul className="space-y-1 mt-1">
-                            {inPageMatches.map((match, index) => (
-                              <li
-                                key={`mobile-page-${index}`}
-                                className="px-3 py-2 hover:bg-white cursor-pointer rounded transition-colors"
-                                onMouseDown={(e) => {
-                                  e.preventDefault();
-                                  e.stopPropagation();
-                                  handleInPageMatchClick(index);
-                                }}
-                                role="button"
-                                tabIndex={0}
-                              >
-                                <div className="flex items-start gap-2">
-                                  <Icon icon="mdi:file-find" className="text-blue-600 size-3 flex-shrink-0 mt-0.5" />
-                                  <div className="text-xs text-gray-700 leading-relaxed">
-                                    {renderContext(match.context)}
-                                  </div>
-                                </div>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {/* Route/Page Results */}
+                      {/* Route/Page Results - Show First */}
                       {searchResults.length > 0 && (
-                        <div>
+                        <div className="mb-2">
                           <div className="px-3 py-1.5 bg-gray-100 text-xs font-semibold text-gray-700 uppercase tracking-wide">
                             Pages ({searchResults.length})
                           </div>
@@ -646,6 +615,37 @@ export default function Header() {
                                     <div className="text-xs text-primary font-medium mt-0.5 uppercase tracking-wide">
                                       {result.type || 'Page'}
                                     </div>
+                                  </div>
+                                </div>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {/* In-Page Matches - Show Second */}
+                      {inPageMatches.length > 0 && (
+                        <div>
+                          <div className="px-3 py-1.5 bg-blue-50 text-xs font-semibold text-blue-900 uppercase tracking-wide">
+                            On This Page ({inPageMatches.length})
+                          </div>
+                          <ul className="space-y-1 mt-1">
+                            {inPageMatches.map((match, index) => (
+                              <li
+                                key={`mobile-page-${index}`}
+                                className="px-3 py-2 hover:bg-white cursor-pointer rounded transition-colors"
+                                onMouseDown={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  handleInPageMatchClick(index);
+                                }}
+                                role="button"
+                                tabIndex={0}
+                              >
+                                <div className="flex items-start gap-2">
+                                  <Icon icon="mdi:file-find" className="text-blue-600 size-3 flex-shrink-0 mt-0.5" />
+                                  <div className="text-xs text-gray-700 leading-relaxed">
+                                    {renderContext(match.context)}
                                   </div>
                                 </div>
                               </li>
