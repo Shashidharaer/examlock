@@ -24,6 +24,7 @@ export default function DashboardSection({ badge_icon_text, title, description, 
           badgeTitle={badge_icon_text}
           title={title}
           description={description}
+          className="flex flex-col text-center items-center mb-6 md:mb-12 mt-4"
         />
 
         <HomepageCard

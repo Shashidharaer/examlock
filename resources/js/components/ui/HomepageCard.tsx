@@ -59,16 +59,15 @@ function HomepageCard({
           {cardButton && (
             <div className="flex gap-4">
               <RequestDemo />
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-1 border-primary text-primary max-sm:p-4 w-full sm:w-[150px] text-xs sm:text-sm"
-              >
-                <Link href="/contact">
+              <Link href="/contact" className="w-full">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-1 border-primary text-primary max-sm:p-4 w-full sm:w-[150px] text-xs sm:text-sm"
+                >
                   Contact Us
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </div>
           )}
         </div>

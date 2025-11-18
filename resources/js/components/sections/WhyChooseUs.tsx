@@ -16,15 +16,13 @@ export default function WhyChooseUs({
     <section className="w-full mx-auto my-10 px-4 md:my-20">
       <div className='max-w-7xl mx-auto'>
         <SectionTitle
-          desClassName="md:max-w-7xl mx-auto text-sm md:text-xl text-gray-600 font-light"
           badgeIcon
           badgeTitle={badge_icon_text}
           title={title}
           description={description}
         />
 
-        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-3">
-          
+        <div className="mt-10 md:mt-16 mx-auto grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-3">
           <WhatMakeCard
             icon="storage/layouts/activity.svg"
             title="Activity tracking & insights"
