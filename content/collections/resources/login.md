@@ -4,7 +4,7 @@ blueprint: resource
 title: Login
 metadata: 'How to Login'
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1763461657
+updated_at: 1763462355
 blocks:
   -
     id: mi2wzd4q
@@ -17,9 +17,9 @@ blocks:
 
       ### Standard Login
       1. Navigate to the login page at `/login`
-      2. Enter your registered email address
-      3. Enter your password
-      4. Click "Sign In"
+      2. Enter your registered email _address_
+      3. Enter your ~~password~~
+      4. Click ["Sign In"](https://google.com)
 
       ### SSO (Single Sign-On)
       - Connect with your institution's SSO provider
