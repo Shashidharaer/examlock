@@ -4,7 +4,7 @@ blueprint: resource
 title: Login
 metadata: 'How to Login'
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1763385707
+updated_at: 1763461657
 blocks:
   -
     id: mi2wzd4q
@@ -13,6 +13,7 @@ blocks:
       ## Login to Your Account
 
       Learn how to access your ExamLock account and manage your authentication settings.
+      ![mushroom](https://cdn.pixabay.com/photo/2025/09/30/14/53/mushroom-9864616_1280.jpg)
 
       ### Standard Login
       1. Navigate to the login page at `/login`

@@ -23,5 +23,13 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        $exceptions->respond(function ($response, $exception, $request) {
+            if ($response->status() === 404) {
+                return \Inertia\Inertia::render('404', [
+                    'status' => 404
+                ])->toResponse($request)->setStatusCode(404);
+            }
+            
+            return $response;
+        });
     })->create();
