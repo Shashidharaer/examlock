@@ -28,7 +28,7 @@ const cardDetails: { title: string; description: string; image: string }[] = [
 
 export default function FocusedSection({ title }: FocusedSectionProps) {
   return (
-    <section className="my-10 w-full px-4 md:my-20 lg:mb-40 text-center">
+    <section className="my-10 w-full px-4 md:my-20 text-center">
       <div className="mx-auto max-w-7xl">
         <h4 className="text-prime text-3xl sm:text-4xl md:text-5xl font-medium md:my-4 md:pb-4">
           {title}
