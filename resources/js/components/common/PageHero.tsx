@@ -33,6 +33,7 @@ export default function Hero({
         badgeTitle={badge_text ? badge_text : 'No Badge Provided'}
         description={description}
         badgeIcon={show_badge}
+        desClassName="text-sm md:text-xl text-gray-600 max-w-2xl font-light mx-auto"
       >
         <span className="text-black">{heading?.text_in_black}</span><br />
         <span className="text-primary"> {heading?.text_in_primary}</span>
