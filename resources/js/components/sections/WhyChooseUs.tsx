@@ -22,7 +22,7 @@ export default function WhyChooseUs({
           description={description}
         />
 
-        <div className="mt-10 md:mt-16 mx-auto grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 md:mt-12 mx-auto grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-3">
           <WhatMakeCard
             icon="storage/layouts/activity.svg"
             title="Activity tracking & insights"
