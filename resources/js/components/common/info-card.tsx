@@ -50,7 +50,7 @@ export default function InfoCard({
                         </span>
                     </div>
 
-                    <h3 className="text-prime mb-3 mt-4 text-2xl font- sm:text-3xl md:mb-4">
+                    <h3 className="text-prime mb-3 mt-4 text-2xl font-semibold sm:text-3xl md:mb-4">
                         {title}
                     </h3>
 
