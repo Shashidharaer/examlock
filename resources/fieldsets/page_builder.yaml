@@ -342,8 +342,8 @@ fields:
           display: Resources
           icon: media-news-paper
           sets:
-            resources_section:
-              display: 'Resources Section'
+            articles_section:
+              display: 'Articles Section'
               fields:
                 -
                   handle: resource_articles

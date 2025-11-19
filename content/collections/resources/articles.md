@@ -7,11 +7,13 @@ metadata: Resources
 blocks:
   -
     id: mhxkl8gt
-    show_badge: false
-    badge_text: Resources
+    show_badge: true
+    badge_text: 'Self Guide'
     heading:
-      text_in_black: Resources
-    description: 'Some text'
+      text_in_black: 'ExamLock’s Documentation'
+    description: |-
+      We’re here to help! Whether you have questions about our assessment
+      solutions, need support, or are interested in partnering with us, feel free to reach out.
     show_book_a_demo_button: false
     show_contact_button: false
     show_download_button: false
@@ -61,8 +63,8 @@ blocks:
         type: article
         enabled: true
         article_link: 'https://services.examroom.ai/'
-    type: resources_section
+    type: articles_section
     enabled: true
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1763382073
+updated_at: 1763450240
 ---

@@ -15,7 +15,6 @@ export default function IntegrationsSection({
     <section className="container mx-auto my-10 max-w-7xl px-4 md:my-20">
       <div className="mx-auto max-w-7xl">
         <SectionTitle
-          desClassName="md:max-w-7xl text-sm md:text-xl text-gray-600 font-light"
           badgeIcon
           badgeTitle={badge_icon_text}
           title={title}
