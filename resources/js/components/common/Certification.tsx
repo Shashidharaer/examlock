@@ -10,9 +10,9 @@ export default function Certification({
   description,
 }: CertificateionProps) {
   const badges = [
-    { label: "GDPR", src: "/storage/products/GDPR.svg" },
-    { label: "COPPA", src: "/storage/products/COPPA.svg" },
-    { label: "FERPA", src: "/storage/products/FERPA.svg" },
+    { label: "GDPR", src: "/storage/products/gdpr.svg" },
+    { label: "COPPA", src: "/storage/products/coppa.svg" },
+    { label: "FERPA", src: "/storage/products/ferpa.svg" },
     { label: "ISO 9001:2015", src: "/storage/products/iso-9001_2015.svg" },
     { label: "ISO 27001:2022", src: "/storage/products/iso-27001_2022.svg" },
     { label: "ISO 27701:2019", src: "/storage/products/iso-27701_2019.svg" },

@@ -5,11 +5,11 @@ import { Link } from "@inertiajs/react";
 interface MainContentSectionProps{
   title?: string;
   description?: string;
-  image?: string[];
+  image?: string;
 }
 
 export default function MainContentSection({ title, description, image }: MainContentSectionProps) {
-  const imageUrl = image && image.length > 0 ? `/storage/${image[0]}` : '';
+  const imageUrl = image ? `/storage/${image}` : 'No Image';
   return (
     <section className="w-full mx-auto px-4 my-8 md:my-16">
       <div className="max-w-7xl mx-auto bg-white rounded-3xl md:rounded-[3.75rem] border-2xl shadow-sm p-8 lg:p-12 relative 2xl:after:absolute 2xl:after:right-[-11rem] 2xl:after:top-[-16rem] 2xl:after:w-[14rem] 2xl:after:h-full 2xl:after:bg-[url('/storage/layouts/exam_content.webp')] 2xl:after:bg-no-repeat 2xl:after:bg-contain 2xl:before:absolute 2xl:before:left-[-8rem] 2xl:before:top-[-12rem] 2xl:before:w-[6rem] 2xl:before:h-full 2xl:before:bg-[url('/storage/layouts/lock.webp')] 2xl:before:bg-no-repeat 2xl:before:bg-contain">
