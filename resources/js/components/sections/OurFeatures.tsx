@@ -26,7 +26,7 @@ export default function PowerfulFeaturesSection({ badge_icon_text, title, descri
           description={description}
         />
 
-        <div className="mt-10 md:mt-16 space-y-8">
+        <div className="mt-6 md:mt-12 space-y-8">
           <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
             {/* Restricts screen capturing */}
             <Featuredcard
