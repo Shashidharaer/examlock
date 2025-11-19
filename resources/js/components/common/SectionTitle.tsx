@@ -23,7 +23,7 @@ export default function SectionTitle({
   return (
     <div
       className={cn(
-        { "flex flex-col text-center items-center md:mb-6 mt-4": !className },
+        { "flex flex-col text-center items-center mb-4 md:mb-6 mt-4": !className },
         className
       )}
     >
@@ -51,7 +51,7 @@ export default function SectionTitle({
       {description && <p
         className={cn(
           {
-            "text-sm md:text-xl text-gray-600 max-w-2xl font-light mx-auto":
+            "text-sm md:text-xl text-gray-600 max-w-7xl font-light mx-auto":
               !desClassName,
           },
           desClassName

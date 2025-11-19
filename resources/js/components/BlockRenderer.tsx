@@ -119,7 +119,7 @@ interface BlockRendererProps {
 
 export default function BlockRenderer({ blocks }: BlockRendererProps) {
     return (
-        <div className="space-y-8">
+        <div className="space-y-8 overflow-clip">
             {blocks.map((block) => {
                 // Skip disabled blocks
                 if (!block.enabled) {

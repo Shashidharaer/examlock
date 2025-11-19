@@ -50,7 +50,7 @@ export default function InfoCard({
                         </span>
                     </div>
 
-                    <h3 className="text-prime mb-3 mt-4 text-2xl font-medium sm:text-3xl md:mb-4">
+                    <h3 className="text-prime mb-3 mt-4 text-2xl font- sm:text-3xl md:mb-4">
                         {title}
                     </h3>
 
@@ -67,9 +67,12 @@ export default function InfoCard({
                                     </p>
 
                                     {item.list && item.list.length > 0 && (
-                                        <ul className="mt-3 list-outside list-disc space-y-2 pl-5 text-sm font-light sm:mt-4 sm:pl-6 md:text-base">
+                                        <ul className="mt-3 space-y-2 pl-3 text-sm font-light sm:mt-4 sm:pl-4 md:text-base">
                                             {item.list.map((li, liIdx) => (
-                                                <li key={liIdx}>{li}</li>
+                                                <li key={liIdx} className='flex items-center gap-2'>
+                                                    <Icon icon="mdi:chevron-right" className="text-primary flex-shrink-0 h-5 w-5" />
+                                                    <span>{li}</span>
+                                                </li> 
                                             ))}
                                         </ul>
                                     )}

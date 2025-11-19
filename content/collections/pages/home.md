@@ -5,7 +5,7 @@ title: Home
 excerpt: 'This is the homepage powered by Statamic'
 author: 2af790dc-6a33-4420-b65c-d85232975e73
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1762338779
+updated_at: 1763548671
 blocks:
   -
     id: mhl3c5xa
@@ -39,7 +39,7 @@ blocks:
     show_badge: false
     type: certification
     enabled: true
-    title: 'Scale with security.'
+    title: 'Scale with Security.'
     description: 'No matter the level of the test, ExamLock secures and protects your investment, time, and integrity.'
   -
     id: mhew75o4
@@ -55,7 +55,7 @@ blocks:
     type: our_features
     enabled: true
     badge_icon_text: 'Our Features'
-    title: 'Powerful features to boost your Security'
+    title: 'Powerful Features to Boost Your Security'
     description: 'ExamLock is a secure browser environment for test-taking.'
     home_page_card:
       -
@@ -71,7 +71,7 @@ blocks:
     type: integration_section
     enabled: true
     badge_icon_text: Integrations
-    title: 'Integrations with your favourite tools'
+    title: 'Integrations with Your Favourite Tools'
     description: 'Flexibility of LTI to further streamline the integration process with all LMS platforms and learning applications. The LTI standard provides a single framework for administrators and developers to integrate their LMS with the proctoring and security features.'
   -
     id: mhez04zq
@@ -89,7 +89,7 @@ blocks:
         card_image:
           - images/dashboard_2.webp
     badge_icon_text: Overview
-    title: 'A clear and intuitive dashboard'
+    title: 'A Clear and Intuitive Dashboard'
     description: 'Designed to be simple, intuitive, and easy to navigate, giving users instant access to essential tools and insights.'
   -
     id: mhf0m5sp

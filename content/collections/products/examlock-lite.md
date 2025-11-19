@@ -8,9 +8,9 @@ nav_icon: 'mdi:puzzle'
 info_title: 'Lock Down Exams with Confidence'
 info_description: 'ExamLock Lite Browser Extension offers a secure and controlled environment for online assessments ensuring academic integrity with every click.'
 button_text: 'Get Extension'
-button_url: '/extension'
+button_url: /extension
 updated_by: 2af790dc-6a33-4420-b65c-d85232975e73
-updated_at: 1762343325
+updated_at: 1763549672
 blocks:
   -
     id: mhkdloyn
@@ -35,7 +35,7 @@ blocks:
     enabled: true
   -
     id: mhk9bqw0
-    title: 'Scale with security.'
+    title: 'Scale with Security.'
     description: 'ExamLock Lite is audited and certified by industry-leading third party standards.'
     show_badge: false
     type: certification
@@ -47,7 +47,7 @@ blocks:
     details:
       -
         id: mhkc52s3
-        heading: 'Randomized Screenshots & pictures'
+        heading: 'Randomized Screenshots & Pictures'
         para: 'ExamLock Lite captures screenshots & pictures of candidates at random intervals, providing an extra layer of evidence and visibility during the test.'
         type: heading_para
         enabled: true
@@ -65,7 +65,7 @@ blocks:
         enabled: true
       -
         id: mhkc72om
-        heading: 'AI Extension detection'
+        heading: 'AI Extension Detection'
         para: 'Scans for AI-enabled extensions and ensures they are disabled before candidates start their exam.'
         type: heading_para
         enabled: true
